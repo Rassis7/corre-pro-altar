@@ -20,7 +20,7 @@ const Home: NextPage = () => {
 
         <LottieAnimation lotti={hearts} width="20rem" height="18rem" />
 
-        <h4 className="font-light text-gray-400 text-center">
+        <h4 className="font-light text-gray-400 text-center dark:text-gray-200">
           É com muito emoção que convidamos todos amigos e familiares para esse
           casório!
         </h4>
