@@ -32,7 +32,7 @@
   }
 
   p {
-    @apply my-3 font-thin;
+    @apply my-3 font-extralight;
   }
 
   blockquote {
@@ -96,7 +96,7 @@
 
   input:focus,
   textarea:focus {
-    @apply outline-none;
+    @apply outline-none !important ring-transparent;
   }
 
   label {
@@ -122,6 +122,14 @@
   }
 
   .btn {
-    @apply font-bold py-2 px-4 rounded-full text-white;
+    @apply font-bold py-2 px-4 rounded-full text-white border-none;
+  }
+
+  .base-input {
+    @apply px-4 py-3 rounded-full w-full my-2 border-none;
+  }
+
+  .input-error {
+    @apply px-4 py-3 rounded-full w-full my-2 border-red-500 focus:border-red-700 
   }
 }
