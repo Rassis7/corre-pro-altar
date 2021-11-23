@@ -5,20 +5,22 @@ import we from "../animations/we.json";
 import hearts from "../animations/love-hearts.json";
 import LottieAnimation from "../components/LottieAnimation";
 import ConfirmationModal from "../components/ConfirmationModal";
+import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
   const [openConfirmModal, setOpenConfirmModal] = useState(true);
+  const router = useRouter();
 
   const handleToggleModal = () => setOpenConfirmModal((show) => !show);
 
   return (
     <>
-      <div className="flex justify-center h-screen w-screen p-8 lg:justify-around lg:p-8">
+      <div className="page-container justify-center lg:justify-around">
         <Head>
           <title>Create Next App</title>
         </Head>
         <section className="invisible h-0 w-0 mr-0 md:-ml-8 lg:visible lg:-ml-12 lg:w-full lg:h-full lg:mr-4 xl:-ml-28">
-          <LottieAnimation lotti={we} width="48vw" height="95vh" />
+          <LottieAnimation lotti={we} width="48vw" height="90vh" />
         </section>
 
         <section className="flex flex-col justify-center items-center lg:space-y-8 lg:w-full lg:h-full lg:p-14">
@@ -39,7 +41,10 @@ const Home: NextPage = () => {
             >
               Confirmar presença
             </button>
-            <button className="btn bg-blue-500 hover:bg-blue-700">
+            <button
+              className="btn bg-blue-500 hover:bg-blue-700"
+              onClick={() => router.push("/store")}
+            >
               Presentei os noivos
             </button>
           </section>
