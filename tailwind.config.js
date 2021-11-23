@@ -15,6 +15,7 @@ module.exports = {
     outline: ["focus"],
     extend: {
       borderStyle: ["hover", "focus"],
+      textOpacity: ["dark"],
     },
   },
   plugins: [require("@tailwindcss/forms")],
