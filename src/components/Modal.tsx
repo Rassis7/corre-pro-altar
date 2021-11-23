@@ -4,7 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 interface Props {
   open: boolean;
   onClose: () => void;
-  title: string;
+  title: string | JSX.Element;
   content: ReactNode;
   footer: ReactNode;
 }

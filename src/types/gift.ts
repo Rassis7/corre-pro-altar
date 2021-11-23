@@ -1,4 +1,4 @@
-export type GiftsTypeRaw = {
+export type GiftType = {
   image: string;
   name: string;
   price: string;

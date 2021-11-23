@@ -1,90 +1,72 @@
-import { useState, VFC } from "react";
+import { useContext, VFC } from "react";
 import Image from "next/image";
 import { Modal } from "./Modal";
-import { FaCut, FaCheck, FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { StoreContext } from "../context/Store";
+import { getPriceInBrl } from "../utils/format";
 
-type Props = {
-  link: string;
-};
+export const PaymentModal: VFC = () => {
+  const { gift, selectGift } = useContext(StoreContext);
 
-export const PaymentModal: VFC<Props> = ({ link }) => {
-  const [isCopy, setIsCop] = useState(false);
+  const handleGoToLink = (link?: string) => link && window.open(link, "_blank");
 
-  const copyPixKey = () => {
-    setIsCop(true);
-    navigator.clipboard.writeText("cfb29cb2-a99a-4d2f-b753-367486937066");
-  };
+  const onClose = () => selectGift();
+
+  if (!gift) return null;
 
   return (
     <Modal
-      open={true}
+      open={!!gift}
       onClose={() => {}}
-      title="Formas de dar o presente!"
+      title={<h2 className="text-center">Um gesto de carinho ❤️</h2>}
       content={
         <>
           <div className="mt-2">
-            <p className="text-gray-400 font-semibold">
-              Aqui temos duas formas que você pode dar o presente
+            <p className="text-gray-300 font-semibold text-center">
+              Você irá acessar um link do mercado pago totalmente seguro e com
+              opções de pagamento no Cartão, Pix ou Boleto
+            </p>
+            <p className="text-gray-400 font-semibold text-center">
+              Por favor, não esqueça também de conferir se o presente está
+              correto!
             </p>
           </div>
-          {/* <ConfirmationForm /> */}
 
-          <section className="grid grid-cols-2 divide-x divide-gray-600 gap-8 text-center">
-            <section className="flex flex-col justify-between items-center">
-              <h4>Pagar com PIX</h4>
+          <section className="flex flex-col justify-evenly items-center">
+            <div className="flex items-center p-5 my-4 bg-gray-600 rounded-xl">
               <Image
-                // loader={myLoader}
-                src="/qrcode_pix.jpeg"
-                alt="pix"
-                width={200}
-                height={200}
+                src={gift.image}
+                className="object-center object-cover rounded-full h-6 w-6 "
+                width="100%"
+                height="100%"
               />
-              {isCopy ? (
-                <button className="btn font-normal text-sm mt-4 delay-200 bg-green-400 hover:bg-green-500">
-                  <div className="flex items-center gap-1">
-                    <FaCheck />
-                    Copiado
-                  </div>
-                </button>
-              ) : (
-                <button
-                  className="btn font-normal text-sm mt-4 delay-200 bg-blue-400 hover:bg-blue-500"
-                  onClick={copyPixKey}
-                >
-                  <div className="flex items-center gap-1">
-                    <FaCut />
-                    Copiar chave PIX
-                  </div>
-                </button>
-              )}
-            </section>
-            <section className="flex flex-col justify-between items-center">
-              <h4 className="mb-0">Mercado pago</h4>
-              <Image
-                // loader={myLoader}
-                src="/mp.png"
-                alt="pix"
-                width={300}
-                height={300}
-              />
-              <button className="btn font-normal text-sm mt-4 delay-200 bg-blue-400 hover:bg-blue-500">
-                <div className="flex items-center gap-1">
-                  <FaExternalLinkAlt />
-                  Acessar
-                </div>
-              </button>
-            </section>
+              <div className="flex flex-col justify-center items-center mx-4">
+                <h3 className="mb-0">{gift.name}</h3>
+                <h4 className="mt-0">{getPriceInBrl(gift.price)}</h4>
+              </div>
+            </div>
           </section>
         </>
       }
       footer={
-        <button
-          type="button"
-          className="btn mx-1 bg-white text-base font-medium text-gray-700  hover:bg-gray-50"
-          // onClick={onClose}
-        >
-          Fechar
-        </button>
+        <>
+          <button
+            onClick={() => handleGoToLink(gift?.buyLink)}
+            className="btn delay-200 bg-blue-400 hover:bg-blue-500"
+          >
+            <div className="flex items-center gap-1">
+              <FaExternalLinkAlt />
+              Acessar
+            </div>
+          </button>
+          <button
+            type="button"
+            className="btn mx-3 bg-white text-gray-700"
+            onClick={onClose}
+          >
+            Voltar para a loja
+          </button>
+        </>
       }
     />
   );

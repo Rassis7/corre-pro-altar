@@ -2,17 +2,18 @@ import { GetStaticProps, NextPage } from "next";
 import axios from "axios";
 import { Card } from "../components/Card";
 import { PaymentModal } from "../components/PaymentModal";
-import { GiftsTypeRaw } from "../types/gift";
+import { GiftType } from "../types/gift";
+import { StoreProvider } from "../context/Store";
 
 type StoreType = {
-  gifts: GiftsTypeRaw[];
+  gifts: GiftType[];
 };
 
 const gifts = [
   {
     name: "Cafe",
     price: "10,5",
-    buyLink: "https://mpago.la/1SF2zsY",
+    buyLink: "https://mpago.la/2BWqQgQ",
     image:
       "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
   },
@@ -75,10 +76,8 @@ const gifts = [
 ];
 
 const Store: NextPage<StoreType> = ({ gifts }) => {
-  console.log(gifts);
-
   return (
-    <>
+    <StoreProvider>
       <div className="page-container flex-col items-center overscroll-x-none">
         <h1>Sua presença é o nosso maior presente.</h1>
         <h3>
@@ -91,13 +90,13 @@ const Store: NextPage<StoreType> = ({ gifts }) => {
           ))}
         </div>
       </div>
-      {/* <PaymentModal link={"aoskods"} /> */}
-    </>
+      <PaymentModal />
+    </StoreProvider>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  // const { data: gifts } = await axios.get<GiftsTypeRaw[]>(
+  // const { data: gifts } = await axios.get<GiftType[]>(
   //   "https://sheet.best/api/sheets/36b49bda-04a0-411b-827c-9a238e8c1b40"
   // );
   return {
