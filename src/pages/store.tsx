@@ -1,79 +1,79 @@
 import { GetStaticProps, NextPage } from "next";
-import axios from "axios";
 import { Card } from "../components/Card";
 import { PaymentModal } from "../components/PaymentModal";
 import { GiftType } from "../types/gift";
 import { StoreProvider } from "../context/Store";
+import { api } from "../services/api";
 
 type StoreType = {
   gifts: GiftType[];
 };
 
-const gifts = [
-  {
-    name: "Cafe",
-    price: "10,5",
-    buyLink: "https://mpago.la/2BWqQgQ",
-    image:
-      "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
-  },
-  {
-    name: "Cafe 2",
-    price: "10,5",
-    buyLink: "https://mpago.la/1SF2zsY",
-    image:
-      "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
-  },
-  {
-    name: "Cafe 3",
-    price: "10,5",
-    buyLink: "https://mpago.la/1SF2zsY",
-    image:
-      "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
-  },
-  {
-    name: "Cafe 4",
-    price: "10,5",
-    buyLink: "https://mpago.la/1SF2zsY",
-    image:
-      "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
-  },
-  {
-    name: "Cafe 5",
-    price: "10,5",
-    buyLink: "https://mpago.la/1SF2zsY",
-    image:
-      "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
-  },
-  {
-    name: "Cafe 6",
-    price: "10,5",
-    buyLink: "https://mpago.la/1SF2zsY",
-    image:
-      "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
-  },
-  {
-    name: "Cafe 7",
-    price: "10,5",
-    buyLink: "https://mpago.la/1SF2zsY",
-    image:
-      "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
-  },
-  {
-    name: "Cafe 8",
-    price: "10,5",
-    buyLink: "https://mpago.la/1SF2zsY",
-    image:
-      "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
-  },
-  {
-    name: "Cafe 9",
-    price: "10,5",
-    buyLink: "https://mpago.la/1SF2zsY",
-    image:
-      "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
-  },
-];
+// const gifts = [
+//   {
+//     name: "Cafe",
+//     price: "10,5",
+//     buyLink: "https://mpago.la/2BWqQgQ",
+//     image:
+//       "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
+//   },
+//   {
+//     name: "Cafe 2",
+//     price: "10,5",
+//     buyLink: "https://mpago.la/1SF2zsY",
+//     image:
+//       "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
+//   },
+//   {
+//     name: "Cafe 3",
+//     price: "10,5",
+//     buyLink: "https://mpago.la/1SF2zsY",
+//     image:
+//       "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
+//   },
+//   {
+//     name: "Cafe 4",
+//     price: "10,5",
+//     buyLink: "https://mpago.la/1SF2zsY",
+//     image:
+//       "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
+//   },
+//   {
+//     name: "Cafe 5",
+//     price: "10,5",
+//     buyLink: "https://mpago.la/1SF2zsY",
+//     image:
+//       "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
+//   },
+//   {
+//     name: "Cafe 6",
+//     price: "10,5",
+//     buyLink: "https://mpago.la/1SF2zsY",
+//     image:
+//       "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
+//   },
+//   {
+//     name: "Cafe 7",
+//     price: "10,5",
+//     buyLink: "https://mpago.la/1SF2zsY",
+//     image:
+//       "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
+//   },
+//   {
+//     name: "Cafe 8",
+//     price: "10,5",
+//     buyLink: "https://mpago.la/1SF2zsY",
+//     image:
+//       "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
+//   },
+//   {
+//     name: "Cafe 9",
+//     price: "10,5",
+//     buyLink: "https://mpago.la/1SF2zsY",
+//     image:
+//       "https://image.freepik.com/vetores-gratis/plano-de-…da-hora-do-cafe-com-xicara-de-cafe_79603-1560.jpg",
+//   },
+// ];
 
 const Store: NextPage<StoreType> = ({ gifts }) => {
   return (
@@ -84,11 +84,11 @@ const Store: NextPage<StoreType> = ({ gifts }) => {
           Mas aceitamos a ajuda de todos para construirmos algo inesquecível
         </h3>
 
-        <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <section className="grid gap-5 grid-cols-1 sm:grid-cols-2 sm:w-2/3 md:grid-cols-3 lg:grid-cols-4">
           {gifts.map((props) => (
             <Card key={props.name} {...props} />
           ))}
-        </div>
+        </section>
       </div>
       <PaymentModal />
     </StoreProvider>
@@ -96,9 +96,7 @@ const Store: NextPage<StoreType> = ({ gifts }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  // const { data: gifts } = await axios.get<GiftType[]>(
-  //   "https://sheet.best/api/sheets/36b49bda-04a0-411b-827c-9a238e8c1b40"
-  // );
+  const { data: gifts } = await api.get<GiftType[]>("/gifts");
   return {
     props: { gifts },
     revalidate: 60,

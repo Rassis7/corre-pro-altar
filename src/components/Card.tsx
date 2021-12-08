@@ -1,5 +1,4 @@
 import { useContext, useMemo, VFC } from "react";
-import { BsFillEmojiHeartEyesFill } from "react-icons/bs";
 import { GiftType } from "../types/gift";
 import Image from "next/image";
 import { StoreContext } from "../context/Store";
@@ -13,29 +12,36 @@ export const Card: VFC<GiftType> = (gift) => {
   const handleSelectGift = (gift: GiftType) => selectGift(gift);
 
   return (
-    <div className="w-full bg-gray-400 text-white rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center dark:bg-gray-900">
-      <div className="mb-8">
-        <Image
-          className="object-center object-cover rounded-full h-9 w-9"
-          src={gift.image}
-          alt={gift.name}
-          loading="lazy"
-          width="100%"
-          height="100%"
-        />
-      </div>
-      <div className="text-center">
-        <p className="text-xl text-white font-bold mb-2">{gift.name}</p>
-        <p className="font-medium">{priceFormatted}</p>
-        <button
-          className="btn bg-blue-400 hover:bg-blue-500 delay-200"
-          onClick={() => handleSelectGift(gift)}
-        >
-          <div className="flex items-center gap-1">
-            <BsFillEmojiHeartEyesFill />
-            Presentear
+    <div
+      className="text-gray-600 body-font rounded-lg shadow-lg border-gray-200 border cursor-pointer hover:shadow-xl dark:border-gray-700 dark:shadow-dark dark:hover:shadow-darkHover"
+      onClick={() => handleSelectGift(gift)}
+    >
+      <div className="container mx-auto">
+        <div className="flex flex-wrap">
+          <div className="w-full">
+            <div className="block h-48 w-full rounded-t-lg rounded-b-sm overflow-hidden cursor-pointer">
+              <Image
+                className="block"
+                src={gift.image}
+                alt={gift.name}
+                loading="lazy"
+                layout="intrinsic"
+                objectFit="cover"
+                width={300}
+                height={300}
+              />
+            </div>
+            <div className="mt-4 px-4 py-1">
+              <h3 className="text-gray-500 text-xs  title-font mb-1">
+                Alemanha
+              </h3>
+              <h2 className=" title-font text-lg font-medium dark:text-white">
+                {gift.name}
+              </h2>
+              <p className="mt-1">{priceFormatted}</p>
+            </div>
           </div>
-        </button>
+        </div>
       </div>
     </div>
   );
