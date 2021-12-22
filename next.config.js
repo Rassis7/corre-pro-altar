@@ -4,4 +4,7 @@ module.exports = {
   images: {
     domains: ["image.freepik.com"],
   },
+  env: {
+    FAUNADB_KEY: process.env.FAUNADB_KEY,
+  },
 };

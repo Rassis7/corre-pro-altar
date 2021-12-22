@@ -6,15 +6,16 @@ import hearts from "../animations/love-hearts.json";
 import LottieAnimation from "../components/LottieAnimation";
 import ConfirmationModal from "../components/ConfirmationModal";
 import { useRouter } from "next/router";
+import { ToastProvider } from "../context/Toast";
 
 const Home: NextPage = () => {
-  const [openConfirmModal, setOpenConfirmModal] = useState(true);
+  const [openConfirmModal, setOpenConfirmModal] = useState(false);
   const router = useRouter();
 
   const handleToggleModal = () => setOpenConfirmModal((show) => !show);
 
   return (
-    <>
+    <ToastProvider>
       <div className="page-container justify-center lg:justify-around">
         <Head>
           <title>Create Next App</title>
@@ -57,7 +58,7 @@ const Home: NextPage = () => {
           onClose={handleToggleModal}
         />
       )}
-    </>
+    </ToastProvider>
   );
 };
 

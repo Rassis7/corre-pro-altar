@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { ConfirmationForm } from "./ConfirmationForm";
 import { Modal } from "./Modal";
+import { AiOutlineLoading } from "react-icons/ai";
 
 interface Props {
   open: boolean;
@@ -13,8 +14,17 @@ const confirmationFormRefParam = {
 
 const ConfirmationModal = ({ onClose, open }: Props): JSX.Element => {
   const confirmationFormRef = useRef(confirmationFormRefParam);
+  const [loading, setLoading] = useState(false);
 
-  const handleConfirm = () => confirmationFormRef.current.save();
+  const handleConfirm = useCallback(
+    () => confirmationFormRef.current.save(),
+    [confirmationFormRef]
+  );
+
+  const handleLoading = useCallback(
+    (loading: boolean) => setLoading(loading),
+    [setLoading]
+  );
 
   return (
     <Modal
@@ -27,7 +37,11 @@ const ConfirmationModal = ({ onClose, open }: Props): JSX.Element => {
             Informe seu Nome e Telefone (de preferência WhatsApp) no campos
             abaixo.
           </p>
-          <ConfirmationForm ref={confirmationFormRef} />
+          <ConfirmationForm
+            ref={confirmationFormRef}
+            onClose={onClose}
+            onLoading={handleLoading}
+          />
         </div>
       }
       footer={
@@ -37,7 +51,18 @@ const ConfirmationModal = ({ onClose, open }: Props): JSX.Element => {
             className="btn mx-1 bg-green-600 text-base font-medium text-white hover:bg-green-700"
             onClick={handleConfirm}
           >
-            Confirmar
+            {loading ? (
+              <div className="flex ">
+                <AiOutlineLoading
+                  className="animate-spin mr-1"
+                  size="16px"
+                  color="#fff"
+                />
+                Salvando...
+              </div>
+            ) : (
+              "Confirmar"
+            )}
           </button>
           <button
             type="button"
