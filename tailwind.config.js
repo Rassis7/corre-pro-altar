@@ -3,11 +3,19 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
+  mode: "jit",
   darkMode: "media", // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
         wedding: ["Parisienne", "cursive"],
+      },
+      transitionDelay: {
+        0: "0ms",
+        400: "400ms",
+        600: "600ms",
+        800: "800ms",
+        1200: "1200ms",
       },
     },
     boxShadow: {

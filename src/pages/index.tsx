@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import we from "../animations/we.json";
@@ -7,50 +7,93 @@ import LottieAnimation from "../components/LottieAnimation";
 import ConfirmationModal from "../components/ConfirmationModal";
 import { useRouter } from "next/router";
 import { ToastProvider } from "../context/Toast";
+import { Header } from "../components/Header";
 
 const Home: NextPage = () => {
   const [openConfirmModal, setOpenConfirmModal] = useState(false);
   const router = useRouter();
+  const gridRef = useRef<HTMLDivElement>(null);
 
   const handleToggleModal = () => setOpenConfirmModal((show) => !show);
 
+  useEffect(() => {
+    const gridColumns = gridRef.current?.querySelectorAll(".home-grid-column");
+
+    gridRef.current?.classList.remove("home-animate-inactive");
+    gridRef.current?.classList.add("home-animate-active");
+
+    gridColumns?.forEach((element) => {
+      element.classList.remove("home-animate");
+    });
+  }, [gridRef]);
+
   return (
     <ToastProvider>
-      <div className="page-container justify-center lg:justify-around">
+      <section className="page-container">
         <Head>
-          <title>Create Next App</title>
+          <title>Casório - Romulo e Julia</title>
         </Head>
-        <section className="invisible h-0 w-0 mr-0 md:-ml-8 lg:visible lg:-ml-12 lg:w-full lg:h-full lg:mr-4 xl:-ml-28">
-          <LottieAnimation lotti={we} width="48vw" height="90vh" />
-        </section>
+        <Header />
 
-        <section className="flex flex-col justify-center items-center lg:space-y-8 lg:w-full lg:h-full lg:p-14">
-          <h1 className="font-wedding text-pink-400 text-5xl">
+        <div className="flex flex-col items-center text-center mt-28">
+          <h1 className="font-wedding text-pink-400 text-6xl font-semibold">
             Romulo e Júlia
           </h1>
 
-          <LottieAnimation lotti={hearts} width="20rem" height="18rem" />
+          <span className="text-5xl font-medium text-red-500">Text1</span>
+        </div>
 
-          <h4 className="font-light text-gray-400 text-center dark:text-gray-200">
-            É com muito emoção que convidamos todos amigos e familiares para
-            esse casório!
-          </h4>
-          <section className="flex flex-col space-y-3 justify-evenly w-full lg:flex-row lg:space-y-0">
-            <button
-              className="btn bg-green-500 hover:bg-green-700"
-              onClick={handleToggleModal}
-            >
-              Confirmar presença
-            </button>
-            <button
-              className="btn bg-blue-500 hover:bg-blue-700"
-              onClick={() => router.push("/store")}
-            >
-              Presentei os noivos
-            </button>
-          </section>
-        </section>
-      </div>
+        <div className="flex flex-col items-center overflow-hidden">
+          <div
+            ref={gridRef}
+            className="grid grid-cols-[repeat(7,252px)] home-animate-inactive"
+          >
+            {/* TODO: Arrumar os mt */}
+            <div className="home-grid-column flex flex-col items-center mt-0 home-animate delay-0">
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+            </div>
+            <div className="home-grid-column flex flex-col items-center mt-[160px] home-animate delay-200">
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+            </div>
+            <div className="home-grid-column flex flex-col items-center mt-[320px] home-animate delay-400">
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+            </div>
+            <div className="home-grid-column flex flex-col items-center mt-[480px] home-animate delay-600">
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+            </div>
+            <div className="home-grid-column flex flex-col items-center mt-[320px] home-animate delay-800">
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+            </div>
+            <div className="home-grid-column flex flex-col items-center mt-[160px] home-animate delay-1000">
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+            </div>
+            <div className="home-grid-column flex flex-col items-center mt-0 home-animate delay-1200">
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+              <div className="home-grid-item"></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {openConfirmModal && (
         <ConfirmationModal
