@@ -1,20 +1,29 @@
-import { useEffect, useRef, useState } from "react";
-import type { NextPage } from "next";
+import { createElement, useEffect, useMemo, useRef, useState } from "react";
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import we from "../animations/we.json";
-import hearts from "../animations/love-hearts.json";
-import LottieAnimation from "../components/LottieAnimation";
-import ConfirmationModal from "../components/ConfirmationModal";
-import { useRouter } from "next/router";
 import { ToastProvider } from "../context/Toast";
 import { Header } from "../components/Header";
+import { api } from "../services/api";
+import Image from "next/image";
+import loveSpellBottle from "../animations/love-spell-bottle.json";
+import LottieAnimation from "../components/LottieAnimation";
+import { v4 as uuidv4 } from "uuid";
 
-const Home: NextPage = () => {
-  const [openConfirmModal, setOpenConfirmModal] = useState(false);
-  const router = useRouter();
+type HomeProps = {
+  photos: Record<number, string>[];
+};
+
+const DEFAULT_MARGIN_TOP_CARD = [
+  "0px",
+  "160px",
+  "320px",
+  "480px",
+  "320px",
+  "160px",
+  "0px",
+];
+const Home: NextPage<HomeProps> = ({ photos }) => {
   const gridRef = useRef<HTMLDivElement>(null);
-
-  const handleToggleModal = () => setOpenConfirmModal((show) => !show);
 
   useEffect(() => {
     const gridColumns = gridRef.current?.querySelectorAll(".home-grid-column");
@@ -27,20 +36,75 @@ const Home: NextPage = () => {
     });
   }, [gridRef]);
 
+  const gridColumns = useMemo(() => {
+    if (!photos) return null;
+
+    return photos.map((photoObject, index) => {
+      const children = Object.values(photoObject).map((url) => {
+        const image = (
+          <Image
+            className="block"
+            src={url}
+            alt={url}
+            loading="lazy"
+            layout="intrinsic"
+            objectFit="fill"
+            width={251}
+            height={350}
+          />
+        );
+
+        return createElement(
+          "div",
+          {
+            className: "home-grid-item overflow-hidden",
+            key: url,
+          },
+          image
+        );
+      });
+
+      return createElement(
+        "div",
+        {
+          className: `mt-[${DEFAULT_MARGIN_TOP_CARD[index]}] 
+          home-grid-column flex flex-col items-center home-animate delay-${
+            200 * index
+          }`,
+          key: uuidv4(),
+        },
+        children
+      );
+    });
+  }, [photos]);
+
   return (
     <ToastProvider>
       <section className="page-container">
         <Head>
-          <title>Casório - Romulo e Julia</title>
+          <title>Casório - Romulo e Júlia</title>
         </Head>
         <Header />
 
         <div className="flex flex-col items-center text-center mt-28">
-          <h1 className="font-wedding text-pink-400 text-6xl font-semibold">
-            Romulo e Júlia
-          </h1>
-
-          <span className="text-5xl font-medium text-red-500">Text1</span>
+          <div className="flex items-center">
+            <LottieAnimation
+              lotti={loveSpellBottle}
+              width="4rem"
+              height="7rem"
+            />
+            <h1 className="font-wedding text-pink-400 text-6xl font-semibold">
+              Romulo e Júlia
+            </h1>
+            <LottieAnimation
+              lotti={loveSpellBottle}
+              width="4rem"
+              height="7rem"
+            />
+          </div>
+          <span className="text-4xl font-medium text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-600">
+            um texto bonitinho
+          </span>
         </div>
 
         <div className="flex flex-col items-center overflow-hidden">
@@ -48,61 +112,20 @@ const Home: NextPage = () => {
             ref={gridRef}
             className="grid grid-cols-[repeat(7,252px)] home-animate-inactive"
           >
-            {/* TODO: Arrumar os mt */}
-            <div className="home-grid-column flex flex-col items-center mt-0 home-animate delay-0">
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-            </div>
-            <div className="home-grid-column flex flex-col items-center mt-[160px] home-animate delay-200">
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-            </div>
-            <div className="home-grid-column flex flex-col items-center mt-[320px] home-animate delay-400">
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-            </div>
-            <div className="home-grid-column flex flex-col items-center mt-[480px] home-animate delay-600">
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-            </div>
-            <div className="home-grid-column flex flex-col items-center mt-[320px] home-animate delay-800">
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-            </div>
-            <div className="home-grid-column flex flex-col items-center mt-[160px] home-animate delay-1000">
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-            </div>
-            <div className="home-grid-column flex flex-col items-center mt-0 home-animate delay-1200">
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-              <div className="home-grid-item"></div>
-            </div>
+            {gridColumns}
           </div>
         </div>
       </section>
-
-      {openConfirmModal && (
-        <ConfirmationModal
-          open={openConfirmModal}
-          onClose={handleToggleModal}
-        />
-      )}
     </ToastProvider>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { data: photos } = await api.get<Record<number, string>[]>("/photos");
+  return {
+    props: { photos },
+    revalidate: 60,
+  };
 };
 
 export default Home;

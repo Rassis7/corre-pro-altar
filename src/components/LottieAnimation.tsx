@@ -5,11 +5,11 @@ interface Props {
   lotti: any;
   width: number | string;
   height: number | string;
+  loop?: boolean;
 }
 
-const LottieAnimation = ({ height, lotti, width }: Props) => {
+const LottieAnimation = ({ height, lotti, width, loop = true }: Props) => {
   const defaultOptions = {
-    loop: true,
     autoplay: true,
     animationData: lotti,
     rendererSettings: {
@@ -17,7 +17,13 @@ const LottieAnimation = ({ height, lotti, width }: Props) => {
     },
   };
 
-  return <Lottie options={defaultOptions} height={height} width={width} />;
+  return (
+    <Lottie
+      options={{ loop, ...defaultOptions }}
+      height={height}
+      width={width}
+    />
+  );
 };
 
 export default LottieAnimation;
