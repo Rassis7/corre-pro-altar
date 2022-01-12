@@ -1,4 +1,4 @@
-import { createElement, useEffect, useMemo, useRef, useState } from "react";
+import { createElement, useEffect, useMemo, useRef } from "react";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { ToastProvider } from "../context/Toast";
@@ -37,8 +37,6 @@ const Home: NextPage<HomeProps> = ({ photos }) => {
   }, [gridRef]);
 
   const gridColumns = useMemo(() => {
-    if (!photos) return null;
-
     return photos.map((photoObject, index) => {
       const children = Object.values(photoObject).map((url) => {
         const image = (
@@ -58,25 +56,28 @@ const Home: NextPage<HomeProps> = ({ photos }) => {
           "div",
           {
             className: "home-grid-item overflow-hidden",
-            key: url,
+            key: uuidv4(),
           },
           image
         );
       });
 
+      const className = `home-grid-column flex flex-col items-center home-animate delay-${
+        200 * index
+      }`;
       return createElement(
         "div",
         {
-          className: `mt-[${DEFAULT_MARGIN_TOP_CARD[index]}] 
-          home-grid-column flex flex-col items-center home-animate delay-${
-            200 * index
-          }`,
+          className,
+          style: { marginTop: DEFAULT_MARGIN_TOP_CARD[index] },
           key: uuidv4(),
         },
         children
       );
     });
-  }, [photos]);
+  }, [photos, DEFAULT_MARGIN_TOP_CARD]);
+
+  if (!photos) return null;
 
   return (
     <ToastProvider>
