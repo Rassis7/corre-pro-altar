@@ -1,11 +1,10 @@
 import { createElement, useEffect, useMemo, useRef } from "react";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import { ToastProvider } from "../context/Toast";
 import Image from "next/image";
-import { LottieAnimation, api, animations } from "@/shared";
+import { LottieAnimation, api, animations, ToastProvider } from "@/shared";
 import { v4 as uuidv4 } from "uuid";
-import { Header } from "@/app/components";
+import { Header } from "@/home/components";
 
 type HomeProps = {
   photos: Record<number, string>[];

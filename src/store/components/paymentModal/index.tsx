@@ -1,7 +1,7 @@
 import { useContext, VFC } from "react";
 import Image from "next/image";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import { StoreContext } from "../../../context/Store";
+import { StoreContext } from "@/store";
 import { utils, Modal } from "@/shared";
 
 export const PaymentModal: VFC = () => {

@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState, VFC } from "react";
-import { GiftType } from "@/app";
+import { GiftType } from "../types";
 
 type StoreContextType = {
   gift?: GiftType;

@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from "react";
-import { ConfirmationForm } from "@/app/components";
+import { ConfirmationForm } from "@/home/components";
 import { Modal } from "@/shared/components";
 import { AiOutlineLoading } from "react-icons/ai";
 

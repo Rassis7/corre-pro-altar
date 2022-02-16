@@ -1,6 +1,6 @@
 import { useRouter } from "next/dist/client/router";
 import { useState } from "react";
-import { ConfirmationModal } from "@/app/components";
+import { ConfirmationModal } from "@/home/components";
 import { LottieAnimation, animations } from "@/shared";
 
 export const Header = () => {

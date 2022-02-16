@@ -1,7 +1,6 @@
 import { useContext, useMemo, VFC } from "react";
-import { GiftType } from "@/app";
 import Image from "next/image";
-import { StoreContext } from "../../../context/Store";
+import { StoreContext, GiftType } from "@/store";
 import { utils } from "@/shared";
 
 export const Card: VFC<GiftType> = (gift) => {
