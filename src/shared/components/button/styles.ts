@@ -1,4 +1,4 @@
-import { styled, cssColorsVariants } from "@/stitches.config";
+import { styled, tokens } from "@/shared";
 
 export const StyledButton = styled(
   "button",
@@ -14,7 +14,7 @@ export const StyledButton = styled(
   },
   {
     variants: {
-      ...cssColorsVariants,
+      ...tokens.button,
       radii: {
         full: {
           borderRadius: "$full",

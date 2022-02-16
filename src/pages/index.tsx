@@ -2,7 +2,13 @@ import { createElement, useEffect, useMemo, useRef } from "react";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { LottieAnimation, api, animations, ToastProvider } from "@/shared";
+import {
+  LottieAnimation,
+  api,
+  animations,
+  ToastProvider,
+  Text,
+} from "@/shared";
 import { v4 as uuidv4 } from "uuid";
 import { Header } from "@/home/components";
 
@@ -90,9 +96,7 @@ const Home: NextPage<HomeProps> = ({ photos }) => {
               width="4rem"
               height="7rem"
             />
-            <h1 className="font-wedding text-pink-400 text-6xl font-semibold">
-              Romulo e Júlia
-            </h1>
+            <Text.h1 fontFamily="parisienne">Romulo e Júlia</Text.h1>
             <LottieAnimation
               lotti={animations.loveSpellBottle}
               width="4rem"

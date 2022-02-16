@@ -44,6 +44,10 @@ const { styled, css, theme, getCssText } = createStitches({
       full: "50%",
       extraLarger: "99rem",
     },
+    fonts: {
+      sans: "Roboto, sans-serif",
+      parisienne: "Parisienne, cursive",
+    },
   },
 });
 
@@ -54,7 +58,7 @@ const globalStyles = globalCss({
     boxSizing: "border-box",
   },
   body: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: theme.fonts.sans,
     fontSize: "16px",
     padding: "$l",
     backgroundColor: "$background",
@@ -63,36 +67,4 @@ const globalStyles = globalCss({
   },
 });
 
-const cssColorsVariants = {
-  color: {
-    primary: {
-      backgroundColor: theme.colors.primary,
-      color: theme.colors.white,
-      "&:hover": {
-        filter: "brightness(95%)",
-        transitionDelay: "0.1s",
-      },
-    },
-    secondary: {
-      backgroundColor: theme.colors.secondary,
-      color: theme.colors.white,
-      "&:hover": {
-        filter: "brightness(95%)",
-        transitionDelay: "0.1s",
-      },
-    },
-    tertiary: {
-      backgroundColor: theme.colors.tertiary,
-      color: theme.colors.white,
-    },
-    disabled: {
-      backgroundColor: theme.colors.gray50,
-      color: theme.colors.gray400,
-      "&:hover": {
-        backgroundColor: theme.colors.gray50,
-      },
-    },
-  },
-};
-
-export { styled, css, globalStyles, cssColorsVariants, theme, getCssText };
+export { styled, css, globalStyles, theme, getCssText };

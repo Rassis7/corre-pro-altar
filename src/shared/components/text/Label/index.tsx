@@ -1,4 +1,4 @@
-import { styled } from "@/stitches.config";
+import { styled } from "@/shared";
 import { VFC } from "react";
 import { HeadingProps } from "../types";
 

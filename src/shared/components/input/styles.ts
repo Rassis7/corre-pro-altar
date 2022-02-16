@@ -1,4 +1,4 @@
-import { styled } from "@/stitches.config";
+import { styled } from "@/shared";
 
 export const StyledInput = styled(
   "input",
