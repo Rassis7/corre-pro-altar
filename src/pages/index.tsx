@@ -15,11 +15,11 @@ type HomeProps = {
 
 const DEFAULT_MARGIN_TOP_CARD = [
   "0px",
-  "160px",
-  "320px",
-  "480px",
-  "320px",
-  "160px",
+  "100px",
+  "200px",
+  "350px",
+  "200px",
+  "100px",
   "0px",
 ];
 const Home: NextPage<HomeProps> = ({ photos }) => {
@@ -62,14 +62,13 @@ const Home: NextPage<HomeProps> = ({ photos }) => {
         );
       });
 
-      const className = `home-grid-column flex flex-col items-center home-animate delay-${
-        200 * index
-      }`;
+      const delay = 250 * index;
+      const marginTop = DEFAULT_MARGIN_TOP_CARD[index];
       return createElement(
         "div",
         {
-          className,
-          style: { marginTop: DEFAULT_MARGIN_TOP_CARD[index] },
+          className: `home-grid-column flex flex-col items-center home-animate`,
+          style: { marginTop, transitionDelay: `${delay}ms` },
           key: uuidv4(),
         },
         children
@@ -87,7 +86,7 @@ const Home: NextPage<HomeProps> = ({ photos }) => {
         </Head>
         <Header />
 
-        <div className="flex flex-col items-center text-center mt-28">
+        <div className="flex flex-col items-center text-center mt-16">
           <div className="flex items-center">
             <LottieAnimation
               lotti={loveSpellBottle}
@@ -103,12 +102,12 @@ const Home: NextPage<HomeProps> = ({ photos }) => {
               height="7rem"
             />
           </div>
-          <span className="text-4xl font-medium text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-green-600">
+          <span className="text-4xl font-medium text-transparent bg-clip-text gradient-bg">
             um texto bonitinho
           </span>
         </div>
 
-        <div className="flex flex-col items-center overflow-hidden">
+        <div className="flex flex-col items-center overflow-hidden relative -top-11">
           <div
             ref={gridRef}
             className="grid grid-cols-[repeat(7,252px)] home-animate-inactive"

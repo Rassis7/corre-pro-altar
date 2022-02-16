@@ -20,9 +20,9 @@ export const Header = () => {
             height="4rem"
             loop={false}
           />
-          <h3 className="text-[#AD8138] text-4xl font-light">
+          {/* <h3 className="text-[#AD8138] text-4xl font-light">
             Corre pro altar
-          </h3>
+          </h3> */}
         </div>
         <nav className="flex items-center">
           <button onClick={handleToggleModal} className="nav-btn bg-gray-600">
@@ -30,7 +30,7 @@ export const Header = () => {
           </button>
           <button
             onClick={() => router.push("store")}
-            className="nav-btn bg-red-500 text-gray-100"
+            className="nav-btn bg-gradient-to-br gradient-bg"
           >
             Presentear os noivos
           </button>

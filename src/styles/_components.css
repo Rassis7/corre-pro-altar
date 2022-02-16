@@ -2,7 +2,7 @@
 
 @layer components {
   .page-container {
-    @apply min-h-screen min-w-full;
+    /* @apply min-h-screen min-w-full; */
   }
 
   .btn {
@@ -39,5 +39,9 @@
 
   .home-grid-column {
     @apply duration-1000
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-blue-400 to-green-600 hover:from-blue-400 hover:to-green-700 active:from-blue-500 active:to-green-700
   }
 }

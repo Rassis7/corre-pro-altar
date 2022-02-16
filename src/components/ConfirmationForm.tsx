@@ -59,7 +59,6 @@ export const ConfirmationForm = forwardRef<
     <form>
       <input
         className={`form-input ${name ? "base-input" : "input-error"}`}
-        type="text"
         placeholder="Insira seu nome completo"
         onChange={({ currentTarget }) => setName(currentTarget.value)}
       />

@@ -48,7 +48,7 @@ const ConfirmationModal = ({ onClose, open }: Props): JSX.Element => {
         <>
           <button
             type="button"
-            className="btn mx-1 bg-green-600 text-base font-medium text-white hover:bg-green-700"
+            className="btn mx-1  text-base font-medium text-white gradient-bg"
             onClick={handleConfirm}
           >
             {loading ? (
