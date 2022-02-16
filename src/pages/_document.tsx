@@ -5,6 +5,7 @@ import Document, {
   NextScript,
   DocumentContext,
 } from "next/document";
+import { getCssText } from "../stitches.config";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -16,6 +17,10 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <style
+            id="stitches"
+            dangerouslySetInnerHTML={{ __html: getCssText() }}
+          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link

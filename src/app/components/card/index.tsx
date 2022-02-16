@@ -1,13 +1,16 @@
 import { useContext, useMemo, VFC } from "react";
-import { GiftType } from "../types/gift";
+import { GiftType } from "@/app";
 import Image from "next/image";
-import { StoreContext } from "../context/Store";
-import { getPriceInBrl } from "../utils/format";
+import { StoreContext } from "../../../context/Store";
+import { utils } from "@/shared";
 
 export const Card: VFC<GiftType> = (gift) => {
   const { selectGift } = useContext(StoreContext);
 
-  const priceFormatted = useMemo(() => getPriceInBrl(gift.price), [gift.price]);
+  const priceFormatted = useMemo(
+    () => utils.getPriceInBrl(gift.price),
+    [gift.price]
+  );
 
   const handleSelectGift = (gift: GiftType) => selectGift(gift);
 

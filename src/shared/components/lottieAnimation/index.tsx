@@ -8,7 +8,12 @@ interface Props {
   loop?: boolean;
 }
 
-const LottieAnimation = ({ height, lotti, width, loop = true }: Props) => {
+export const LottieAnimation = ({
+  height,
+  lotti,
+  width,
+  loop = true,
+}: Props) => {
   const defaultOptions = {
     autoplay: true,
     animationData: lotti,
@@ -25,5 +30,3 @@ const LottieAnimation = ({ height, lotti, width, loop = true }: Props) => {
     />
   );
 };
-
-export default LottieAnimation;

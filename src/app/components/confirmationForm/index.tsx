@@ -5,9 +5,9 @@ import {
   useImperativeHandle,
   useState,
 } from "react";
-import { fauna, q } from "../services/fauna";
+import { fauna, q } from "@/shared/services";
 import InputMask from "react-input-mask";
-import { ToastContext } from "../context/Toast";
+import { ToastContext } from "../../../context/Toast";
 
 type ConfirmationFormRef = {
   save: () => void;

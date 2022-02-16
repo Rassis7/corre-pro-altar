@@ -1,9 +1,8 @@
 import { useContext, VFC } from "react";
 import Image from "next/image";
-import { Modal } from "./Modal";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import { StoreContext } from "../context/Store";
-import { getPriceInBrl } from "../utils/format";
+import { StoreContext } from "../../../context/Store";
+import { utils, Modal } from "@/shared";
 
 export const PaymentModal: VFC = () => {
   const { gift, selectGift } = useContext(StoreContext);
@@ -42,7 +41,7 @@ export const PaymentModal: VFC = () => {
               />
               <div className="flex flex-col justify-center items-center mx-4">
                 <h3 className="mb-0">{gift.name}</h3>
-                <h4 className="mt-0">{getPriceInBrl(gift.price)}</h4>
+                <h4 className="mt-0">{utils.getPriceInBrl(gift.price)}</h4>
               </div>
             </div>
           </section>

@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from "react";
-import { ConfirmationForm } from "./ConfirmationForm";
-import { Modal } from "./Modal";
+import { ConfirmationForm } from "@/app/components";
+import { Modal } from "@/shared/components";
 import { AiOutlineLoading } from "react-icons/ai";
 
 interface Props {
@@ -12,7 +12,7 @@ const confirmationFormRefParam = {
   save: () => {},
 };
 
-const ConfirmationModal = ({ onClose, open }: Props): JSX.Element => {
+export const ConfirmationModal = ({ onClose, open }: Props): JSX.Element => {
   const confirmationFormRef = useRef(confirmationFormRefParam);
   const [loading, setLoading] = useState(false);
 
@@ -76,5 +76,3 @@ const ConfirmationModal = ({ onClose, open }: Props): JSX.Element => {
     />
   );
 };
-
-export default ConfirmationModal;

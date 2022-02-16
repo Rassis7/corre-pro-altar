@@ -1,8 +1,7 @@
 import { useRouter } from "next/dist/client/router";
 import { useState } from "react";
-import ConfirmationModal from "./ConfirmationModal";
-import LottieAnimation from "./LottieAnimation";
-import rings from "../animations/rings.json";
+import { ConfirmationModal } from "@/app/components";
+import { LottieAnimation, animations } from "@/shared";
 
 export const Header = () => {
   const [openConfirmModal, setOpenConfirmModal] = useState(false);
@@ -15,7 +14,7 @@ export const Header = () => {
       <header className="flex justify-between item-center py-4 px-6">
         <div className="flex items-center">
           <LottieAnimation
-            lotti={rings}
+            lotti={animations.rings}
             width="6rem"
             height="4rem"
             loop={false}

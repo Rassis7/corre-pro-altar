@@ -2,12 +2,10 @@ import { createElement, useEffect, useMemo, useRef } from "react";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { ToastProvider } from "../context/Toast";
-import { Header } from "../components/Header";
-import { api } from "../services/api";
 import Image from "next/image";
-import loveSpellBottle from "../animations/love-spell-bottle.json";
-import LottieAnimation from "../components/LottieAnimation";
+import { LottieAnimation, api, animations } from "@/shared";
 import { v4 as uuidv4 } from "uuid";
+import { Header } from "@/app/components";
 
 type HomeProps = {
   photos: Record<number, string>[];
@@ -89,7 +87,7 @@ const Home: NextPage<HomeProps> = ({ photos }) => {
         <div className="flex flex-col items-center text-center mt-16">
           <div className="flex items-center">
             <LottieAnimation
-              lotti={loveSpellBottle}
+              lotti={animations.loveSpellBottle}
               width="4rem"
               height="7rem"
             />
@@ -97,7 +95,7 @@ const Home: NextPage<HomeProps> = ({ photos }) => {
               Romulo e Júlia
             </h1>
             <LottieAnimation
-              lotti={loveSpellBottle}
+              lotti={animations.loveSpellBottle}
               width="4rem"
               height="7rem"
             />
