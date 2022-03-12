@@ -1,8 +1,8 @@
 import { VFC } from "react";
-import { styled } from "@stitches/react";
+import { stitches } from "../../../styles";
 import { HeadingProps } from "../types";
 
-const StyledH2 = styled("h2", {
+const StyledH2 = stitches.styled("h2", {
   fontWeight: 600,
   color: "$gray400",
   fontSize: "2rem",

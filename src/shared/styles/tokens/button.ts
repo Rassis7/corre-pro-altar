@@ -1,4 +1,4 @@
-import { theme } from "..";
+import {theme} from '@/root/stitches.config'
 
 export const button = {
   color: {

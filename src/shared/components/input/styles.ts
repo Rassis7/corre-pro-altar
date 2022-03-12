@@ -1,6 +1,6 @@
-import { styled } from "@/shared";
+import { stitches } from "../../styles";
 
-export const StyledInput = styled(
+export const StyledInput = stitches.styled(
   "input",
   {
     padding: "$s",

@@ -4,9 +4,9 @@ import Head from "next/head";
 import Image from "next/image";
 import {
   LottieAnimation,
-  api,
+  services,
   animations,
-  ToastProvider,
+  context,
   Text,
 } from "@/shared";
 import { v4 as uuidv4 } from "uuid";
@@ -82,7 +82,7 @@ const Home: NextPage<HomeProps> = ({ photos }) => {
   if (!photos) return null;
 
   return (
-    <ToastProvider>
+    <context.ToastProvider>
       <section className="page-container">
         <Head>
           <title>Casório - Romulo e Júlia</title>
@@ -117,12 +117,12 @@ const Home: NextPage<HomeProps> = ({ photos }) => {
           </div>
         </div>
       </section>
-    </ToastProvider>
+    </context.ToastProvider>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data: photos } = await api.get<Record<number, string>[]>("/photos");
+  const { data: photos } = await services.api.get<Record<number, string>[]>("/photos");
   return {
     props: { photos },
     revalidate: 60,

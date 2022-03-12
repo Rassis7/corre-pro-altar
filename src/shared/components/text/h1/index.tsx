@@ -1,9 +1,9 @@
 import { VFC } from "react";
 import { HeadingProps } from "../types";
-import type * as Stitches from "@stitches/react";
-import { styled } from "@/shared";
+import { stitches } from "../../../styles";
+import type StitchesTypes from "../../../styles";
 
-const StyledH1 = styled(
+const StyledH1 = stitches.styled(
   "h1",
   {
     fontWeight: 700,
@@ -21,7 +21,7 @@ const StyledH1 = styled(
   }
 );
 
-type H1Props = Stitches.VariantProps<typeof StyledH1> & HeadingProps;
+type H1Props = StitchesTypes.VariantProps<typeof StyledH1> & HeadingProps;
 
 export const H1: VFC<H1Props> = ({ children, ...rest }) => (
   <StyledH1 {...rest}>{children}</StyledH1>

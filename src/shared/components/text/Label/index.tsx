@@ -1,8 +1,8 @@
-import { styled } from "@/shared";
 import { VFC } from "react";
+import { stitches } from "../../../styles";
 import { HeadingProps } from "../types";
 
-const StyledLabel = styled("label", {
+const StyledLabel = stitches.styled("label", {
   fontWeight: 400,
   color: "$gray900",
 });

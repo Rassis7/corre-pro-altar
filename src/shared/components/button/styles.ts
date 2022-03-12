@@ -1,6 +1,6 @@
-import { styled, tokens } from "@/shared";
+import {tokens, stitches} from '../../styles'
 
-export const StyledButton = styled(
+export const StyledButton = stitches.styled(
   "button",
   {
     padding: "$s",
