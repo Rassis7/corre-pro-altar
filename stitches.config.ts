@@ -39,8 +39,9 @@ const { styled, css, theme, getCssText } = createStitches({
       xl: "3rem",
     },
     radii: {
-      small: "0.25rem",
-      medium: "0.5rem",
+      extraSmall: "0.25rem",
+      small: "1rem",
+      medium: "1.5rem",
       full: "50%",
       extraLarger: "99rem",
     },
@@ -49,6 +50,24 @@ const { styled, css, theme, getCssText } = createStitches({
       parisienne: "Parisienne, cursive",
     },
   },
+  utils: {
+    px: (value:string|number) => ({
+      paddingLeft:value,
+      paddingRight:value,
+    }),
+    py: (value:string|number) => ({
+      paddingTop:value,
+      paddingBottom:value,
+    }),
+    my: (value:string|number) => ({
+      marginLeft:value,
+      marginRight:value,
+    }),
+    mx: (value:string|number) => ({
+      marginTop:value,
+      marginBottom:value,
+    }),
+  }
 });
 
 const globalStyles = globalCss({

@@ -1,7 +1,8 @@
 import { useRouter } from "next/dist/client/router";
 import { useState } from "react";
 import { ConfirmationModal } from "@/home/components";
-import { LottieAnimation, animations } from "@/shared";
+import { LottieAnimation, animations, Text  } from "@/shared";
+import { Container, Animation, Nav, Button } from "./styles";
 
 export const Header = () => {
   const [openConfirmModal, setOpenConfirmModal] = useState(false);
@@ -11,30 +12,32 @@ export const Header = () => {
 
   return (
     <>
-      <header className="flex justify-between item-center py-4 px-6">
-        <div className="flex items-center">
+      <Container>
+        <Animation>
           <LottieAnimation
             lotti={animations.rings}
             width="6rem"
             height="4rem"
             loop={false}
           />
-          {/* <h3 className="text-[#AD8138] text-4xl font-light">
-            Corre pro altar
-          </h3> */}
-        </div>
-        <nav className="flex items-center">
-          <button onClick={handleToggleModal} className="nav-btn bg-gray-600">
+        </Animation>
+        <Nav>
+          <Button 
+            color="primary" 
+            radii="medium" 
+            onClick={handleToggleModal}
+          >
             Confirmar presença
-          </button>
-          <button
+          </Button>
+          <Button
+            color="secondary"
+            radii="medium"
             onClick={() => router.push("store")}
-            className="nav-btn bg-gradient-to-br gradient-bg"
           >
             Presentear os noivos
-          </button>
-        </nav>
-      </header>
+          </Button>
+        </Nav>
+      </Container>
       {openConfirmModal && (
         <ConfirmationModal
           open={openConfirmModal}
