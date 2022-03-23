@@ -1,38 +1,50 @@
 import { stitches } from "@/shared";
+import { default as NextImage } from "next/image";
 
-export const Container = stitches.styled('div',{
-  display:"flex",
-  flexDirection:"column",
-  alignItems:"center",
-  textAlign:"center",
-  marginTop:"$m"
-})
+export const Main = stitches.styled("main", {
+  position: "relative",
+  overflow: "hidden",
+  height: "100vh",
+  width: "100vw",
+  padding: 0,
+  margin: 0,
+  backgroundColor: "$black",
+  color: "$gray50",
+});
 
-export const TitleContainer = stitches.styled('div', {
-  display:"flex",
-  alignItems:"center"
-})
+export const Container = stitches.styled("section", {
+  display: "grid",
+  gridGap: "0.65rem",
+  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+  gridAutoRows: "12.5rem",
+  gridAutoFlow: "dense",
+  opacity: 0.9,
+});
 
-export const GridContainer = stitches.styled('div',{
-  display:"flex",
-  flexDirection:"column",
-  alignItems:"center",
-  overflow:"hidden",
-  marginTop:"-6rem",
-  position:"relative"
-})
+export const GridItem = stitches.styled("div", {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+});
 
-export const Grid = stitches.styled('div',{
-  display:"grid",
-  gridTemplateColumns: "repeat(7,252px)",
-  pointerEvents:"none"
-})
+export const GridItemWide = stitches.styled(GridItem, {
+  gridColumn: "span 2",
+});
 
-export const GridColumn = stitches.styled('div',{
-  animationDuration: "1s",
-  display:"flex",
-  flexDirection:"column",
-  alignItems:"center",
-  transform:"translateY(2.5rem)",
-  pointerEvents:'none'
-})
+export const GridItemTall = stitches.styled(GridItem, {
+  gridRow: "span 2",
+});
+
+export const GridItemBig = stitches.styled(GridItem, {
+  gridRow: "span 2",
+  gridColumn: "span 2",
+});
+
+// export const Image = stitches.styled(NextImage, {
+export const Image = stitches.styled("img", {
+  objectFit: "cover",
+  borderRadius: "$medium",
+  display: "block",
+  width: "100%",
+  height: "100%",
+});

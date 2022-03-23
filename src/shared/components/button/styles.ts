@@ -1,4 +1,4 @@
-import {tokens, stitches} from '../../styles'
+import { tokens, stitches } from "../../styles";
 
 export const StyledButton = stitches.styled(
   "button",

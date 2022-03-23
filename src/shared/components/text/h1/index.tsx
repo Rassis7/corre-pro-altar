@@ -7,7 +7,7 @@ const StyledH1 = stitches.styled(
   "h1",
   {
     fontWeight: 700,
-    color: "$gray400",
+    color: "$gray100",
     fontSize: "2.5rem",
   },
   {

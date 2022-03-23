@@ -6,7 +6,8 @@ import {
   useState,
 } from "react";
 import InputMask from "react-input-mask";
-import { ToastContext, fauna, q } from "@/shared";
+import { ToastContext } from "@/shared/context";
+import { fauna, q } from "@/shared/services";
 
 type ConfirmationFormRef = {
   save: () => void;

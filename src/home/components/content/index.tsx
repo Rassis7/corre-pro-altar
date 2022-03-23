@@ -1,115 +1,63 @@
-import { ReactNode, VFC, useMemo, createElement } from 'react'
-import Image from "next/image";
+import { VFC, useMemo, createElement, useState } from "react";
+import { getGenerateRandomValue } from "@/shared/utils";
 import { v4 as uuidv4 } from "uuid";
+import { ConfirmationModal } from "../confirmationModal";
+import { ContentActions } from "../contentActions";
 import {
-  LottieAnimation,
-  services,
-  animations,
-  context,
-  Text,
-} from "@/shared";
-import { Container, GridContainer, TitleContainer, Grid, GridColumn } from './styles';
+  Container,
+  GridItemWide,
+  GridItemTall,
+  Main,
+  GridItem,
+  Image,
+} from "./styles";
 
 type Props = {
-  photos: Record<number, string>[]
-}
+  photos: string[];
+};
 
-const DEFAULT_MARGIN_TOP_CARD = [
-  "0px",
-  "100px",
-  "200px",
-  "350px",
-  "200px",
-  "100px",
-  "0px",
-];
+// TODO: Suavizar o loading, colocar algum efeito, transition, o que for...
+export const Content: VFC<Props> = ({ photos }) => {
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
 
-export const Content: VFC<Props> = ({photos}) => {
-  // const gridRef = useRef<HTMLDivElement>(null);
-
-  // useEffect(() => {
-  //   const gridColumns = gridRef.current?.querySelectorAll(".home-grid-column");
-
-  //   gridRef.current?.classList.remove("home-animate-inactive");
-  //   gridRef.current?.classList.add("home-animate-active");
-
-  //   gridColumns?.forEach((element) => {
-  //     element.classList.remove("home-animate");
-  //   });
-  // }, [gridRef]);
+  const onHandleConfirmationModal = () =>
+    setShowConfirmationModal((show) => !show);
 
   const GridColumns = useMemo(() => {
-    const photosColumn = photos.map((photoObject, index) => {
-      const children = Object.values(photoObject).map((url) => {
+    let newPhotosArray = photos;
+
+    return Array(photos.length)
+      .fill(null)
+      .map(() => {
+        const components = [GridItem, GridItemWide, GridItemTall];
+        const randomComponentValue = components[getGenerateRandomValue(0, 2)];
+        const randomIndex = getGenerateRandomValue(
+          0,
+          newPhotosArray.length - 1
+        );
+
         const image = (
           <Image
-            className="block"
-            src={url}
-            alt={url}
+            src={newPhotosArray[randomIndex]}
+            alt={newPhotosArray[randomIndex]}
             loading="lazy"
-            layout="intrinsic"
-            objectFit="fill"
-            width={251}
-            height={350}
           />
         );
 
-        return createElement(
-          "div",
-          {
-            className: "home-grid-item overflow-hidden",
-            key: uuidv4(),
-          },
-          image
+        newPhotosArray = newPhotosArray.filter(
+          (_, index) => index !== randomIndex
         );
+        return createElement(randomComponentValue, { key: uuidv4() }, image);
       });
-
-      const delay = 250 * index;
-      const marginTop = DEFAULT_MARGIN_TOP_CARD[index];
-
-      return (
-          <GridColumn
-            key={uuidv4()}
-            css={{
-              marginTop,
-              transitionDelay:`${delay}ms`
-            }}
-          >
-            {children}
-          </GridColumn>
-      )
-    });
-
-    return (
-      <Grid>{photosColumn}</Grid>
-    )
-  }, [photos, DEFAULT_MARGIN_TOP_CARD]);
+  }, [photos]);
 
   return (
-    <>
-    <Container>
-    <TitleContainer>
-      <LottieAnimation
-        lotti={animations.loveSpellBottle}
-        width="4rem"
-        height="7rem"
-      />
-      <Text.h1 fontFamily="parisienne">Romulo e Júlia</Text.h1>
-      <LottieAnimation
-        lotti={animations.loveSpellBottle}
-        width="4rem"
-        height="7rem"
-      />
-    </TitleContainer>
-    <Text.h3>
-      um texto bonitinho
-    </Text.h3>
-  </Container>
-
-    <GridContainer>
-      {GridColumns}
-    </GridContainer>
-  </>
-  )
-}
-
+    <Main>
+      <Container>{GridColumns}</Container>
+      <ContentActions onHandleConfirmationModal={onHandleConfirmationModal} />
+      {showConfirmationModal && (
+        <ConfirmationModal onClose={onHandleConfirmationModal} />
+      )}
+    </Main>
+  );
+};

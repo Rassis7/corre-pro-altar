@@ -51,23 +51,29 @@ const { styled, css, theme, getCssText } = createStitches({
     },
   },
   utils: {
-    px: (value:string|number) => ({
-      paddingLeft:value,
-      paddingRight:value,
+    px: (value: string | number) => ({
+      paddingLeft: value,
+      paddingRight: value,
     }),
-    py: (value:string|number) => ({
-      paddingTop:value,
-      paddingBottom:value,
+    py: (value: string | number) => ({
+      paddingTop: value,
+      paddingBottom: value,
     }),
-    my: (value:string|number) => ({
-      marginLeft:value,
-      marginRight:value,
+    my: (value: string | number) => ({
+      marginLeft: value,
+      marginRight: value,
     }),
-    mx: (value:string|number) => ({
-      marginTop:value,
-      marginBottom:value,
+    mx: (value: string | number) => ({
+      marginTop: value,
+      marginBottom: value,
     }),
-  }
+    w: (value: string) => ({
+      width: value,
+    }),
+    h: (value: string) => ({
+      height: value,
+    }),
+  },
 });
 
 const globalStyles = globalCss({
@@ -86,4 +92,4 @@ const globalStyles = globalCss({
   },
 });
 
-export { styled, css, globalStyles, theme, getCssText  };
+export { styled, css, globalStyles, theme, getCssText };

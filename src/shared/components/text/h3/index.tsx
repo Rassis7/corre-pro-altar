@@ -4,7 +4,7 @@ import { HeadingProps } from "../types";
 
 export const StyledH3 = stitches.styled("h2", {
   fontWeight: 500,
-  color: "$gray200",
+  color: "$gray100",
   fontSize: "1.5rem",
 });
 

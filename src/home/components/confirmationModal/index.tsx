@@ -4,7 +4,7 @@ import { Modal } from "@/shared";
 import { AiOutlineLoading } from "react-icons/ai";
 
 interface Props {
-  open: boolean;
+  // open: boolean;
   onClose: () => void;
 }
 
@@ -12,7 +12,7 @@ const confirmationFormRefParam = {
   save: () => {},
 };
 
-export const ConfirmationModal = ({ onClose, open }: Props): JSX.Element => {
+export const ConfirmationModal = ({ onClose }: Props): JSX.Element => {
   const confirmationFormRef = useRef(confirmationFormRefParam);
   const [loading, setLoading] = useState(false);
 
@@ -28,7 +28,7 @@ export const ConfirmationModal = ({ onClose, open }: Props): JSX.Element => {
 
   return (
     <Modal
-      open={open}
+      open={true}
       onClose={onClose}
       title="Confirme sua presença"
       content={

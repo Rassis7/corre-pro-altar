@@ -7,8 +7,10 @@ type ButtonType = Stitches.VariantProps<typeof StyledButton> &
     children: ReactNode;
   };
 
-export const Button: VFC<ButtonType> = memo(({ children, color, ...rest }) => (
-  <StyledButton {...rest} color={color}>
-    {children}
-  </StyledButton>
-));
+export const Button: VFC<ButtonType> = memo(({ children, color, ...rest }) => {
+  return (
+    <StyledButton {...rest} color={color}>
+      {children}
+    </StyledButton>
+  );
+});

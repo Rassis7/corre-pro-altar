@@ -7,10 +7,9 @@ import Document, {
 } from "next/document";
 import { getCssText, styled } from "../../stitches.config";
 
-const BodyWrapper = styled('body', {
-  padding: 0,
-  margin: 0,
-})
+const BodyWrapper = styled("body", {
+  fontSize: "1rem",
+});
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
