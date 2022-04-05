@@ -1,9 +1,6 @@
 import { GetStaticProps, NextPage } from "next";
-import { Card } from "../components/Card";
-import { PaymentModal } from "../components/PaymentModal";
-import { GiftType } from "../types/gift";
-import { StoreProvider } from "../context/Store";
-import { api } from "../services/api";
+import { api } from "@/shared";
+import { Card, PaymentModal, GiftType, StoreProvider } from "@/store";
 
 type StoreType = {
   gifts: GiftType[];
