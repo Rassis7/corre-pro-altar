@@ -1,4 +1,4 @@
-import {theme} from '@/root/stitches.config'
+import { theme } from "@/root/stitches.config";
 
 export const button = {
   color: {
@@ -20,6 +20,10 @@ export const button = {
     },
     tertiary: {
       backgroundColor: theme.colors.tertiary,
+      color: theme.colors.white,
+    },
+    error: {
+      backgroundColor: theme.colors.red500,
       color: theme.colors.white,
     },
     disabled: {

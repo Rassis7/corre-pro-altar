@@ -1,7 +1,7 @@
 import { VFC, useMemo, createElement, useState } from "react";
 import { getGenerateRandomValue } from "@/shared/utils";
 import { v4 as uuidv4 } from "uuid";
-import { ConfirmationModal } from "../confirmationModal";
+import { ConfirmationModal } from "../confirmationModal/ConfirmationModal";
 import { ContentActions } from "../contentActions";
 import {
   Container,
@@ -55,6 +55,7 @@ export const Content: VFC<Props> = ({ photos }) => {
     <Main>
       <Container>{GridColumns}</Container>
       <ContentActions onHandleConfirmationModal={onHandleConfirmationModal} />
+      {/* TODO: N está abrindo a modal */}
       {showConfirmationModal && (
         <ConfirmationModal onClose={onHandleConfirmationModal} />
       )}

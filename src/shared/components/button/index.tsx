@@ -1,8 +1,9 @@
-import type * as Stitches from "@stitches/react";
+import { CSS, VariantProps } from "@stitches/react";
 import { ReactNode, HtmlHTMLAttributes, VFC, memo } from "react";
 import { StyledButton } from "./styles";
 
-type ButtonType = Stitches.VariantProps<typeof StyledButton> &
+type ButtonType = CSS &
+  VariantProps<typeof StyledButton> &
   Omit<HtmlHTMLAttributes<HTMLButtonElement>, "color"> & {
     children: ReactNode;
   };

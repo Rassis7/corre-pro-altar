@@ -3,7 +3,7 @@ import { stitches } from "../../styles";
 export const StyledInput = stitches.styled(
   "input",
   {
-    padding: "$s",
+    padding: "0.8rem",
     border: "none",
     borderRadius: "$medium",
     color: "$gray200",
