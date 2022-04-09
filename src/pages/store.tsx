@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from "next";
-import { api } from "@/shared";
+import { api } from "@/shared/services";
 import { Card, PaymentModal, GiftType, StoreProvider } from "@/store";
 
 type StoreType = {

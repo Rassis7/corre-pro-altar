@@ -7,6 +7,7 @@ import {
   Container,
   LottieAnimationContainer,
 } from "./styles";
+import { useRouter } from "next/router";
 
 type ContentActionsType = {
   onHandleConfirmationModal: () => void;
@@ -15,6 +16,8 @@ type ContentActionsType = {
 export const ContentActions: VFC<ContentActionsType> = ({
   onHandleConfirmationModal,
 }) => {
+  const router = useRouter();
+
   return (
     <Container>
       <Actions>
@@ -41,7 +44,7 @@ export const ContentActions: VFC<ContentActionsType> = ({
           {/* TODO: Criar um text puro */}
           <ButtonText>Confirmar presença</ButtonText>
         </Button>
-        <Button color="tertiary">
+        <Button color="tertiary" onClick={() => router.push("store")}>
           <ButtonText>Presentear os noivos</ButtonText>
         </Button>
       </Actions>

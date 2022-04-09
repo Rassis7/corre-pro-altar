@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { services, context } from "@/shared";
-import { Content } from "@/home/components";
+import { Content, Photos } from "@/home";
 
 type HomeProps = {
   photos: string[];
@@ -21,14 +21,11 @@ const Home: NextPage<HomeProps> = ({ photos }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data: photos } = await services.api.get<Record<number, string>[]>(
-    "/photos"
-  );
+  const gifts = new Photos(services.api);
 
-  const photosArray = Object.values(photos).map((url) => url[0]);
-
+  const photos = await gifts.getAll();
   return {
-    props: { photos: photosArray },
+    props: { photos },
     revalidate: 60,
   };
 };
