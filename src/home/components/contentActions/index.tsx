@@ -5,7 +5,7 @@ import {
   Button,
   ButtonText,
   Container,
-  LottieAnimationContainer,
+  TitleContainer,
 } from "./styles";
 import { useRouter } from "next/router";
 
@@ -27,19 +27,19 @@ export const ContentActions: VFC<ContentActionsType> = ({
           height="4.5rem"
           loop={false}
         />
-        <LottieAnimationContainer>
-          <LottieAnimation
+        <TitleContainer>
+          {/* <LottieAnimation
             lotti={animations.loveSpellBottle}
             width="4rem"
             height="7rem"
-          />
+          /> */}
           <Text.h1 fontFamily="parisienne">Romulo e Júlia</Text.h1>
-          <LottieAnimation
+          {/* <LottieAnimation
             lotti={animations.loveSpellBottle}
             width="4rem"
             height="7rem"
-          />
-        </LottieAnimationContainer>
+          /> */}
+        </TitleContainer>
         <Button color="primary" onClick={onHandleConfirmationModal}>
           {/* TODO: Criar um text puro */}
           <ButtonText>Confirmar presença</ButtonText>

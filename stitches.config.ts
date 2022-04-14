@@ -1,6 +1,11 @@
 import { createStitches, globalCss } from "@stitches/react";
 
 const { styled, css, theme, getCssText, keyframes } = createStitches({
+  media: {
+    bp1: "(min-width: 320px)",
+    bp2: "(min-width: 768px)",
+    bp3: "(min-width: 1024px)",
+  },
   theme: {
     colors: {
       black: "#151522",
@@ -28,7 +33,7 @@ const { styled, css, theme, getCssText, keyframes } = createStitches({
       secondary: "$green500",
       tertiary: "$blue500",
       link: "$blue500",
-      background: "$gray50",
+      background: "$black",
       border: "$gray900",
     },
     space: {

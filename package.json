@@ -18,6 +18,7 @@
     "react-icons": "^4.3.1",
     "react-input-mask": "^2.0.4",
     "react-lottie": "^1.2.3",
+    "react-swipeable-bottom-sheet": "^1.1.2",
     "react-toastify": "^8.1.0",
     "uuid": "^8.3.2"
   },

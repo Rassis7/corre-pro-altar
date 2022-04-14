@@ -3,7 +3,6 @@ import { AiOutlineLoading } from "react-icons/ai";
 
 export const Container = stitches.styled("div", {
   padding: "0 $l $l $l",
-  width: "90vw",
 });
 
 export const Label = stitches.styled("p", {
@@ -19,7 +18,7 @@ export const FooterContainer = stitches.styled("footer", {
   alignItems: "center",
   width: "100%",
   gap: "$s",
-  paddingBottom: "$m",
+  paddingBottom: "$l",
 });
 
 const spinner = stitches.keyframes({

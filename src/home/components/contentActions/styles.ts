@@ -15,15 +15,13 @@ export const Actions = stitches.styled("div", {
   alignItems: "center",
   gap: "1rem",
   backgroundColor: "rgba(0, 0, 0, 0.7)",
-  height: "100%",
+  height: "100vh",
+  overflow: "hidden",
   width: "100%",
 });
 
-export const LottieAnimationContainer = stitches.styled("div", {
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  marginTop: "-2rem",
+export const TitleContainer = stitches.styled("div", {
+  padding: "$m",
 });
 
 export const Button = stitches.styled(BaseButton, {

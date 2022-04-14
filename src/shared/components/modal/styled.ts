@@ -1,36 +1,31 @@
 import { stitches } from "@/shared/styles";
-import {
-  Overlay as RadixOverlay,
-  Content as RadixContent,
-} from "@radix-ui/react-dialog";
+// import {
+//   // Overlay as RadixOverlay,
+//   // Content as RadixContent,
+// } from "@radix-ui/react-dialog";
 
-export const Overlay = stitches.styled(RadixOverlay, {
-  background: "rgba(0 0 0 / 0.5)",
-  position: "fixed",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  display: "grid",
-  placeItems: "center",
-  overflowY: "auto",
-});
-
-export const Content = stitches.styled(RadixContent, {
+export const Wrapper = stitches.styled("div", {
   minWidth: "15rem",
   height: "auto",
-  background: "$gray50",
-  borderRadius: "$small",
+  background: "$background",
 });
 
-export const Container = stitches.styled("div", {
+export const TitleContainer = stitches.styled("div", {
   textAlign: "center",
   width: "100%",
 });
 
+export const FooterContainer = stitches.styled("div", {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: "$l",
+  gap: "$m",
+});
+
 export const Title = stitches.styled("h1", {
   color: "$primary",
-  fontSize: "2rem",
+  fontSize: "2.5rem",
   fontFamily: "$parisienne",
-  padding: "$m",
+  py: "$l",
 });

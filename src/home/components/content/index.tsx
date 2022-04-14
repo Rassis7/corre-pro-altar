@@ -23,39 +23,38 @@ export const Content: VFC<Props> = ({ photos }) => {
   const onHandleConfirmationModal = () =>
     setShowConfirmationModal((show) => !show);
 
-  const GridColumns = useMemo(() => {
-    let newPhotosArray = photos;
+  // const GridColumns = useMemo(() => {
+  //   let newPhotosArray = photos;
 
-    return Array(photos.length)
-      .fill(null)
-      .map(() => {
-        const components = [GridItem, GridItemWide, GridItemTall];
-        const randomComponentValue = components[getGenerateRandomValue(0, 2)];
-        const randomIndex = getGenerateRandomValue(
-          0,
-          newPhotosArray.length - 1
-        );
+  //   return Array(photos.length)
+  //     .fill(null)
+  //     .map(() => {
+  //       const components = [GridItem, GridItemWide, GridItemTall];
+  //       const randomComponentValue = components[getGenerateRandomValue(0, 2)];
+  //       const randomIndex = getGenerateRandomValue(
+  //         0,
+  //         newPhotosArray.length - 1
+  //       );
 
-        const image = (
-          <Image
-            src={newPhotosArray[randomIndex]}
-            alt={newPhotosArray[randomIndex]}
-            loading="lazy"
-          />
-        );
+  //       const image = (
+  //         <Image
+  //           src={newPhotosArray[randomIndex]}
+  //           alt={newPhotosArray[randomIndex]}
+  //           loading="lazy"
+  //         />
+  //       );
 
-        newPhotosArray = newPhotosArray.filter(
-          (_, index) => index !== randomIndex
-        );
-        return createElement(randomComponentValue, { key: uuidv4() }, image);
-      });
-  }, [photos]);
+  //       newPhotosArray = newPhotosArray.filter(
+  //         (_, index) => index !== randomIndex
+  //       );
+  //       return createElement(randomComponentValue, { key: uuidv4() }, image);
+  //     });
+  // }, [photos]);
 
   return (
     <Main>
-      <Container>{GridColumns}</Container>
+      {/* <Container>{GridColumns}</Container> */}
       <ContentActions onHandleConfirmationModal={onHandleConfirmationModal} />
-      {/* TODO: N está abrindo a modal */}
       {showConfirmationModal && (
         <ConfirmationModal onClose={onHandleConfirmationModal} />
       )}
