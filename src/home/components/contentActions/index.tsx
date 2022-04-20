@@ -33,7 +33,14 @@ export const ContentActions: VFC<ContentActionsType> = ({
             width="4rem"
             height="7rem"
           /> */}
-          <Text.h1 fontFamily="parisienne">Romulo e Júlia</Text.h1>
+          <Text
+            as="h1"
+            color="primary"
+            fontFamily="parisienne"
+            fontSize="large"
+          >
+            Romulo e Júlia
+          </Text>
           {/* <LottieAnimation
             lotti={animations.loveSpellBottle}
             width="4rem"

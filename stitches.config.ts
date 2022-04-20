@@ -1,6 +1,12 @@
-import { createStitches, globalCss } from "@stitches/react";
+import {
+  createStitches,
+  globalCss,
+  PropertyValue,
+  VariantProps,
+  CSS as StitchesCSS,
+} from "@stitches/react";
 
-const { styled, css, theme, getCssText, keyframes } = createStitches({
+const { styled, css, theme, getCssText, keyframes, config } = createStitches({
   media: {
     bp1: "(min-width: 320px)",
     bp2: "(min-width: 768px)",
@@ -78,6 +84,29 @@ const { styled, css, theme, getCssText, keyframes } = createStitches({
     h: (value: string) => ({
       height: value,
     }),
+    flex: ({
+      justifyContent,
+      alignItems,
+      flexDirection,
+      gap,
+    }: {
+      justifyContent?: PropertyValue<"justifyContent">;
+      alignItems?: PropertyValue<"alignItems">;
+      flexDirection?: PropertyValue<"flexDirection">;
+      gap?: PropertyValue<"gap">;
+    }) => ({
+      display: "flex",
+      flexDirection: flexDirection ?? "row",
+      justifyContent: justifyContent ?? "center",
+      alignItems: alignItems ?? "center",
+      gap,
+    }),
+    fontSize: (value: string) => ({
+      fontSize: value,
+    }),
+    align: (value: PropertyValue<"textAlign">) => ({
+      textAlign: value,
+    }),
   },
 });
 
@@ -97,4 +126,11 @@ const globalStyles = globalCss({
   },
 });
 
-export { styled, css, globalStyles, theme, getCssText, keyframes };
+export type CSS = StitchesCSS<typeof config>;
+
+export type StitchesComponentProps<Component> = VariantProps<Component> & {
+  css?: CSS;
+};
+
+export * from "@stitches/react";
+export { styled, css, globalStyles, theme, getCssText, keyframes, config };

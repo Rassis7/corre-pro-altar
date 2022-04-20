@@ -12,15 +12,9 @@ export const Gifts: VFC<Props> = ({ gifts }) => {
   return (
     <>
       <GiftsWrapper>
-        <Text.h2>Munique</Text.h2>
-        <Grid>
-          {gifts.map((gift) => (
-            <GiftItem key={gift.name} gift={gift} />
-          ))}
-        </Grid>
-      </GiftsWrapper>
-      <GiftsWrapper>
-        <Text.h2>Munique</Text.h2>
+        <Text as="p" fontSize="large" color="primaryLight">
+          Munique
+        </Text>
         <Grid>
           {gifts.map((gift) => (
             <GiftItem key={gift.name} gift={gift} />
