@@ -16,9 +16,6 @@ export const TitleContainer = stitches.styled("div", {
 });
 
 export const FooterContainer = stitches.styled("div", {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
   padding: "$l",
   gap: "$m",
 });

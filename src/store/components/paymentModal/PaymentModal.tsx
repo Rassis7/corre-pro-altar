@@ -1,15 +1,8 @@
 import { useContext, VFC } from "react";
 import { StoreContext } from "@/store";
 import { utils, Modal, Button } from "@/shared";
-import {
-  GiftContainer,
-  GiftInfosWrapper,
-  GiftName,
-  GiftPrice,
-  Image,
-  Paragraph,
-  TextWrapper,
-} from "./styles";
+import { GiftName, GiftPrice, Image, Paragraph, TextWrapper } from "./styles";
+import { Flex } from "@/shared/components/Flex";
 
 export const PaymentModal: VFC = () => {
   const { gift, selectGift } = useContext(StoreContext);
@@ -38,13 +31,22 @@ export const PaymentModal: VFC = () => {
             </Paragraph>
           </TextWrapper>
 
-          <GiftContainer>
+          <Flex
+            justifyContent="center"
+            alignItems="center"
+            gap="1rem"
+            css={{ marginTop: "$m" }}
+          >
             <Image src={gift.image} width="100%" height="100%" />
-            <GiftInfosWrapper className="flex flex-col justify-center items-center mx-4">
+            <Flex
+              justifyContent="center"
+              alignItems="center"
+              flexDirection="column"
+            >
               <GiftName>{gift.name}</GiftName>
               <GiftPrice>{utils.getPriceInBrl(gift.price)}</GiftPrice>
-            </GiftInfosWrapper>
-          </GiftContainer>
+            </Flex>
+          </Flex>
         </>
       }
       footer={

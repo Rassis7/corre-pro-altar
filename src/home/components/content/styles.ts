@@ -21,21 +21,21 @@ export const Container = stitches.styled("section", {
   opacity: 0.9,
 });
 
-export const GridItem = stitches.styled("div", {
+const FlexCentered = stitches.styled("div", {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
 });
 
-export const GridItemWide = stitches.styled(GridItem, {
+export const GridItemWide = stitches.styled(FlexCentered, {
   gridColumn: "span 2",
 });
 
-export const GridItemTall = stitches.styled(GridItem, {
+export const GridItemTall = stitches.styled(FlexCentered, {
   gridRow: "span 2",
 });
 
-export const GridItemBig = stitches.styled(GridItem, {
+export const GridItemBig = stitches.styled(FlexCentered, {
   gridRow: "span 2",
   gridColumn: "span 2",
 });

@@ -1,7 +1,8 @@
 import { Text, LottieAnimation, animations, Button } from "@/shared";
 import React, { VFC } from "react";
-import { Actions, Container, TitleContainer, ButtonGroup } from "./styles";
+import { Container, TitleContainer, ButtonGroup } from "./styles";
 import { useRouter } from "next/router";
+import { Flex } from "@/shared/components/Flex";
 
 type ContentActionsType = {
   onHandleConfirmationModal: () => void;
@@ -14,7 +15,13 @@ export const ContentActions: VFC<ContentActionsType> = ({
 
   return (
     <Container>
-      <Actions>
+      <Flex
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        gap="1rem"
+        css={{ height: "100vh", width: "100%", overflow: "hidden" }}
+      >
         <LottieAnimation
           lotti={animations.rings}
           width="7rem"
@@ -50,7 +57,7 @@ export const ContentActions: VFC<ContentActionsType> = ({
             Presentear os noivos
           </Button>
         </ButtonGroup>
-      </Actions>
+      </Flex>
     </Container>
   );
 };

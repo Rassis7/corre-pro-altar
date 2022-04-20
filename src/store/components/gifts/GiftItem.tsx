@@ -1,8 +1,9 @@
 import { utils } from "@/shared";
+import { Flex } from "@/shared/components/Flex";
 import { StoreContext } from "@/store/context";
 import { GiftType } from "@/store/types";
 import { useContext, useMemo, VFC } from "react";
-import { Figure, GridItem, Image, TextSmall, Value } from "./styles";
+import { Figure, Image, TextSmall, Value } from "./styles";
 
 type Props = {
   gift: GiftType;
@@ -19,7 +20,11 @@ export const GiftItem: VFC<Props> = ({ gift }) => {
   const handleSelectGift = (gift: GiftType) => selectGift(gift);
 
   return (
-    <GridItem onClick={() => handleSelectGift(gift)}>
+    <Flex
+      justifyContent="center"
+      alignItems="center"
+      onClick={() => handleSelectGift(gift)}
+    >
       <Figure>
         <Image src={gift.image} alt={gift.name} />
         <figcaption>
@@ -29,6 +34,6 @@ export const GiftItem: VFC<Props> = ({ gift }) => {
           </p>
         </figcaption>
       </Figure>
-    </GridItem>
+    </Flex>
   );
 };

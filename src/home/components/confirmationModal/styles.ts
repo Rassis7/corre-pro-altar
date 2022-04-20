@@ -12,10 +12,6 @@ export const Label = stitches.styled("p", {
 });
 
 export const FooterContainer = stitches.styled("footer", {
-  display: "flex",
-  // flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
   width: "100%",
   gap: "$s",
   paddingBottom: "$l",

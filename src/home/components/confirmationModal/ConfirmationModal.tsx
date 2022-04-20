@@ -2,6 +2,7 @@ import React, { useCallback, useRef, useState } from "react";
 import { ConfirmationForm } from "@/home/components";
 import { Button, Modal } from "@/shared";
 import { Container, FooterContainer, Label, LoadingIcon } from "./styles";
+import { Flex } from "@/shared/components/Flex";
 
 interface Props {
   // open: boolean;
@@ -46,19 +47,21 @@ export const ConfirmationModal = ({ onClose }: Props): JSX.Element => {
       }
       footer={
         <FooterContainer>
-          <Button color="secondary" onClick={handleConfirm}>
-            {loading ? (
-              <div>
-                <LoadingIcon size="1rem" color="#fff" />
-                {" Salvando..."}
-              </div>
-            ) : (
-              "Confirmar"
-            )}
-          </Button>
-          <Button color="error" onClick={onClose}>
-            Fechar
-          </Button>
+          <Flex justifyContent="center" alignItems="center" gap="1rem">
+            <Button color="secondary" onClick={handleConfirm}>
+              {loading ? (
+                <div>
+                  <LoadingIcon size="1rem" color="#fff" />
+                  {" Salvando..."}
+                </div>
+              ) : (
+                "Confirmar"
+              )}
+            </Button>
+            <Button color="error" onClick={onClose}>
+              Fechar
+            </Button>
+          </Flex>
         </FooterContainer>
       }
     />

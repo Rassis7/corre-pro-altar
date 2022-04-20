@@ -13,27 +13,12 @@ export const Paragraph = stitches.styled("p", {
   marginTop: "$m",
 });
 
-export const GiftContainer = stitches.styled("section", {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  gap: "$m",
-  marginTop: "$m",
-});
-
 export const Image = stitches.styled(NextImage, {
   objectPosition: "center",
   objectFit: "cover",
   borderRadius: "$full",
   width: "1.5rem",
   height: "1.5rem",
-});
-
-export const GiftInfosWrapper = stitches.styled("section", {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  flexDirection: "column",
 });
 
 export const GiftName = stitches.styled("span", {
