@@ -1,6 +1,6 @@
 # TODO
 
-- [] Melhorar o componente Text (aceitando um 'as', passando props e etc)
+- [x] Melhorar o componente Text (aceitando um 'as', passando props e etc)
 - [] Arrumar os textos dos botões
 - [] Trazer mais cores que façam sentido (grays)
 - [] refatorar e jogar os lixos fora

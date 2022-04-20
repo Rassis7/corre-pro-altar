@@ -1,11 +1,11 @@
-import { stitches } from "@/shared";
+import StitchesTypes from "@/shared/styles";
 import { VFC, ReactNode, memo, useMemo, createElement } from "react";
 
 import { H1, H2, H3, P, Span } from "./styles";
 
 type AS = "span" | "p" | "h1" | "h2" | "h3";
 
-type TextType = stitches.StitchesComponentProps<typeof Span> & {
+type TextType = StitchesTypes.StitchesComponentProps<typeof Span> & {
   children: ReactNode;
   as?: AS;
 };
