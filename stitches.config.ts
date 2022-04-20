@@ -84,27 +84,11 @@ const { styled, css, theme, getCssText, keyframes, config } = createStitches({
     h: (value: string) => ({
       height: value,
     }),
-    flex: ({
-      justifyContent,
-      alignItems,
-      flexDirection,
-      gap,
-    }: {
-      justifyContent?: PropertyValue<"justifyContent">;
-      alignItems?: PropertyValue<"alignItems">;
-      flexDirection?: PropertyValue<"flexDirection">;
-      gap?: PropertyValue<"gap">;
-    }) => ({
-      display: "flex",
-      flexDirection: flexDirection ?? "row",
-      justifyContent: justifyContent ?? "center",
-      alignItems: alignItems ?? "center",
-      gap,
-    }),
+
     fontSize: (value: string) => ({
       fontSize: value,
     }),
-    align: (value: PropertyValue<"textAlign">) => ({
+    textAlign: (value: PropertyValue<"textAlign">) => ({
       textAlign: value,
     }),
   },

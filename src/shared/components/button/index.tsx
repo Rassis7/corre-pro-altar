@@ -4,12 +4,10 @@ import { StyledButton } from "./styles";
 
 type ButtonType = StitchesTypes.StitchesComponentProps<typeof StyledButton> & {
   children: ReactNode;
+  size?: "regular" | "block";
+  onClick?: () => void;
 };
 
-export const Button: VFC<ButtonType> = memo(({ children, color, ...rest }) => {
-  return (
-    <StyledButton {...rest} color={color}>
-      {children}
-    </StyledButton>
-  );
+export const Button: VFC<ButtonType> = memo(({ children, ...rest }) => {
+  return <StyledButton {...rest}>{children}</StyledButton>;
 });

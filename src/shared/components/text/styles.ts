@@ -21,3 +21,4 @@ export const P = stitches.styled("p", Span);
 export const H1 = stitches.styled("h1", Span);
 export const H2 = stitches.styled("h2", Span);
 export const H3 = stitches.styled("h3", Span);
+export const Label = stitches.styled("label", Span);

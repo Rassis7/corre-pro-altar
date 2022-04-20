@@ -1,4 +1,4 @@
-import { Button as BaseButton, stitches } from "@/shared";
+import { stitches } from "@/shared";
 
 export const Container = stitches.styled("section", {
   position: "absolute",
@@ -24,10 +24,6 @@ export const TitleContainer = stitches.styled("div", {
   padding: "$m",
 });
 
-export const Button = stitches.styled(BaseButton, {
-  minWidth: "20rem",
-});
-
-export const ButtonText = stitches.styled("span", {
-  fontSize: "1.2rem",
+export const ButtonGroup = stitches.styled("div", {
+  width: "90vw",
 });

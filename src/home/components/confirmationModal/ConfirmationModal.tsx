@@ -46,13 +46,7 @@ export const ConfirmationModal = ({ onClose }: Props): JSX.Element => {
       }
       footer={
         <FooterContainer>
-          <Button
-            color="secondary"
-            onClick={handleConfirm}
-            css={{
-              width: "90%",
-            }}
-          >
+          <Button color="secondary" onClick={handleConfirm}>
             {loading ? (
               <div>
                 <LoadingIcon size="1rem" color="#fff" />
@@ -62,13 +56,7 @@ export const ConfirmationModal = ({ onClose }: Props): JSX.Element => {
               "Confirmar"
             )}
           </Button>
-          <Button
-            color="error"
-            onClick={onClose}
-            css={{
-              width: "90%",
-            }}
-          >
+          <Button color="error" onClick={onClose}>
             Fechar
           </Button>
         </FooterContainer>

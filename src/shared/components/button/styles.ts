@@ -3,14 +3,17 @@ import { tokens, stitches } from "../../styles";
 export const StyledButton = stitches.styled(
   "button",
   {
-    padding: "$s",
+    padding: "1.2rem $m",
     borderRadius: "$small",
     border: "none",
     outline: "none",
     cursor: "pointer",
+    h: "2rem",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    fontSize: "1.3rem",
+    minWidth: "8rem",
   },
   {
     variants: {
@@ -26,6 +29,16 @@ export const StyledButton = stitches.styled(
           borderRadius: "$small",
         },
       },
+      block: {
+        true: {
+          w: "100%",
+          h: "3rem",
+        },
+      },
+    },
+    defaultVariants: {
+      color: "primary",
+      radii: "small",
     },
   }
 );

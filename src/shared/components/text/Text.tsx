@@ -1,9 +1,9 @@
 import StitchesTypes from "@/shared/styles";
 import { VFC, ReactNode, memo, useMemo, createElement } from "react";
 
-import { H1, H2, H3, P, Span } from "./styles";
+import { H1, H2, H3, P, Span, Label } from "./styles";
 
-type AS = "span" | "p" | "h1" | "h2" | "h3";
+type AS = "span" | "p" | "h1" | "h2" | "h3" | "label";
 
 type TextType = StitchesTypes.StitchesComponentProps<typeof Span> & {
   children: ReactNode;
@@ -22,6 +22,8 @@ export const Text: VFC<TextType> = memo(
           return H2;
         case "h3":
           return H3;
+        case "label":
+          return Label;
         default:
           return Span;
       }

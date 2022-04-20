@@ -1,12 +1,6 @@
-import { Text, LottieAnimation, animations } from "@/shared";
+import { Text, LottieAnimation, animations, Button } from "@/shared";
 import React, { VFC } from "react";
-import {
-  Actions,
-  Button,
-  ButtonText,
-  Container,
-  TitleContainer,
-} from "./styles";
+import { Actions, Container, TitleContainer, ButtonGroup } from "./styles";
 import { useRouter } from "next/router";
 
 type ContentActionsType = {
@@ -41,19 +35,21 @@ export const ContentActions: VFC<ContentActionsType> = ({
           >
             Romulo e Júlia
           </Text>
-          {/* <LottieAnimation
-            lotti={animations.loveSpellBottle}
-            width="4rem"
-            height="7rem"
-          /> */}
         </TitleContainer>
-        <Button color="primary" onClick={onHandleConfirmationModal}>
-          {/* TODO: Criar um text puro */}
-          <ButtonText>Confirmar presença</ButtonText>
-        </Button>
-        <Button color="tertiary" onClick={() => router.push("store")}>
-          <ButtonText>Presentear os noivos</ButtonText>
-        </Button>
+
+        <ButtonGroup>
+          <Button
+            block
+            onClick={onHandleConfirmationModal}
+            css={{ marginBottom: "1rem" }}
+          >
+            Confirmar presença
+          </Button>
+
+          <Button block color="tertiary" onClick={() => router.push("store")}>
+            Presentear os noivos
+          </Button>
+        </ButtonGroup>
       </Actions>
     </Container>
   );

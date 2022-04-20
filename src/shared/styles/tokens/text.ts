@@ -26,6 +26,9 @@ export const text = {
     error: {
       color: theme.colors.red500,
     },
+    white: {
+      color: theme.colors.white,
+    },
   },
   fontFamily: {
     parisienne: {
