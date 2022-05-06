@@ -8,6 +8,7 @@ import {
   Gifts,
 } from "@/store";
 import { AppLayout, services } from "@/shared";
+import Head from "next/head";
 
 type StoreType = {
   gifts: GiftType[];
@@ -15,13 +16,18 @@ type StoreType = {
 
 const Store: NextPage<StoreType> = ({ gifts }) => {
   return (
-    <AppLayout>
-      <StoreProvider>
-        <Carousel />
-        <Gifts gifts={gifts} />
-        <PaymentModal />
-      </StoreProvider>
-    </AppLayout>
+    <>
+      <Head>
+        <title>{"Lojinha ❤️ | Romuo & Julia"}</title>
+      </Head>
+      <AppLayout>
+        <StoreProvider>
+          <Carousel />
+          <Gifts gifts={gifts} />
+          <PaymentModal />
+        </StoreProvider>
+      </AppLayout>
+    </>
   );
 };
 
