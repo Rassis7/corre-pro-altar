@@ -29,6 +29,9 @@ export const text = {
     white: {
       color: theme.colors.white,
     },
+    gray: {
+      color: theme.colors.gray100,
+    },
   },
   fontFamily: {
     parisienne: {

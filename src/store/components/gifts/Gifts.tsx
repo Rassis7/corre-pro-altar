@@ -12,7 +12,7 @@ export const Gifts: VFC<Props> = ({ gifts }) => {
   return (
     <>
       <GiftsWrapper>
-        <Text as="p" fontSize="large" color="primaryLight">
+        <Text as="p" fontSize="large" color="gray">
           Munique
         </Text>
         <Grid>

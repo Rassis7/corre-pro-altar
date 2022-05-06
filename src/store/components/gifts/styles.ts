@@ -2,6 +2,7 @@ import { stitches } from "@/shared";
 
 export const GiftsWrapper = stitches.styled("div", {
   marginTop: "$m",
+  textAlign: "center",
 });
 
 export const Grid = stitches.styled("section", {
@@ -48,14 +49,9 @@ export const Figure = stitches.styled("figure", {
   },
 });
 
-export const TextSmall = stitches.styled("small", {
+export const Value = stitches.styled("p", {
   fontWeight: 400,
-  color: "$gray50",
-});
-
-export const Value = stitches.styled("span", {
-  fontWeight: 400,
-  color: "$white",
+  color: "$green200",
   fontSize: "1.2rem",
   textTransform: "bold",
 });

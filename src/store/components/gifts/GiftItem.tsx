@@ -1,9 +1,8 @@
-import { utils } from "@/shared";
-import { Flex } from "@/shared/components/Flex";
+import { Text, utils, Flex } from "@/shared";
 import { StoreContext } from "@/store/context";
 import { GiftType } from "@/store/types";
 import { useContext, useMemo, VFC } from "react";
-import { Figure, Image, TextSmall, Value } from "./styles";
+import { Figure, Image, Value } from "./styles";
 
 type Props = {
   gift: GiftType;
@@ -28,10 +27,16 @@ export const GiftItem: VFC<Props> = ({ gift }) => {
       <Figure>
         <Image src={gift.image} alt={gift.name} />
         <figcaption>
-          <p>
-            <TextSmall>{gift.name} - </TextSmall>
+          <Flex
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Text as="p" color="white" fontSize="regular">
+              {gift.name}
+            </Text>
             <Value>{priceFormatted}</Value>
-          </p>
+          </Flex>
         </figcaption>
       </Figure>
     </Flex>

@@ -10,6 +10,13 @@
 - [] Trazer mais cores que façam sentido (grays)
 - [] refatorar e jogar os lixos fora e
 - [] Trazer o Qrcode do PIX para a modal??? (Ver a necessidade)
+
   ------ Desktop -------
+
 - [] Melhorar a modal para o desktop
-  melhorar desktop
+- [] Melhorar desktop
+
+  ------ Backend -------
+
+- [] ADICIONAR NO SHEET A COLUNA DE CIDADE E ADICIONAR O SEPARADOR EM Gift
+- [] ARRUMAR O PIX

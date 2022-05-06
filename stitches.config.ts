@@ -18,6 +18,7 @@ const { styled, css, theme, getCssText, keyframes, config } = createStitches({
       gray900: "#333",
       gray400: "#666",
       gray200: "#999",
+      gray100: "#ccc",
       gray50: "#f2f2f2",
       white: "#fff",
 
