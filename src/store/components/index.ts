@@ -1,3 +1,3 @@
 export * from "./paymentModal";
-export * from "./carousel";
+export * from "./head";
 export * from "./gifts";

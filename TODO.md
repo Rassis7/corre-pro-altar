@@ -4,10 +4,12 @@
 - [x] Arrumar os textos dos botões
 - [x] Criar um componente flex
 - [x] ver pq a font n importa
-- [] Colocar um title na /store
-- [] Trazer o Qrcode do PIX para a modal???
+- [x] Colocar um title na /store
 - [] Criar o carousel (ver se precisa real)
-- [] Trazer mais cores que façam sentido (grays)
 - [] melhorar o load das imagens
+- [] Trazer mais cores que façam sentido (grays)
+- [] refatorar e jogar os lixos fora e
+- [] Trazer o Qrcode do PIX para a modal??? (Ver a necessidade)
+  ------ Desktop -------
 - [] Melhorar a modal para o desktop
-- [] refatorar e jogar os lixos fora e melhorar desktop
+  melhorar desktop

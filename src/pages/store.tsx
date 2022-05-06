@@ -3,12 +3,12 @@ import {
   PaymentModal,
   GiftType,
   StoreProvider,
-  Carousel,
+  Head,
   Models,
   Gifts,
 } from "@/store";
 import { AppLayout, services } from "@/shared";
-import Head from "next/head";
+import NextHead from "next/head";
 
 type StoreType = {
   gifts: GiftType[];
@@ -17,12 +17,12 @@ type StoreType = {
 const Store: NextPage<StoreType> = ({ gifts }) => {
   return (
     <>
-      <Head>
+      <NextHead>
         <title>{"Lojinha ❤️ | Romuo & Julia"}</title>
-      </Head>
+      </NextHead>
       <AppLayout>
         <StoreProvider>
-          <Carousel />
+          <Head />
           <Gifts gifts={gifts} />
           <PaymentModal />
         </StoreProvider>

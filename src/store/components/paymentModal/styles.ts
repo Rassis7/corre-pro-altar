@@ -2,13 +2,12 @@ import { stitches } from "@/shared";
 import NextImage from "next/image";
 
 export const TextWrapper = stitches.styled("div", {
-  padding: "$m",
+  px: "$m",
+  paddingBottom: "$l",
 });
 
 export const Paragraph = stitches.styled("p", {
   textAlign: "center",
-  fontWeight: "bold",
-  fontSize: "1.2rem",
   color: "$gray50",
   marginTop: "$m",
 });

@@ -24,5 +24,5 @@ export const Title = stitches.styled("h1", {
   color: "$primary",
   fontSize: "2.5rem",
   fontFamily: "$parisienne",
-  py: "$l",
+  py: "$s",
 });

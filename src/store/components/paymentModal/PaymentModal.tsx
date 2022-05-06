@@ -20,14 +20,11 @@ export const PaymentModal: VFC = () => {
       title="Um gesto de carinho"
       content={
         <>
-          <TextWrapper className="mt-2">
+          <TextWrapper>
             <Paragraph>
-              Você irá acessar um link do mercado pago totalmente seguro e com
-              opções de pagamento no Cartão, Pix ou Boleto
-            </Paragraph>
-            <Paragraph>
-              Por favor, não esqueça também de conferir se o presente está
-              correto!
+              {
+                'Clique em "Presentear" e você será enviado o mercado pago, onde é totalmente seguro e com opções de pagamento no Cartão, Pix ou Boleto'
+              }
             </Paragraph>
           </TextWrapper>
 
@@ -61,10 +58,10 @@ export const PaymentModal: VFC = () => {
             color="tertiary"
             onClick={() => handleGoToLink(gift?.buyLink)}
           >
-            Acessar
+            Presentear
           </Button>
           <Button block color="error" onClick={onClose}>
-            Voltar para a loja
+            Voltar
           </Button>
         </Flex>
       }
