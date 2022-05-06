@@ -5,7 +5,7 @@
 - [x] Criar um componente flex
 - [x] ver pq a font n importa
 - [x] Colocar um title na /store
-- [] Criar o carousel (ver se precisa real)
+- [x] Criar o carousel (ver se precisa real)
 - [] melhorar o load das imagens
 - [] Trazer mais cores que façam sentido (grays)
 - [] refatorar e jogar os lixos fora e
