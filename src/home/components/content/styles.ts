@@ -1,5 +1,4 @@
 import { stitches } from "@/shared";
-import { default as NextImage } from "next/image";
 
 export const Main = stitches.styled("main", {
   position: "relative",
@@ -8,7 +7,6 @@ export const Main = stitches.styled("main", {
   width: "100vw",
   padding: 0,
   margin: 0,
-  backgroundColor: "$black",
   color: "$gray50",
 });
 

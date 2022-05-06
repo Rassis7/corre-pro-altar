@@ -103,7 +103,6 @@ const globalStyles = globalCss({
   body: {
     fontFamily: theme.fonts.sans,
     fontSize: "16px",
-    padding: "$l",
     backgroundColor: "$background",
     width: "100vw",
     height: "100vh",

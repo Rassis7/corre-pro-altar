@@ -61,7 +61,7 @@ export const Value = stitches.styled("span", {
 });
 
 export const Image = stitches.styled("img", {
-  width: "100%",
+  width: "60vw",
   height: "17rem",
   verticalAlign: "middle",
   display: "inline-block",

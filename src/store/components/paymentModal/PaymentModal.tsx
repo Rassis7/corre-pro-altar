@@ -50,17 +50,23 @@ export const PaymentModal: VFC = () => {
         </>
       }
       footer={
-        <>
+        <Flex
+          justifyContent="center"
+          alignItems="center"
+          gap="1rem"
+          flexDirection="column"
+        >
           <Button
+            block
             color="tertiary"
             onClick={() => handleGoToLink(gift?.buyLink)}
           >
             Acessar
           </Button>
-          <Button color="error" onClick={onClose}>
+          <Button block color="error" onClick={onClose}>
             Voltar para a loja
           </Button>
-        </>
+        </Flex>
       }
     />
   );

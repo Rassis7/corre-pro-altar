@@ -6,7 +6,6 @@ type Props = {
 };
 
 const Main = stitches.styled("main", {
-  backgroundColor: "$black",
   color: "$gray50",
   width: "100vw",
   minHeight: "100vh",
