@@ -17,9 +17,22 @@ type FlexType = FlexBoxProps & {
 
 const StyledFlex = stitches.styled("div", { display: "flex" });
 
-export const Flex: VFC<FlexType> = ({ children, onClick, ...rest }) => {
+export const Flex: VFC<FlexType> = ({
+  children,
+  onClick,
+  justifyContent,
+  alignItems,
+  gap,
+  flexDirection,
+  css,
+  ...rest
+}) => {
   return (
-    <StyledFlex css={{ ...rest }} onClick={onClick}>
+    <StyledFlex
+      css={{ justifyContent, alignItems, gap, flexDirection, ...css }}
+      onClick={onClick}
+      {...rest}
+    >
       {children}
     </StyledFlex>
   );

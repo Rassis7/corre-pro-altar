@@ -20,7 +20,12 @@ export const ContentActions: VFC<ContentActionsType> = ({
         justifyContent="center"
         alignItems="center"
         gap="1rem"
-        css={{ height: "100vh", width: "100%", overflow: "hidden" }}
+        css={{
+          height: "100vh",
+          width: "100%",
+          overflow: "hidden",
+          background: "rgba(0,0,0,0.8)",
+        }}
       >
         <LottieAnimation
           lotti={animations.rings}
@@ -29,11 +34,6 @@ export const ContentActions: VFC<ContentActionsType> = ({
           loop={false}
         />
         <TitleContainer>
-          {/* <LottieAnimation
-            lotti={animations.loveSpellBottle}
-            width="4rem"
-            height="7rem"
-          /> */}
           <Text
             as="h1"
             color="primary"
