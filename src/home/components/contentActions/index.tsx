@@ -24,7 +24,7 @@ export const ContentActions: VFC<ContentActionsType> = ({
           height: "100vh",
           width: "100%",
           overflow: "hidden",
-          background: "rgba(0,0,0,0.8)",
+          background: "rgba(0,0,0,0.75)",
         }}
       >
         <LottieAnimation

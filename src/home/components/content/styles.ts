@@ -35,10 +35,6 @@ const FlexCentered = stitches.styled("div", {
   alignItems: "center",
 });
 
-const GridItemWide = stitches.styled(FlexCentered, {
-  gridColumn: "span 2",
-});
-
 const GridItemTall = stitches.styled(FlexCentered, {
   gridRow: "span 2",
 });
@@ -63,6 +59,5 @@ export const Image = stitches.styled("img", {
 GridItemNormal.displayName = "GridItemNormal";
 GridItemBig.displayName = "GridItemBig";
 GridItemTall.displayName = "GridItemTall";
-GridItemWide.displayName = "GridItemWide";
 
-export { GridItemNormal, GridItemBig, GridItemTall, GridItemWide };
+export { GridItemNormal, GridItemBig, GridItemTall };

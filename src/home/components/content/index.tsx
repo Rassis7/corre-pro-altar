@@ -1,11 +1,10 @@
-import { useMemo, createElement, useState } from "react";
+import { useMemo, createElement, useState, VFC } from "react";
 import { getGenerateRandomValue, shuffleArray } from "@/shared/utils";
 import { v4 as uuidv4 } from "uuid";
 import { ConfirmationModal } from "../confirmationModal/ConfirmationModal";
 import { ContentActions } from "../contentActions";
 import {
   GridWrapper,
-  GridItemWide,
   GridItemTall,
   GridItemBig,
   GridItemNormal,
@@ -13,48 +12,21 @@ import {
   Image,
 } from "./styles";
 
-const PHOTOS = [
-  "/J+R209_h.jpg",
-  "/J+R210_v.jpg",
-  "/J+R211_h.jpg",
-  "/J+R212_v.jpg",
-  "/J+R213_h.jpg",
-  "/J+R214_v.jpg",
-  "/J+R215_v.jpg",
-  "/J+R209_h.jpg",
-  "/J+R210_v.jpg",
-];
+type ContentProps = {
+  photos: string[];
+};
 
 // TODO: Suavizar o loading, colocar algum efeito, transition, o que for...
-export const Content = () => {
+export const Content: VFC<ContentProps> = ({ photos }) => {
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
 
   const onHandleConfirmationModal = () =>
     setShowConfirmationModal((show) => !show);
 
   const GridColumns = useMemo(() => {
-    return shuffleArray<string>(PHOTOS).map((photo) => {
-      const components = [GridItemWide, GridItemTall, GridItemNormal];
-      let randomComponentValue = components[getGenerateRandomValue(0, 3)];
-
-      // console.log(randomComponentValue.displayName);
-
-      const horizontal =
-        randomComponentValue.displayName === "GridItemTall" &&
-        photo.match(/^(.*?)_h/);
-
-      const vertical =
-        (randomComponentValue.displayName === "GridItemWide" ||
-          randomComponentValue.displayName === "GridItemNormal") &&
-        photo.match(/^(.*?)_v/);
-
-      if (vertical || horizontal) {
-        const components = vertical
-          ? [GridItemWide, GridItemNormal]
-          : [GridItemTall, GridItemBig];
-
-        randomComponentValue = components[getGenerateRandomValue(0, 1)];
-      }
+    return shuffleArray<string>(photos).map((photo) => {
+      const components = [GridItemTall, GridItemNormal, GridItemBig];
+      const randomComponentValue = components[getGenerateRandomValue(0, 2)];
 
       const image = <Image src={photo} alt={photo} loading="lazy" />;
 
@@ -65,40 +37,7 @@ export const Content = () => {
   return (
     <Main>
       <GridWrapper>{GridColumns}</GridWrapper>
-      {/* <GridWrapper>
-        <GridItemWide>
-          <Image src="/J+R209_h.jpg" />
-        </GridItemWide>
-        <GridItemTall>
-          <Image src="/J+R210_v.jpg" />
-        </GridItemTall>
-        <GridItemNormal>
-          <Image src="/J+R210_v.jpg" />
-        </GridItemNormal>
-        
-        <GridItemTall>
-          <Image src="/J+R210_v.jpg" />
-        </GridItemTall>
-        <GridItemNormal>
-          <Image src="/J+R210_v.jpg" />
-        </GridItemNormal>
-        <GridItemWide>
-          <Image src="/J+R209_h.jpg" />
-        </GridItemWide>
-        <GridItemTall>
-          <Image src="/J+R210_v.jpg" />
-        </GridItemTall>
-        <GridItemNormal>
-          <Image src="/J+R210_v.jpg" />
-        </GridItemNormal>
-        <GridItemTall>
-          <Image src="/J+R210_v.jpg" />
-        </GridItemTall>
-        <GridItemNormal>
-          <Image src="/J+R210_v.jpg" />
-        </GridItemNormal>
-       
-      </GridWrapper> */}
+
       <ContentActions onHandleConfirmationModal={onHandleConfirmationModal} />
       {showConfirmationModal && (
         <ConfirmationModal onClose={onHandleConfirmationModal} />
