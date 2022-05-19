@@ -6,7 +6,7 @@
 - [x] ver pq a font n importa
 - [x] Colocar um title na /store
 - [x] Criar o carousel (ver se precisa real)
-- [] melhorar o load das imagens
+- [x] melhorar o load das imagens
 - [] refatorar e jogar os lixos fora
 - [] Trazer o Qrcode do PIX para a modal??? (Ver a necessidade)
 

@@ -46,7 +46,6 @@ const GridItemBig = stitches.styled(FlexCentered, {
 
 const GridItemNormal = stitches.styled(FlexCentered);
 
-// export const Image = stitches.styled(NextImage, {
 export const Image = stitches.styled("img", {
   objectFit: "cover",
   borderRadius: "0.33rem",
