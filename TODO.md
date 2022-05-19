@@ -7,7 +7,7 @@
 - [x] Colocar um title na /store
 - [x] Criar o carousel (ver se precisa real)
 - [x] melhorar o load das imagens
-- [] refatorar e jogar os lixos fora
+- [] criar loading para internet ruim
 - [] Trazer o Qrcode do PIX para a modal??? (Ver a necessidade)
 
   ------ Desktop -------
@@ -19,3 +19,5 @@
 
 - [] ADICIONAR NO SHEET A COLUNA DE CIDADE E ADICIONAR O SEPARADOR EM Gift
 - [] ARRUMAR O PIX
+
+- [] refatorar e jogar os lixos fora
