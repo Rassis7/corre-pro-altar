@@ -1,9 +1,9 @@
 import { createContext, ReactNode, useState, VFC } from "react";
-import { GiftType } from "../types";
+import { Gift } from "../types";
 
 type StoreContextType = {
-  gift?: GiftType;
-  selectGift: (gift?: GiftType) => void;
+  gift?: Gift;
+  selectGift: (gift?: Gift) => void;
 };
 
 type StoreProviderType = {
@@ -13,9 +13,9 @@ type StoreProviderType = {
 export const StoreContext = createContext({} as StoreContextType);
 
 export const StoreProvider: VFC<StoreProviderType> = ({ children }) => {
-  const [gift, setGift] = useState<GiftType>();
+  const [gift, setGift] = useState<Gift>();
 
-  const selectGift = (gift?: GiftType) => setGift(gift ?? undefined);
+  const selectGift = (gift?: Gift) => setGift(gift ?? undefined);
 
   return (
     <StoreContext.Provider value={{ gift, selectGift }}>

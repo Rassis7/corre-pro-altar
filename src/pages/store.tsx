@@ -11,10 +11,12 @@ import { AppLayout, services } from "@/shared";
 import NextHead from "next/head";
 
 type StoreType = {
-  gifts: GiftType[];
+  gifts: GiftType;
 };
 
 const Store: NextPage<StoreType> = ({ gifts }) => {
+  if (!gifts) return null;
+
   return (
     <>
       <NextHead>
@@ -34,8 +36,18 @@ const Store: NextPage<StoreType> = ({ gifts }) => {
 export const getStaticProps: GetStaticProps = async () => {
   const gift = new Models.Gift(services.api);
   const gifts = await gift.getAll();
+
+  const giftsPerCity = {} as GiftType;
+
+  gifts.forEach(({ city, ...gift }) => {
+    if (city in giftsPerCity) {
+      giftsPerCity[city].push(gift);
+      return;
+    }
+    Object.assign(giftsPerCity, { [city]: [gift] });
+  });
   return {
-    props: { gifts },
+    props: { gifts: giftsPerCity },
     revalidate: 60,
   };
 };

@@ -1,5 +1,5 @@
 import { Axios } from "axios";
-import { GiftType } from "../types";
+import { RawGift } from "../types";
 
 export class Gift {
   #api = {} as Axios;
@@ -9,7 +9,7 @@ export class Gift {
   }
 
   async getAll() {
-    const { data: gifts } = await this.#api.get<GiftType[]>("/gifts");
+    const { data: gifts } = await this.#api.get<RawGift[]>("/gifts");
 
     return gifts;
   }

@@ -7,8 +7,9 @@
 - [x] Colocar um title na /store
 - [x] Criar o carousel (ver se precisa real)
 - [x] melhorar o load das imagens
-- [] criar loading para internet ruim
+- [x] Colocar cidades na store
 - [] Trazer o Qrcode do PIX para a modal??? (Ver a necessidade)
+- [] criar loading para internet ruim
 
   ------ Desktop -------
 

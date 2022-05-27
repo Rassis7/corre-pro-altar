@@ -1,25 +1,31 @@
+import { Fragment, VFC } from "react";
 import { GiftType } from "@/store";
-import { VFC } from "react";
 import { GiftItem } from "./GiftItem";
 import { GiftsWrapper, Grid } from "./styles";
 import { Text } from "@/shared";
 
 type Props = {
-  gifts: GiftType[];
+  gifts: GiftType;
 };
 
 export const Gifts: VFC<Props> = ({ gifts }) => {
+  console.log("gifts", gifts);
+
   return (
     <>
       <GiftsWrapper>
-        <Text as="p" fontSize="large" color="gray">
-          Munique
-        </Text>
-        <Grid>
-          {gifts.map((gift) => (
-            <GiftItem key={gift.name} gift={gift} />
-          ))}
-        </Grid>
+        {Object.entries(gifts).map(([name, giftPerCity]) => (
+          <Fragment key={name}>
+            <Text as="p" fontSize="large" color="gray">
+              {name}
+            </Text>
+            <Grid>
+              {giftPerCity.map((gift) => (
+                <GiftItem key={gift.name} gift={gift} />
+              ))}
+            </Grid>
+          </Fragment>
+        ))}
       </GiftsWrapper>
     </>
   );

@@ -1,7 +1,7 @@
 import { useContext, VFC } from "react";
 import { StoreContext } from "@/store";
-import { utils, Modal, Button } from "@/shared";
-import { GiftName, GiftPrice, Image, Paragraph, TextWrapper } from "./styles";
+import { Modal, Button } from "@/shared";
+import { GiftName, GiftPrice, Paragraph, TextWrapper } from "./styles";
 import { Flex } from "@/shared/components/Flex";
 
 export const PaymentModal: VFC = () => {
@@ -15,7 +15,7 @@ export const PaymentModal: VFC = () => {
 
   return (
     <Modal
-      open={!!gift}
+      open={true}
       onClose={onClose}
       title="Um gesto de carinho"
       content={
@@ -31,18 +31,10 @@ export const PaymentModal: VFC = () => {
           <Flex
             justifyContent="center"
             alignItems="center"
-            gap="1rem"
-            css={{ marginTop: "$m" }}
+            flexDirection="column"
           >
-            <Image src={gift.image} width="100%" height="100%" />
-            <Flex
-              justifyContent="center"
-              alignItems="center"
-              flexDirection="column"
-            >
-              <GiftName>{gift.name}</GiftName>
-              <GiftPrice>{utils.getPriceInBrl(gift.price)}</GiftPrice>
-            </Flex>
+            <GiftName>{gift.name}</GiftName>
+            <GiftPrice>{gift.price}</GiftPrice>
           </Flex>
         </>
       }

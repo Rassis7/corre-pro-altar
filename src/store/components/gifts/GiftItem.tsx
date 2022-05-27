@@ -1,22 +1,17 @@
-import { Text, utils, Flex } from "@/shared";
+import { Text, Flex } from "@/shared";
 import { StoreContext } from "@/store/context";
-import { GiftType } from "@/store/types";
-import { useContext, useMemo, VFC } from "react";
+import { Gift } from "@/store/types";
+import { useContext, VFC } from "react";
 import { Figure, Image, Value } from "./styles";
 
 type Props = {
-  gift: GiftType;
+  gift: Gift;
 };
 
 export const GiftItem: VFC<Props> = ({ gift }) => {
   const { selectGift } = useContext(StoreContext);
 
-  const priceFormatted = useMemo(
-    () => utils.getPriceInBrl(gift.price),
-    [gift.price]
-  );
-
-  const handleSelectGift = (gift: GiftType) => selectGift(gift);
+  const handleSelectGift = (gift: Gift) => selectGift(gift);
 
   return (
     <Flex
@@ -35,7 +30,7 @@ export const GiftItem: VFC<Props> = ({ gift }) => {
             <Text as="p" color="white" fontSize="regular">
               {gift.name}
             </Text>
-            <Value>{priceFormatted}</Value>
+            <Value>{gift.price}</Value>
           </Flex>
         </figcaption>
       </Figure>
