@@ -1,12 +1,13 @@
 import { animations, LottieAnimation, Text } from "@/shared";
-import { Arrow, Container } from "./styles";
+import { Arrow, Container, TextContainer } from "./styles";
 
 export const Head = () => {
   return (
-    <Container>
-      <Text as="h1" fontSize="medium" color="white">
-        Presente bom, é aquele que sempre é lembrado...
-      </Text>
+    <Container
+      justifyContent="flex-start"
+      alignItems="center"
+      flexDirection="column"
+    >
       <LottieAnimation
         lotti={animations.planetTravel}
         width="100%"
@@ -14,9 +15,21 @@ export const Head = () => {
         loop={true}
       />
 
-      <Text as="h2" color="white" css={{ fontSize: "1.5rem" }}>
-        e com a gente não é diferente. Que tal nos ajudar a lembrar para sempre
-      </Text>
+      <TextContainer>
+        <Text
+          as="h1"
+          fontSize="medium"
+          color="gray"
+          css={{ fontSize: "1.8rem" }}
+        >
+          Presente bom, é aquele que sempre é lembrado...
+        </Text>
+
+        <Text as="h2" color="gray" css={{ fontSize: "1rem" }}>
+          e com a gente não é diferente. Que tal nos ajudar a lembrar para
+          sempre
+        </Text>
+      </TextContainer>
 
       <Arrow color="#999" size="2rem" />
     </Container>

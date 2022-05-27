@@ -1,13 +1,18 @@
+import { Flex } from "@/shared";
 import { stitches } from "@/shared/styles";
 import { IoArrowDown } from "react-icons/io5";
 
-export const Container = stitches.styled("div", {
-  width: "100vw",
+export const Container = stitches.styled(Flex, {
   height: "100vh",
-  textAlign: "center",
-  padding: "$m",
   marginTop: "$m",
-  position: "relative",
+  marginBottom: "$l",
+});
+
+export const TextContainer = stitches.styled("div", {
+  marginTop: "$m",
+  marginBottom: "$l",
+  padding: "$m",
+  textAlign: "center",
 });
 
 const bounce = stitches.keyframes({
@@ -17,11 +22,5 @@ const bounce = stitches.keyframes({
 });
 
 export const Arrow = stitches.styled(IoArrowDown, {
-  position: "absolute",
-  bottom: "1.5rem",
-
   animation: `${bounce} 2s infinite`,
 });
-
-//   -moz-animation: bounce 2s infinite;
-// -webkit-animation: bounce 2s infinite;

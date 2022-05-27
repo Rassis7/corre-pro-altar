@@ -1,7 +1,6 @@
 import { stitches } from "@/shared";
 
 export const GiftsWrapper = stitches.styled("div", {
-  marginTop: "$m",
   textAlign: "center",
 });
 

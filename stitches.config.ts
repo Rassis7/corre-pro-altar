@@ -101,6 +101,10 @@ const globalStyles = globalCss({
     padding: 0,
     boxSizing: "border-box",
   },
+  html: {
+    width: "100vw",
+    overflowX: "hidden",
+  },
   body: {
     fontFamily: theme.fonts.sans,
     fontSize: "16px",
