@@ -20,7 +20,7 @@ const Store: NextPage<StoreType> = ({ gifts }) => {
   return (
     <>
       <NextHead>
-        <title>{"Lojinha ❤️ | Romuo & Julia"}</title>
+        <title>{"Lojinha ❤️ | Romulo & Julia"}</title>
       </NextHead>
       <AppLayout>
         <StoreProvider>
@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps = async () => {
   });
   return {
     props: { gifts: giftsPerCity },
-    revalidate: 60,
+    revalidate: 60 * 60 * 12, // 12 hours,
   };
 };
 
