@@ -1,7 +1,7 @@
 import { Text, Flex } from "@/shared";
 import { StoreContext } from "@/store/context";
 import { Gift } from "@/store/types";
-import { useContext, VFC } from "react";
+import { useContext, useMemo, VFC } from "react";
 import { Figure, Image, Value } from "./styles";
 
 type Props = {
@@ -13,14 +13,27 @@ export const GiftItem: VFC<Props> = ({ gift }) => {
 
   const handleSelectGift = (gift: Gift) => selectGift(gift);
 
+  const isSoldOff = useMemo(
+    () => gift.priceWithTax === "Esgotado",
+    [gift.priceWithTax]
+  );
+
   return (
     <Flex
       justifyContent="center"
       alignItems="center"
-      onClick={() => handleSelectGift(gift)}
+      {...(!isSoldOff && { onClick: () => handleSelectGift(gift) })}
     >
       <Figure>
-        <Image src={gift.image} alt={gift.name} />
+        <Image
+          src={gift.image}
+          alt={gift.name}
+          {...(isSoldOff && {
+            css: {
+              filter: "grayscale(100%)",
+            },
+          })}
+        />
         <figcaption>
           <Flex
             flexDirection="column"
@@ -30,7 +43,13 @@ export const GiftItem: VFC<Props> = ({ gift }) => {
             <Text as="p" color="white" fontSize="regular">
               {gift.name}
             </Text>
-            <Value>{gift.price}</Value>
+            <Value
+              css={{
+                color: isSoldOff ? "$red500" : "$green200",
+              }}
+            >
+              {gift.priceWithTax}
+            </Value>
           </Flex>
         </figcaption>
       </Figure>

@@ -46,13 +46,12 @@ export const Figure = stitches.styled("figure", {
 
 export const Value = stitches.styled("p", {
   fontWeight: 400,
-  color: "$green200",
   fontSize: "1.2rem",
   textTransform: "bold",
 });
 
 export const Image = stitches.styled("img", {
-  width: "40vw",
+  width: "50vw",
   height: "11rem",
   verticalAlign: "middle",
   display: "inline-block",

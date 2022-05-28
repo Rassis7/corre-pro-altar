@@ -3,7 +3,6 @@ import { stitches } from "@/shared/styles";
 import { IoArrowDown } from "react-icons/io5";
 
 export const Container = stitches.styled(Flex, {
-  height: "100vh",
   height: "calc(var(--vh, 1vh) * 100)",
   marginTop: "$m",
 });

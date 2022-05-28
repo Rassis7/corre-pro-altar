@@ -34,7 +34,7 @@ export const PaymentModal: VFC = () => {
             flexDirection="column"
           >
             <GiftName>{gift.name}</GiftName>
-            <GiftPrice>{gift.price}</GiftPrice>
+            <GiftPrice>{gift.priceWithTax}</GiftPrice>
           </Flex>
         </>
       }
