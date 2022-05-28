@@ -9,7 +9,7 @@
 - [x] melhorar o load das imagens
 - [x] ADICIONAR NO SHEET A COLUNA DE CIDADE E ADICIONAR O SEPARADOR EM Gift
 - [x] Acertar o tamanho da home
-- [] Acertar o fav.ico
+- [x] Acertar o fav.ico e metas
 - [] Bloquear o desktop
 - [] criar loading para internet ruim
 - [] Adicionar meio de pagamento e carrinho (PIX e Cartão)
