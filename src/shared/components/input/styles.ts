@@ -10,6 +10,7 @@ export const StyledInput = stitches.styled(
     "&:focus": {
       outlineColor: "$primary",
     },
+    fontSize: "inherit",
   },
   {
     variants: {

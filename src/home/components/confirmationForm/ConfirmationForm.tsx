@@ -81,7 +81,7 @@ export const ConfirmationForm = forwardRef<
           <Input
             {...inputProps}
             variant={phone ? "info" : "error"}
-            type="text"
+            type="tel"
             css={{
               width: "100%",
             }}

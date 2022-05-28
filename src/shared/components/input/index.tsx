@@ -11,11 +11,17 @@ type InputProps = CSS &
     type: "email" | "number" | "password" | "search" | "tel" | "text" | "url";
   };
 
-export const Input: VFC<InputProps> = ({ variant, disabled, ...rest }) => {
+export const Input: VFC<InputProps> = ({
+  variant,
+  disabled,
+  type,
+  ...rest
+}) => {
   return (
     <StyledInput
       disabled={disabled}
       {...rest}
+      type={type}
       variant={disabled ? "disabled" : variant}
     />
   );
