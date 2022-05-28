@@ -1,4 +1,4 @@
-# TODO
+# MUST TO HAVE
 
 - [x] Melhorar o componente Text (aceitando um 'as', passando props e etc)
 - [x] Arrumar os textos dos botões
@@ -11,6 +11,9 @@
 - [x] Acertar o tamanho da home
 - [x] Acertar o fav.ico e metas
 - [] Bloquear o desktop
+
+## NIVE TO HAVE
+
 - [] criar loading para internet ruim
 - [] Adicionar meio de pagamento e carrinho (PIX e Cartão)
 - [] Trazer o Qrcode do PIX para a modal??? (Ver a necessidade)
