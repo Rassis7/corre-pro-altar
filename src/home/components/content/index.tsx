@@ -11,7 +11,7 @@ import {
   Main,
   Image,
 } from "./styles";
-import useMediaQuery from "@/shared/hooks/useMediaQuery";
+import { useMediaQuery } from "@/shared/hooks";
 
 type ContentProps = {
   photos: string[];
@@ -20,7 +20,7 @@ type ContentProps = {
 // TODO: Suavizar o loading, colocar algum efeito, transition, o que for...
 export const Content: VFC<ContentProps> = ({ photos }) => {
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
-  const isBp1 = useMediaQuery("(max-width: 320px)");
+  const isBp1 = useMediaQuery("(max-width: 425px)");
   const isBp2 = useMediaQuery("(max-width: 768px)");
 
   const onHandleConfirmationModal = () =>

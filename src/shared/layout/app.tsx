@@ -8,7 +8,7 @@ type Props = {
 const Main = stitches.styled("main", {
   color: "$gray50",
   width: "100vw",
-  minHeight: "100vh",
+  height: "100vh",
   overflowY: "none",
   "::-webkit-scrollbar": {
     display: "none",

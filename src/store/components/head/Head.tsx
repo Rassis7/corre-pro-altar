@@ -1,16 +1,24 @@
 import { animations, LottieAnimation, Text } from "@/shared";
+import { useMediaQuery } from "@/shared/hooks";
 import { Arrow, Container, TextContainer } from "./styles";
 
 export const Head = () => {
+  const isBp2 = useMediaQuery("(max-width: 768px)");
+
   return (
     <Container
-      justifyContent="flex-start"
+      justifyContent="space-evenly"
       alignItems="center"
       flexDirection="column"
+      css={{
+        "@bp2": {
+          padding: "6rem",
+        },
+      }}
     >
       <LottieAnimation
         lotti={animations.planetTravel}
-        width="100%"
+        width={isBp2 ? "70%" : "100%"}
         height="auto"
         loop={true}
       />

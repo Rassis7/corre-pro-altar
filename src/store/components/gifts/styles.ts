@@ -8,18 +8,14 @@ export const Grid = stitches.styled("section", {
   gridGap: "$xs",
   width: "100%",
   padding: "$l",
+  gap: "$m",
   "@bp1": {
     display: "inline-flex",
     overflowX: "auto",
-    gap: "$l",
   },
   "@bp2": {
     display: "grid",
     gridTemplateColumns: "repeat(2, minmax(6.25rem, 1fr))",
-  },
-  "@bp3": {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, minmax(6.25rem, 1fr))",
   },
 });
 
@@ -56,8 +52,8 @@ export const Value = stitches.styled("p", {
 });
 
 export const Image = stitches.styled("img", {
-  width: "60vw",
-  height: "17rem",
+  width: "40vw",
+  height: "11rem",
   verticalAlign: "middle",
   display: "inline-block",
   borderStartEndRadius: "10px",
@@ -66,4 +62,9 @@ export const Image = stitches.styled("img", {
   borderEndEndRadius: "5px",
   objectFit: "cover",
   padding: "0.1rem",
+
+  "@bp2": {
+    width: "40vw",
+    height: "9rem",
+  },
 });

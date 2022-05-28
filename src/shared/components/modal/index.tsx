@@ -3,6 +3,7 @@ import { Fragment, useCallback } from "react";
 import { Wrapper, Title, TitleContainer, FooterContainer } from "./styled";
 import SwipeableBottomSheet from "react-swipeable-bottom-sheet";
 import { BsChevronCompactDown } from "react-icons/bs";
+import { useMediaQuery } from "@/shared/hooks";
 
 interface Props {
   open: boolean;
@@ -19,6 +20,8 @@ export const Modal = ({
   title,
   onClose,
 }: Props): JSX.Element => {
+  const isBp1 = useMediaQuery("(max-width: 425px)");
+
   const handleChange = useCallback(
     (isOpen: boolean) => {
       !isOpen && onClose();
@@ -34,7 +37,7 @@ export const Modal = ({
     <SwipeableBottomSheet open={open} onClose={onClose} onChange={handleChange}>
       <Wrapper>
         <TitleContainer>
-          <BsChevronCompactDown size="2rem" color="#666" />
+          {isBp1 && <BsChevronCompactDown size="2rem" color="#666" />}
           <Title>{title}</Title>
         </TitleContainer>
         {content}
