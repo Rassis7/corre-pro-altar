@@ -10,7 +10,7 @@
 - [x] ADICIONAR NO SHEET A COLUNA DE CIDADE E ADICIONAR O SEPARADOR EM Gift
 - [x] Acertar o tamanho da home
 - [x] Acertar o fav.ico e metas
-- [] Bloquear o desktop
+- [x] Bloquear o desktop
 
 ## NIVE TO HAVE
 
