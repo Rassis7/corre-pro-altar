@@ -12,6 +12,7 @@ export const Grid = stitches.styled("section", {
   "@bp1": {
     display: "inline-flex",
     overflowX: "auto",
+    scrollSnapType: "x mandatory",
   },
   "@bp2": {
     display: "grid",
@@ -22,7 +23,7 @@ export const Grid = stitches.styled("section", {
 export const GridItem = stitches.styled("div", {
   display: "flex",
   "@bp1": {
-    minWidth: "20rem",
+    minWidth: "30rem",
     mx: "$s",
   },
   "@bp2": {
@@ -35,6 +36,7 @@ export const GridItem = stitches.styled("div", {
 export const Figure = stitches.styled("figure", {
   backgroundColor: "$gray900",
   borderRadius: "$extraSmall",
+  scrollSnapAlign: "start",
   "& > figcaption": {
     padding: "$m",
     textAlign: "center",
@@ -51,8 +53,8 @@ export const Value = stitches.styled("p", {
 });
 
 export const Image = stitches.styled("img", {
-  width: "50vw",
-  height: "11rem",
+  width: "80vw",
+  height: "30vh",
   verticalAlign: "middle",
   display: "inline-block",
   borderStartEndRadius: "10px",
