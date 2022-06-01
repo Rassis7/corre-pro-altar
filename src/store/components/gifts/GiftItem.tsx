@@ -39,8 +39,21 @@ export const GiftItem: VFC<Props> = ({ gift }) => {
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
+            css={{
+              overflow: "hidden",
+            }}
           >
-            <Text as="p" color="white" fontSize="regular">
+            <Text
+              as="p"
+              color="white"
+              css={{
+                whiteSpace: "nowrap",
+                textOverflow: "ellipsis",
+                width: "100%",
+                overflow: "hidden",
+                fontSize: "1.5rem",
+              }}
+            >
               {gift.name}
             </Text>
             <Value

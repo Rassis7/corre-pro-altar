@@ -34,6 +34,7 @@ export const GridItem = stitches.styled("div", {
 });
 
 export const Figure = stitches.styled("figure", {
+  width: "80vw",
   backgroundColor: "$gray900",
   borderRadius: "$extraSmall",
   scrollSnapAlign: "start",
@@ -53,7 +54,7 @@ export const Value = stitches.styled("p", {
 });
 
 export const Image = stitches.styled("img", {
-  width: "80vw",
+  width: "100%",
   height: "30vh",
   verticalAlign: "middle",
   display: "inline-block",
