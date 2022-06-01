@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps = async () => {
   });
   return {
     props: { gifts: giftsPerCity },
-    revalidate: 60 * 60 * 12, // 12 hours,
+    revalidate: 60 * 60 * 2, // 2 hours,
   };
 };
 
