@@ -11,8 +11,9 @@
 - [x] Acertar o tamanho da home
 - [x] Acertar o fav.ico e metas
 - [x] Bloquear o desktop
+- [] Thank you page
 
-## NIVE TO HAVE
+## NICE TO HAVE
 
 - [] criar loading para internet ruim
 - [] Adicionar meio de pagamento e carrinho (PIX e Cartão)

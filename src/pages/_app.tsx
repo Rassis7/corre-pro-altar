@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { globalStyles } from "../../stitches.config";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  globalStyles();
   const isDesktop = useMediaQuery("(min-width: 769px)");
 
   useEffect(() => {
@@ -14,9 +13,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   if (isDesktop) {
+    globalStyles();
     return <Error />;
   }
 
+  globalStyles();
   return <Component {...pageProps} />;
 }
 
