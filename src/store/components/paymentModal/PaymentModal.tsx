@@ -8,7 +8,6 @@ export const PaymentModal: VFC = () => {
   const { gift, selectGift } = useContext(StoreContext);
 
   const handleGoToLink = (link?: string) => link && window.open(link, "_blank");
-
   const onClose = () => selectGift();
 
   if (!gift) return null;
@@ -22,9 +21,8 @@ export const PaymentModal: VFC = () => {
         <>
           <TextWrapper>
             <Paragraph>
-              {
-                'Clique em "Presentear" e você será enviado o mercado pago, onde é totalmente seguro e com opções de pagamento no Cartão, Pix ou Boleto'
-              }
+              {gift?.description ??
+                'Clique em "Presentear" e você será enviado o mercado pago, onde é totalmente seguro e com opções de pagamento no Cartão, Pix ou Boleto'}
             </Paragraph>
           </TextWrapper>
 

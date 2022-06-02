@@ -6,6 +6,7 @@ export interface Gift {
   priceWithTax: string;
   buyLink: string;
   image: string;
+  description?: string;
 }
 
 export type RawGift = Gift & {
