@@ -7,9 +7,9 @@ import {
 } from "react";
 import InputMask from "react-input-mask";
 import { ToastContext } from "@/shared/context";
-import { fauna, q } from "@/shared/services";
 import { Input } from "@/shared";
 import { ErrorMessage, Form, FormGroup } from "./styles";
+import { ConfirmPresence } from "@/home/models";
 
 type ConfirmationFormRef = {
   save: () => void;
@@ -33,15 +33,10 @@ export const ConfirmationForm = forwardRef<
 
     try {
       onLoading(true);
-      await fauna.query(
-        q.Create(q.Collection("guests"), {
-          data: { name, phone },
-        })
-      );
+      await ConfirmPresence.setConfirmation({ name, phone });
 
       notify("Sua presença foi confirmada com sucesso!", { type: "success" });
     } catch (error) {
-      console.log(error);
       notify("Ocorreu um erro, tente novamente ou contacte os noivos!", {
         type: "error",
       });
@@ -49,7 +44,7 @@ export const ConfirmationForm = forwardRef<
       onClose();
       onLoading(false);
     }
-  }, [name, phone, fauna, q]);
+  }, [name, phone]);
 
   useImperativeHandle(ref, () => ({
     save: () => {
