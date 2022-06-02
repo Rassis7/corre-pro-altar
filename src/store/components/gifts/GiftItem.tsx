@@ -13,8 +13,10 @@ export const GiftItem: VFC<Props> = ({ gift }) => {
 
   const handleSelectGift = (gift: Gift) => selectGift(gift);
 
+  console.log(gift.priceWithTax);
+
   const isSoldOff = useMemo(
-    () => gift.priceWithTax === "Esgotado",
+    () => gift.priceWithTax === "Esgotado" || gift.priceWithTax === "R$ 0,00",
     [gift.priceWithTax]
   );
 
@@ -61,7 +63,7 @@ export const GiftItem: VFC<Props> = ({ gift }) => {
                 color: isSoldOff ? "$red500" : "$green200",
               }}
             >
-              {gift.priceWithTax}
+              {isSoldOff ? "Esgotado" : gift.priceWithTax}
             </Value>
           </Flex>
         </figcaption>
