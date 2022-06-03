@@ -1,8 +1,11 @@
 import { animations, LottieAnimation, Text } from "@/shared";
 import React from "react";
 import { Container } from "./styles";
+import { useMediaQuery } from "@/shared/hooks";
 
 export const Head = () => {
+  const isBp2 = useMediaQuery("(min-width: 768px)");
+
   return (
     <Container
       justifyContent="center"
@@ -13,7 +16,7 @@ export const Head = () => {
       <LottieAnimation
         lotti={animations.loveLetter}
         width="100%"
-        height="11rem"
+        height={isBp2 ? "20rem" : "11rem"}
         loop={true}
       />
 
@@ -22,14 +25,8 @@ export const Head = () => {
           Obrigado
         </Text>
         <Text as="h2" fontSize="regular" color="gray">
-          Deixe um bilhete de carinho, iremos guardar-lo em um potinho de amor
+          Deixe um bilhete de carinho
         </Text>
-        <LottieAnimation
-          lotti={animations.loveSpellBottle}
-          width="7rem"
-          height="9rem"
-          loop={true}
-        />
       </section>
     </Container>
   );

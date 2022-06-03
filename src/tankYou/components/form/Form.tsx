@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState, VFC } from "react";
+import React, { useCallback, useContext, useMemo, useState, VFC } from "react";
 import { Button, Flex, Input, LoadingIcon, Text } from "@/shared";
 import { ToastContext } from "@/shared/context";
 import { Message } from "@/tankYou/models";
@@ -14,13 +14,15 @@ export const Form: VFC<FormType> = ({ slug }) => {
   const [name, setName] = useState<string | undefined>();
   const [message, setMessage] = useState<string | undefined>();
 
+  const isEmpty = useMemo(() => !message || !name, [message, name]);
+
   const handleSubmit = useCallback(async () => {
     if (!slug || !name || !message) return;
 
     try {
       setLoading(true);
       await Message.sendMessage({ slug, name, message });
-      notify("Sua mensagem foi enviada com sucesso ❤️", { type: "success" });
+      notify("Sua mensagem foi enviada, obrigado ❤️!!!", { type: "success" });
     } catch (error) {
       notify("Ocorreu um erro, tente novamente ou contacte os noivos!", {
         type: "error",
@@ -31,19 +33,18 @@ export const Form: VFC<FormType> = ({ slug }) => {
   }, [slug, name, message, Message]);
 
   return (
-    <Flex flexDirection="column" gap="1rem">
+    <Flex flexDirection="column" gap="1rem" css={{ padding: "$l" }}>
       <div>
         <Input
           type="text"
           variant={!name ? "error" : "info"}
-          placeholder="Seu nome"
           css={{ width: "100%" }}
           value={name}
           onChange={({ currentTarget }) => setName(currentTarget.value)}
         />
         {!name && (
           <Text fontSize="regular" color="error" css={{ padding: "0 $s" }}>
-            Insira o nome
+            Insira seu nome
           </Text>
         )}
       </div>
@@ -64,14 +65,19 @@ export const Form: VFC<FormType> = ({ slug }) => {
         )}
       </div>
 
-      <Button block color="tertiary" radii="medium" onClick={handleSubmit}>
+      <Button
+        block
+        color={isEmpty ? "disabled" : "tertiary"}
+        radii="medium"
+        onClick={() => !isEmpty && handleSubmit()}
+      >
         {loading ? (
           <div>
             <LoadingIcon size="1rem" color="#fff" />
             {" Salvando..."}
           </div>
         ) : (
-          "Enviando"
+          "Enviar"
         )}
       </Button>
     </Flex>

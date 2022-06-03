@@ -27,10 +27,10 @@ export const button = {
       color: theme.colors.white,
     },
     disabled: {
-      backgroundColor: theme.colors.gray50,
-      color: theme.colors.gray400,
+      backgroundColor: theme.colors.gray400,
+      color: theme.colors.gray50,
       "&:hover": {
-        backgroundColor: theme.colors.gray50,
+        backgroundColor: theme.colors.gray400,
       },
     },
   },

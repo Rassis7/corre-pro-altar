@@ -9,6 +9,10 @@ import { getCssText, styled } from "../../stitches.config";
 
 const BodyWrapper = styled("body", {
   fontSize: "1rem",
+  "&::-webkit-scrollbar": {
+    display: "none",
+  },
+  scrollbarWidth: "none",
 });
 
 export default class MyDocument extends Document {
