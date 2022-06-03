@@ -11,8 +11,8 @@ type FlexBoxProps = {
 
 type FlexType = FlexBoxProps & {
   children: ReactNode;
-  onClick?: () => void;
   css?: StitchesTypes.CSS;
+  onClick?: () => void;
 };
 
 const StyledFlex = stitches.styled("div", { display: "flex" });

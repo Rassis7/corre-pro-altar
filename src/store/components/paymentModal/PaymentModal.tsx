@@ -1,8 +1,7 @@
 import { useContext, VFC } from "react";
 import { StoreContext } from "@/store";
-import { Modal, Button } from "@/shared";
+import { Modal, Button, Flex } from "@/shared";
 import { GiftName, GiftPrice, Paragraph, TextWrapper } from "./styles";
-import { Flex } from "@/shared/components/flex";
 
 export const PaymentModal: VFC = () => {
   const { gift, selectGift } = useContext(StoreContext);
