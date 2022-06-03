@@ -1,7 +1,6 @@
 import React, { useCallback, useRef, useState } from "react";
 import { ConfirmationForm } from "@/home/components";
-import { Button, LoadingIcon, Modal } from "@/shared";
-import { Flex } from "@/shared/components/flex";
+import { Button, LoadingIcon, Modal, Flex } from "@/shared";
 import { Container, FooterContainer, Label } from "./styles";
 
 interface Props {
