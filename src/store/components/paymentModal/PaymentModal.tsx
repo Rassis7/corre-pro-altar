@@ -21,8 +21,9 @@ export const PaymentModal: VFC = () => {
         <>
           <TextWrapper>
             <Paragraph>
-              {gift?.description ??
-                'Clique em "Presentear" e você será enviado o mercado pago, onde é totalmente seguro e com opções de pagamento no Cartão, Pix ou Boleto'}
+              {gift?.description !== ""
+                ? gift?.description
+                : 'Clique em "Presentear" e você será enviado o mercado pago, onde é totalmente seguro e com opções de pagamento no Cartão, Pix ou Boleto'}
             </Paragraph>
           </TextWrapper>
 

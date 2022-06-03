@@ -9,6 +9,10 @@ const Main = stitches.styled("main", {
   color: "$gray50",
   width: "100vw",
   height: "100vh",
+  "::-webkit-scrollbar": {
+    display: "none",
+  },
+  scrollbarWidth: "none",
 });
 
 export const AppLayout: VFC<Props> = ({ children }) => {
