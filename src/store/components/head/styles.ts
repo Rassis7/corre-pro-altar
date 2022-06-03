@@ -5,6 +5,9 @@ import { IoArrowDown } from "react-icons/io5";
 export const Container = stitches.styled(Flex, {
   height: "calc(var(--vh, 1vh) * 100)",
   marginTop: "$m",
+  "@bp2": {
+    padding: "6rem",
+  },
 });
 
 export const TextContainer = stitches.styled("div", {

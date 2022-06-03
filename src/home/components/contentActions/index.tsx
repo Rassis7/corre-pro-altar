@@ -2,7 +2,7 @@ import { Text, LottieAnimation, animations, Button } from "@/shared";
 import React, { VFC } from "react";
 import { Container, TitleContainer, ButtonGroup } from "./styles";
 import { useRouter } from "next/router";
-import { Flex } from "@/shared/components/Flex";
+import { Flex } from "@/shared/components/flex";
 
 type ContentActionsType = {
   onHandleConfirmationModal: () => void;

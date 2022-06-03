@@ -10,11 +10,6 @@ export const Head = () => {
       justifyContent="space-evenly"
       alignItems="center"
       flexDirection="column"
-      css={{
-        "@bp2": {
-          padding: "6rem",
-        },
-      }}
     >
       <LottieAnimation
         lotti={animations.planetTravel}

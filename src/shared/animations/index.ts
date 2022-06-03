@@ -4,5 +4,14 @@ import rings from "./rings.json";
 import we from "./rings.json";
 import planetTravel from "./planet-travel.json";
 import heartBreak from "./heart-break.json";
+import loveLetter from "./love-letter.json";
 
-export { loveHearts, loveSpellBottle, rings, we, planetTravel, heartBreak };
+export {
+  loveHearts,
+  loveSpellBottle,
+  rings,
+  we,
+  planetTravel,
+  heartBreak,
+  loveLetter,
+};

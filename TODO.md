@@ -11,7 +11,7 @@
 - [x] Acertar o tamanho da home
 - [x] Acertar o fav.ico e metas
 - [x] Bloquear o desktop
-- [] Thank you page
+- [x] Thank you page
 
 ## NICE TO HAVE
 

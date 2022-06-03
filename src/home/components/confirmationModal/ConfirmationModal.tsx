@@ -1,8 +1,7 @@
 import React, { useCallback, useRef, useState } from "react";
 import { ConfirmationForm } from "@/home/components";
-import { Button, Modal } from "@/shared";
-import { Container, FooterContainer, Label, LoadingIcon } from "./styles";
-import { Flex } from "@/shared/components/Flex";
+import { Button, LoadingIcon, Modal, Flex } from "@/shared";
+import { Container, FooterContainer, Label } from "./styles";
 
 interface Props {
   // open: boolean;
