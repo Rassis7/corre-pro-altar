@@ -1,4 +1,5 @@
 import { Error } from "@/shared";
+import { AppProvider } from "@/shared/context";
 import { useMediaQuery } from "@/shared/hooks";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
@@ -18,7 +19,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   }
 
   globalStyles();
-  return <Component {...pageProps} />;
+  return (
+    <AppProvider>
+      <Component {...pageProps} />
+    </AppProvider>
+  );
 }
 
 export default MyApp;

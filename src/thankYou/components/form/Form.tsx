@@ -1,6 +1,10 @@
 import React, { useCallback, useContext, useMemo, useState, VFC } from "react";
 import { Button, Flex, Input, LoadingIcon, Text } from "@/shared";
-import { ToastContext } from "@/shared/context";
+import {
+  AppContext,
+  CONFIRMATION_LOG_KEY,
+  ToastContext,
+} from "@/shared/context";
 import { Message } from "@/thankYou/models";
 import { Textarea } from "./styles";
 
@@ -10,6 +14,7 @@ type FormType = {
 
 export const Form: VFC<FormType> = ({ slug }) => {
   const { notify } = useContext(ToastContext);
+  const { confirmationLog } = useContext(AppContext);
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState<string | undefined>();
   const [message, setMessage] = useState<string | undefined>();
@@ -21,7 +26,16 @@ export const Form: VFC<FormType> = ({ slug }) => {
 
     try {
       setLoading(true);
-      await Message.sendMessage({ slug, name, message });
+
+      if (typeof window !== "undefined") {
+        const newStorageValue = { ...confirmationLog, wasSave: true };
+        window.localStorage.setItem(
+          CONFIRMATION_LOG_KEY,
+          JSON.stringify(newStorageValue)
+        );
+      }
+
+      await Message.sendMessage({ slug, name, message, confirmationLog });
       notify("Sua mensagem foi enviada, obrigado ❤️ !!!", { type: "success" });
     } catch (error) {
       notify("Ocorreu um erro, tente novamente ou contacte os noivos!", {
@@ -30,40 +44,36 @@ export const Form: VFC<FormType> = ({ slug }) => {
     } finally {
       setLoading(false);
     }
-  }, [slug, name, message, Message]);
+  }, [slug, name, message, confirmationLog]);
 
   return (
     <Flex flexDirection="column" gap="1rem" css={{ padding: "$l" }}>
-      <div>
-        <Input
-          type="text"
-          variant={!name ? "error" : "info"}
-          css={{ width: "100%" }}
-          value={name}
-          onChange={({ currentTarget }) => setName(currentTarget.value)}
-        />
-        {!name && (
-          <Text fontSize="regular" color="error" css={{ padding: "0 $s" }}>
-            Insira seu nome
-          </Text>
-        )}
-      </div>
+      <Input
+        type="text"
+        variant={!name ? "error" : "info"}
+        css={{ width: "100%" }}
+        value={name}
+        onChange={({ currentTarget }) => setName(currentTarget.value)}
+      />
+      {!name && (
+        <Text fontSize="regular" color="error" css={{ padding: "0 $s" }}>
+          Insira seu nome
+        </Text>
+      )}
 
-      <div>
-        <Textarea
-          variant={!message ? "error" : "info"}
-          onChange={({ currentTarget }) => setMessage(currentTarget.value)}
-          cols={30}
-          rows={8}
-        >
-          {message}
-        </Textarea>
-        {!message && (
-          <Text fontSize="regular" color="error" css={{ padding: "0 $s" }}>
-            Insira sua mensagem
-          </Text>
-        )}
-      </div>
+      <Textarea
+        variant={!message ? "error" : "info"}
+        onChange={({ currentTarget }) => setMessage(currentTarget.value)}
+        cols={30}
+        rows={8}
+      >
+        {message}
+      </Textarea>
+      {!message && (
+        <Text fontSize="regular" color="error" css={{ padding: "0 $s" }}>
+          Insira sua mensagem
+        </Text>
+      )}
 
       <Button
         block
