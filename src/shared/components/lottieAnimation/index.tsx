@@ -2,7 +2,7 @@ import React from "react";
 import Lottie from "react-lottie";
 
 interface Props {
-  lotti: any;
+  lotti: unknown;
   width: number | string;
   height: number | string;
   loop?: boolean;

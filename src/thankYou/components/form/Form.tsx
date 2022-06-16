@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useMemo, useState, VFC } from "react";
 import { Button, Flex, Input, LoadingIcon, Text } from "@/shared";
 import { ToastContext } from "@/shared/context";
-import { Message } from "@/tankYou/models";
+import { Message } from "@/thankYou/models";
 import { Textarea } from "./styles";
 
 type FormType = {
@@ -22,7 +22,7 @@ export const Form: VFC<FormType> = ({ slug }) => {
     try {
       setLoading(true);
       await Message.sendMessage({ slug, name, message });
-      notify("Sua mensagem foi enviada, obrigado ❤️!!!", { type: "success" });
+      notify("Sua mensagem foi enviada, obrigado ❤️ !!!", { type: "success" });
     } catch (error) {
       notify("Ocorreu um erro, tente novamente ou contacte os noivos!", {
         type: "error",

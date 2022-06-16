@@ -59,7 +59,7 @@ const { styled, css, theme, getCssText, keyframes, config } = createStitches({
     },
     fonts: {
       sans: "Roboto, sans-serif",
-      parisienne: "Parisienne, cursive",
+      qwitcherGrypen: "Qwitcher Grypen, cursive",
     },
   },
   utils: {

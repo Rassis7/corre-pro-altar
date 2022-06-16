@@ -34,8 +34,8 @@ export const text = {
     },
   },
   fontFamily: {
-    parisienne: {
-      fontFamily: theme.fonts.parisienne,
+    qwitcherGrypen: {
+      fontFamily: theme.fonts.qwitcherGrypen,
     },
     sans: {
       fontFamily: theme.fonts.sans,

@@ -36,8 +36,8 @@ export const ContentActions: VFC<ContentActionsType> = ({
           <Text
             as="h1"
             color="primary"
-            fontFamily="parisienne"
-            fontSize="large"
+            fontFamily="qwitcherGrypen"
+            fontSize="extraLarge"
           >
             Romulo e Júlia
           </Text>

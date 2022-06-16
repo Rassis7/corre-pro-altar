@@ -20,10 +20,10 @@ const StyledFlex = stitches.styled("div", { display: "flex" });
 export const Flex: VFC<FlexType> = ({
   children,
   onClick,
-  justifyContent,
-  alignItems,
-  gap,
-  flexDirection,
+  justifyContent = "flex-start",
+  alignItems = "start",
+  gap = "normal",
+  flexDirection = "row",
   css,
   ...rest
 }) => {
