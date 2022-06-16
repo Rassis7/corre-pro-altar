@@ -36,7 +36,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap"
             rel="stylesheet"
           />
           <link rel="shortcut icon" href="/love_fav.png" type="image/ico" />

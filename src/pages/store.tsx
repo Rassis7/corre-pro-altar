@@ -6,15 +6,23 @@ import {
   Head,
   Models,
   Gifts,
+  Nav,
 } from "@/store";
-import { AppLayout, services } from "@/shared";
+import { AppLayout, Button, services, stitches } from "@/shared";
 import NextHead from "next/head";
+import { useRouter } from "next/router";
 
 type StoreType = {
   gifts: GiftType;
 };
 
+const ButtonContainer = stitches.styled("div", {
+  padding: "1rem",
+});
+
 const Store: NextPage<StoreType> = ({ gifts }) => {
+  const router = useRouter();
+
   if (!gifts) return null;
 
   return (
@@ -24,10 +32,17 @@ const Store: NextPage<StoreType> = ({ gifts }) => {
       </NextHead>
       <AppLayout>
         <StoreProvider>
+          <Nav />
           <Head />
           <Gifts gifts={gifts} />
           <PaymentModal />
         </StoreProvider>
+
+        <ButtonContainer>
+          <Button block onClick={() => router.push("/")}>
+            Página inicial
+          </Button>
+        </ButtonContainer>
       </AppLayout>
     </>
   );

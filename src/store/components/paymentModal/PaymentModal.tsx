@@ -30,6 +30,8 @@ export const PaymentModal: VFC = () => {
             justifyContent="center"
             alignItems="center"
             flexDirection="column"
+            gap="0.5rem"
+            css={{ textAlign: "center" }}
           >
             <GiftName>{gift.name}</GiftName>
             <GiftPrice>{gift.priceWithTax}</GiftPrice>

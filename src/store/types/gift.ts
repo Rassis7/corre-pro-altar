@@ -1,4 +1,4 @@
-type CityKey = "Roma" | "Amsterdã" | "Munique" | "Outros";
+type CityKey = "Munique" | "Roma" | "Amsterdã" | "Outros";
 
 export interface Gift {
   name: string;
