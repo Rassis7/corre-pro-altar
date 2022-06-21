@@ -52,8 +52,21 @@ export const ContentActions: VFC<ContentActionsType> = ({
             Confirmar presença
           </Button>
 
-          <Button block color="tertiary" onClick={() => router.push("store")}>
+          <Button
+            block
+            color="tertiary"
+            onClick={() => router.push("store")}
+            css={{ marginBottom: "1rem" }}
+          >
             Presentear os noivos
+          </Button>
+
+          <Button
+            block
+            color="disabled"
+            onClick={() => router.push("/thankYou/RJ000")}
+          >
+            Deixe uma mensagem!
           </Button>
         </ButtonGroup>
       </Flex>
