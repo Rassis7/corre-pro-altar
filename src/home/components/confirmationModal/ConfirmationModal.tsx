@@ -2,9 +2,9 @@ import React, { useCallback, useRef, useState } from "react";
 import { ConfirmationForm } from "@/home/components";
 import { Button, LoadingIcon, Modal, Flex } from "@/shared";
 import { Container, FooterContainer, Label } from "./styles";
+import { SuccessModal } from "../successModal";
 
 interface Props {
-  // open: boolean;
   onClose: () => void;
 }
 
@@ -15,6 +15,7 @@ const confirmationFormRefParam = {
 export const ConfirmationModal = ({ onClose }: Props): JSX.Element => {
   const confirmationFormRef = useRef(confirmationFormRefParam);
   const [loading, setLoading] = useState(false);
+  const [openConfirmationModal, setOpenConfirmationModal] = useState(false);
 
   const handleConfirm = useCallback(
     () => confirmationFormRef.current.save(),
@@ -25,6 +26,12 @@ export const ConfirmationModal = ({ onClose }: Props): JSX.Element => {
     (loading: boolean) => setLoading(loading),
     [setLoading]
   );
+
+  const toggleSuccessModal = () => setOpenConfirmationModal((open) => !open);
+
+  if (openConfirmationModal) {
+    return <SuccessModal onClose={toggleSuccessModal} />;
+  }
 
   return (
     <Modal
@@ -41,6 +48,7 @@ export const ConfirmationModal = ({ onClose }: Props): JSX.Element => {
             ref={confirmationFormRef}
             onClose={onClose}
             onLoading={handleLoading}
+            onOpenSuccessModal={toggleSuccessModal}
           />
         </Container>
       }

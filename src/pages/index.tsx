@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { context } from "@/shared";
 import { Content } from "@/home";
 import fs from "fs";
 import path from "path";
@@ -10,12 +9,12 @@ type HomeProps = {
 };
 
 const Home: VFC<HomeProps> = ({ photos }) => (
-  <context.ToastProvider>
+  <>
     <Head>
       <title>Casório - Romulo e Júlia</title>
     </Head>
     <Content photos={photos} />
-  </context.ToastProvider>
+  </>
 );
 
 export async function getStaticProps() {

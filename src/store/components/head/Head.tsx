@@ -1,5 +1,5 @@
-import { animations, LottieAnimation, Text } from "@/shared";
-import { Arrow, Container, TextContainer } from "./styles";
+import { animations, Arrow, LottieAnimation, Text } from "@/shared";
+import { Container, TextContainer } from "./styles";
 
 export const Head = () => (
   <Container
@@ -24,6 +24,6 @@ export const Head = () => (
       </Text>
     </TextContainer>
 
-    <Arrow color="#999" size="2rem" />
+    <Arrow />
   </Container>
 );
