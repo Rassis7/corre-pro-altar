@@ -1,10 +1,6 @@
 import React, { useCallback, useContext, useMemo, useState, VFC } from "react";
 import { Button, Flex, Input, LoadingIcon, Text } from "@/shared";
-import {
-  AppContext,
-  CONFIRMATION_LOG_KEY,
-  ToastContext,
-} from "@/shared/context";
+import { AppContext, CONFIRMATION_LOG_KEY } from "@/shared/context";
 import { Message } from "@/thankYou/models";
 import { Textarea } from "./styles";
 
@@ -13,7 +9,6 @@ type FormType = {
 };
 
 export const Form: VFC<FormType> = ({ slug }) => {
-  const { notify } = useContext(ToastContext);
   const { confirmationLog } = useContext(AppContext);
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState<string | undefined>();
@@ -36,11 +31,11 @@ export const Form: VFC<FormType> = ({ slug }) => {
       }
 
       await Message.sendMessage({ slug, name, message, confirmationLog });
-      notify("Sua mensagem foi enviada, obrigado ❤️ !!!", { type: "success" });
+      // notify("Sua mensagem foi enviada, obrigado ❤️ !!!", { type: "success" });
     } catch (error) {
-      notify("Ocorreu um erro, tente novamente ou contacte os noivos!", {
-        type: "error",
-      });
+      // notify("Ocorreu um erro, tente novamente ou contacte os noivos!", {
+      //   type: "error",
+      // });
     } finally {
       setLoading(false);
     }

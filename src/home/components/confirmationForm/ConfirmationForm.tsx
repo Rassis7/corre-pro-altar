@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 import InputMask from "react-input-mask";
-import { AppContext, ToastContext } from "@/shared/context";
+import { AppContext } from "@/shared/context";
 import { Input } from "@/shared";
 import { ErrorMessage, Form, FormGroup } from "./styles";
 import { ConfirmPresence } from "@/home/models";
@@ -24,7 +24,6 @@ export const ConfirmationForm = forwardRef<
   ConfirmationFormRef,
   ConfirmationFormProps
 >(({ onClose, onLoading }, ref) => {
-  const { notify } = useContext(ToastContext);
   const { setConfirmationLog } = useContext(AppContext);
   const [name, setName] = useState<string>();
   const [phone, setPhone] = useState<string>();
@@ -39,11 +38,11 @@ export const ConfirmationForm = forwardRef<
       await ConfirmPresence.setConfirmation(params);
       setConfirmationLog(params);
 
-      notify("Sua presença foi confirmada com sucesso!", { type: "success" });
+      // notify("Sua presença foi confirmada com sucesso!", { type: "success" });
     } catch (error) {
-      notify("Ocorreu um erro, tente novamente ou contacte os noivos!", {
-        type: "error",
-      });
+      // notify("Ocorreu um erro, tente novamente ou contacte os noivos!", {
+      //   type: "error",
+      // });
     } finally {
       onClose();
       onLoading(false);
