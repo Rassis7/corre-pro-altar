@@ -10,10 +10,12 @@ interface Props {
   title: string | JSX.Element;
   content: JSX.Element;
   footer?: JSX.Element;
+  fullScreen?: boolean;
 }
 
 export const Modal = ({
   open,
+  fullScreen = false,
   content,
   footer,
   title,
@@ -33,7 +35,12 @@ export const Modal = ({
   }
 
   return (
-    <SwipeableBottomSheet open={open} onClose={onClose} onChange={handleChange}>
+    <SwipeableBottomSheet
+      open={open}
+      onClose={onClose}
+      onChange={handleChange}
+      fullScreen={fullScreen}
+    >
       <Wrapper>
         <TitleContainer>
           {isBp1 && <BsChevronCompactDown size="2rem" color="#666" />}

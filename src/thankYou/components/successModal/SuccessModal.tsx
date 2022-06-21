@@ -1,27 +1,24 @@
-import { VFC } from "react";
 import {
   animations,
-  Arrow,
   Button,
   LottieAnimation,
   Modal,
   Text,
+  Flex,
 } from "@/shared";
 import { useRouter } from "next/router";
 import { Content, LottieContainer } from "./styles";
 
-type SuccessModalType = {
-  onClose: () => void;
-};
-
-export const SuccessModal: VFC<SuccessModalType> = ({ onClose }) => {
+export const SuccessModal = () => {
   const router = useRouter();
+
+  const onClose = () => router.push("/store");
 
   return (
     <Modal
       open={true}
       onClose={onClose}
-      title="Presença confirmada!!"
+      title="Sucesso!"
       content={
         <Content
           flexDirection="column"
@@ -29,26 +26,28 @@ export const SuccessModal: VFC<SuccessModalType> = ({ onClose }) => {
           alignItems="center"
         >
           <Text as="h2" color="gray" fontSize="regular">
-            Que bom que você estará conosco nesse dia tão especial...e
-            aproveitando, que tal presentear este belo casal?
+            Recebemos sua mensagem, obrigado ❤️ !!!
           </Text>
           <br />
           <LottieContainer>
             <LottieAnimation
               lotti={animations.confirmation}
-              width="35vw"
+              width="30vw"
               height="auto"
               loop={true}
             />
           </LottieContainer>
-
-          <Arrow />
         </Content>
       }
       footer={
-        <Button block color="error" onClick={() => router.push("/store")}>
-          Presentear os noivos!
-        </Button>
+        <Flex gap="1rem" flexDirection="column">
+          <Button block color="secondary" onClick={() => router.push("/store")}>
+            Voltar pra a Loja!
+          </Button>
+          <Button block color="disabled" onClick={() => router.push("/")}>
+            Página inicial!
+          </Button>
+        </Flex>
       }
     />
   );

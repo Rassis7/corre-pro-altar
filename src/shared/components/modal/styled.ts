@@ -22,7 +22,7 @@ export const FooterContainer = stitches.styled("div", {
 
 export const Title = stitches.styled("h1", {
   color: "$primary",
-  fontSize: "2.5rem",
+  fontSize: "3rem",
   fontFamily: "$qwitcherGrypen",
   py: "$s",
 });

@@ -27,10 +27,10 @@ export const ConfirmationModal = ({ onClose }: Props): JSX.Element => {
     [setLoading]
   );
 
-  const handleOpenSuccessModal = () => setOpenConfirmationModal(true);
+  const toggleSuccessModal = () => setOpenConfirmationModal((open) => !open);
 
   if (openConfirmationModal) {
-    return <SuccessModal />;
+    return <SuccessModal onClose={toggleSuccessModal} />;
   }
 
   return (
@@ -48,7 +48,7 @@ export const ConfirmationModal = ({ onClose }: Props): JSX.Element => {
             ref={confirmationFormRef}
             onClose={onClose}
             onLoading={handleLoading}
-            onOpenSuccessModal={handleOpenSuccessModal}
+            onOpenSuccessModal={toggleSuccessModal}
           />
         </Container>
       }

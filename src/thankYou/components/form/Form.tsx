@@ -3,6 +3,7 @@ import { Button, Flex, Input, LoadingIcon, Text } from "@/shared";
 import { AppContext, CONFIRMATION_LOG_KEY } from "@/shared/context";
 import { Message } from "@/thankYou/models";
 import { Textarea } from "./styles";
+import { SuccessModal } from "../successModal";
 
 type FormType = {
   slug: string;
@@ -11,6 +12,7 @@ type FormType = {
 export const Form: VFC<FormType> = ({ slug }) => {
   const { confirmationLog } = useContext(AppContext);
   const [loading, setLoading] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [name, setName] = useState<string | undefined>();
   const [message, setMessage] = useState<string | undefined>();
 
@@ -31,15 +33,17 @@ export const Form: VFC<FormType> = ({ slug }) => {
       }
 
       await Message.sendMessage({ slug, name, message, confirmationLog });
-      // notify("Sua mensagem foi enviada, obrigado ❤️ !!!", { type: "success" });
+      setShowSuccessModal(true);
     } catch (error) {
-      // notify("Ocorreu um erro, tente novamente ou contacte os noivos!", {
-      //   type: "error",
-      // });
+      console.error(error);
     } finally {
       setLoading(false);
     }
   }, [slug, name, message, confirmationLog]);
+
+  if (showSuccessModal) {
+    return <SuccessModal />;
+  }
 
   return (
     <Flex flexDirection="column" gap="1rem" css={{ padding: "$l" }}>
