@@ -5,6 +5,7 @@ import we from "./rings.json";
 import planetTravel from "./planet-travel.json";
 import heartBreak from "./heart-break.json";
 import loveLetter from "./love-letter.json";
+import confirmation from "./confirmation.json";
 
 export {
   loveHearts,
@@ -14,4 +15,5 @@ export {
   planetTravel,
   heartBreak,
   loveLetter,
+  confirmation,
 };

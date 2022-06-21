@@ -17,13 +17,14 @@ type ConfirmationFormRef = {
 
 type ConfirmationFormProps = {
   onClose: () => void;
+  onOpenSuccessModal: () => void;
   onLoading: (loading: boolean) => void;
 };
 
 export const ConfirmationForm = forwardRef<
   ConfirmationFormRef,
   ConfirmationFormProps
->(({ onClose, onLoading }, ref) => {
+>(({ onOpenSuccessModal, onLoading }, ref) => {
   const { setConfirmationLog } = useContext(AppContext);
   const [name, setName] = useState<string>();
   const [phone, setPhone] = useState<string>();
@@ -37,14 +38,11 @@ export const ConfirmationForm = forwardRef<
       const params = { name, phone };
       await ConfirmPresence.setConfirmation(params);
       setConfirmationLog(params);
-
-      // notify("Sua presença foi confirmada com sucesso!", { type: "success" });
+      onOpenSuccessModal();
     } catch (error) {
-      // notify("Ocorreu um erro, tente novamente ou contacte os noivos!", {
-      //   type: "error",
-      // });
+      // TODO: Avisar
+      console.error(error);
     } finally {
-      onClose();
       onLoading(false);
     }
   }, [name, phone]);
@@ -56,37 +54,39 @@ export const ConfirmationForm = forwardRef<
   }));
 
   return (
-    <Form>
-      <FormGroup>
-        <Input
-          type="text"
-          variant={name ? "info" : "error"}
-          placeholder="Insira seu nome completo"
-          onChange={({ currentTarget }) => setName(currentTarget.value)}
-          css={{
-            width: "100%",
-          }}
-        />
-        {!name && <ErrorMessage>O nome é obrigatório</ErrorMessage>}
-      </FormGroup>
-
-      <InputMask
-        mask="(99) 99999-9999"
-        placeholder="Insira seu telefone"
-        onChange={({ currentTarget }) => setPhone(currentTarget.value)}
-      >
-        {(inputProps: unknown) => (
+    <>
+      <Form>
+        <FormGroup>
           <Input
-            {...inputProps}
-            variant={phone ? "info" : "error"}
-            type="tel"
+            type="text"
+            variant={name ? "info" : "error"}
+            placeholder="Insira seu nome completo"
+            onChange={({ currentTarget }) => setName(currentTarget.value)}
             css={{
               width: "100%",
             }}
           />
-        )}
-      </InputMask>
-      {!phone && <ErrorMessage>O telefone é obrigatório</ErrorMessage>}
-    </Form>
+          {!name && <ErrorMessage>O nome é obrigatório</ErrorMessage>}
+        </FormGroup>
+
+        <InputMask
+          mask="(99) 99999-9999"
+          placeholder="Insira seu telefone"
+          onChange={({ currentTarget }) => setPhone(currentTarget.value)}
+        >
+          {(inputProps: unknown) => (
+            <Input
+              {...inputProps}
+              variant={phone ? "info" : "error"}
+              type="tel"
+              css={{
+                width: "100%",
+              }}
+            />
+          )}
+        </InputMask>
+        {!phone && <ErrorMessage>O telefone é obrigatório</ErrorMessage>}
+      </Form>
+    </>
   );
 });

@@ -1,5 +1,4 @@
 import { Fragment, useCallback } from "react";
-// import * as Dialog from "@radix-ui/react-dialog";
 import { Wrapper, Title, TitleContainer, FooterContainer } from "./styled";
 import SwipeableBottomSheet from "react-swipeable-bottom-sheet";
 import { BsChevronCompactDown } from "react-icons/bs";
