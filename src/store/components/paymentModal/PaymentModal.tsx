@@ -2,11 +2,16 @@ import { useContext, VFC } from "react";
 import { StoreContext } from "@/store";
 import { Modal, Button, Flex } from "@/shared";
 import { GiftName, GiftPrice, Paragraph, TextWrapper } from "./styles";
+import { useRouter } from "next/router";
 
 export const PaymentModal: VFC = () => {
   const { gift, selectGift } = useContext(StoreContext);
+  const router = useRouter();
 
-  const handleGoToLink = (link?: string) => link && window.open(link, "_blank");
+  const handleGoToLink = (link?: string) => {
+    if (!link) return;
+    router.push(link);
+  };
   const onClose = () => selectGift();
 
   if (!gift) return null;
