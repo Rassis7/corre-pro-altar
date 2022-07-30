@@ -11,5 +11,8 @@ export const Form = stitches.styled("form", {
 });
 
 export const FormGroup = stitches.styled("div", {
-  mx: "$m",
+  width: "100%",
+  "@bp2": {
+    maxWidth: "55rem",
+  },
 });

@@ -1,4 +1,4 @@
-import { stitches } from "@/shared";
+import { Flex, stitches } from "@/shared";
 
 export const Container = stitches.styled("section", {
   position: "absolute",
@@ -12,6 +12,6 @@ export const TitleContainer = stitches.styled("div", {
   padding: "$m",
 });
 
-export const ButtonGroup = stitches.styled("div", {
+export const ButtonGroup = stitches.styled(Flex, {
   width: "90vw",
 });

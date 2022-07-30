@@ -7,7 +7,7 @@ import {
 } from "react";
 import InputMask from "react-input-mask";
 import { AppContext } from "@/shared/context";
-import { Input } from "@/shared";
+import { Flex, Input } from "@/shared";
 import { ErrorMessage, Form, FormGroup } from "./styles";
 import { ConfirmPresence } from "@/home/models";
 
@@ -56,36 +56,45 @@ export const ConfirmationForm = forwardRef<
   return (
     <>
       <Form>
-        <FormGroup>
-          <Input
-            type="text"
-            variant={name ? "info" : "error"}
-            placeholder="Insira seu nome completo"
-            onChange={({ currentTarget }) => setName(currentTarget.value)}
-            css={{
-              width: "100%",
-            }}
-          />
-          {!name && <ErrorMessage>O nome é obrigatório</ErrorMessage>}
-        </FormGroup>
-
-        <InputMask
-          mask="(99) 99999-9999"
-          placeholder="Insira seu telefone"
-          onChange={({ currentTarget }) => setPhone(currentTarget.value)}
+        <Flex
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          gap="1rem"
         >
-          {(inputProps: unknown) => (
+          <FormGroup>
             <Input
-              {...inputProps}
-              variant={phone ? "info" : "error"}
-              type="tel"
+              type="text"
+              variant={name ? "info" : "error"}
+              placeholder="Insira seu nome completo"
+              onChange={({ currentTarget }) => setName(currentTarget.value)}
               css={{
                 width: "100%",
               }}
             />
-          )}
-        </InputMask>
-        {!phone && <ErrorMessage>O telefone é obrigatório</ErrorMessage>}
+            {!name && <ErrorMessage>O nome é obrigatório</ErrorMessage>}
+          </FormGroup>
+
+          <FormGroup>
+            <InputMask
+              mask="(99) 99999-9999"
+              placeholder="Insira seu telefone"
+              onChange={({ currentTarget }) => setPhone(currentTarget.value)}
+            >
+              {(inputProps: unknown) => (
+                <Input
+                  {...inputProps}
+                  variant={phone ? "info" : "error"}
+                  type="tel"
+                  css={{
+                    width: "100%",
+                  }}
+                />
+              )}
+            </InputMask>
+            {!phone && <ErrorMessage>O telefone é obrigatório</ErrorMessage>}
+          </FormGroup>
+        </Flex>
       </Form>
     </>
   );

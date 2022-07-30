@@ -18,21 +18,45 @@ export const GiftItem: VFC<Props> = ({ gift }) => {
     [gift.priceWithTax]
   );
 
+  const isImageSoldOff = isSoldOff ? { filter: "grayscale(100%)" } : {};
+
   return (
     <Flex
       justifyContent="center"
       alignItems="center"
       {...(!isSoldOff && { onClick: () => handleSelectGift(gift) })}
+      css={{ cursor: "pointer" }}
     >
-      <Figure>
+      <Figure
+        css={{
+          "@bp2": {
+            width: "25rem",
+          },
+          "@bp3": {
+            width: "21rem",
+          },
+          "@bp4": {
+            width: "40rem",
+          },
+        }}
+      >
         <Image
           src={gift.image}
           alt={gift.name}
-          {...(isSoldOff && {
-            css: {
-              filter: "grayscale(100%)",
+          css={{
+            ...isImageSoldOff,
+            height: "15rem",
+            "@bp2": {
+              width: "25rem",
             },
-          })}
+            "@bp3": {
+              width: "21rem",
+            },
+            "@bp4": {
+              width: "40rem",
+            },
+          }}
+          loading="lazy"
         />
         <figcaption>
           <Flex

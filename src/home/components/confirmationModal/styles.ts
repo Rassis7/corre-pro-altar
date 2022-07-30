@@ -5,7 +5,7 @@ export const Container = stitches.styled("div", {
 });
 
 export const Label = stitches.styled("p", {
-  color: "$gray400",
+  color: "$gray200",
   fontWeight: 500,
   textAlign: "center",
 });

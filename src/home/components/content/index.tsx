@@ -17,22 +17,20 @@ type ContentProps = {
   photos: string[];
 };
 
-// TODO: Suavizar o loading, colocar algum efeito, transition, o que for...
 export const Content: VFC<ContentProps> = ({ photos }) => {
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
-  const isBp1 = useMediaQuery("(max-width: 425px)");
-  const isBp2 = useMediaQuery("(max-width: 768px)");
+  const isNotDesktop = useMediaQuery("(max-width: 768px)");
 
   const onHandleConfirmationModal = () =>
     setShowConfirmationModal((show) => !show);
 
   const GridColumns = useMemo(() => {
-    let shuffled = shuffleArray<string>(photos);
-
-    if (isBp2 || isBp1) {
-      const sliceValues = isBp1 ? 15 : 25;
-      shuffled = shuffled.slice(0, sliceValues);
+    if (!isNotDesktop) {
+      return <Image src="/mosaic.webp" alt="mosaic" loading="lazy" />;
     }
+
+    let shuffled = shuffleArray<string>(photos);
+    shuffled = shuffled.slice(0, 15);
 
     return shuffled.map((photo) => {
       const components = [GridItemTall, GridItemNormal, GridItemBig];
@@ -42,7 +40,7 @@ export const Content: VFC<ContentProps> = ({ photos }) => {
 
       return createElement(randomComponentValue, { key: uuidv4() }, image);
     });
-  }, [isBp2, isBp1, photos]);
+  }, [isNotDesktop, photos]);
 
   return (
     <Main>

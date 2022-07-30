@@ -10,6 +10,7 @@ const bounce = stitches.keyframes({
 
 const StyledArrow = stitches.styled(IoArrowDown, {
   animation: `${bounce} 2s infinite`,
+  zIndex: 9999,
 });
 
 export const Arrow = () => {

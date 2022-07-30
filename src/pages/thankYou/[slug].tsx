@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import NextHead from "next/head";
 import { useRouter } from "next/router";
-import { AppLayout } from "@/shared";
+import { AppLayout, Flex } from "@/shared";
 import { Form, Head } from "@/thankYou";
 
 const TankYou: NextPage = () => {
@@ -14,8 +14,14 @@ const TankYou: NextPage = () => {
         <title>{"Obrigado ❤️ | Romulo & Julia"}</title>
       </NextHead>
       <AppLayout>
-        <Head />
-        <Form slug={slug as string} />
+        <Flex
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Head />
+          <Form slug={slug as string} />
+        </Flex>
       </AppLayout>
     </>
   );

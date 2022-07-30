@@ -18,6 +18,10 @@ export const Grid = stitches.styled("section", {
     display: "grid",
     gridTemplateColumns: "repeat(2, minmax(6.25rem, 1fr))",
   },
+  "@bp3": {
+    display: "grid",
+    gridTemplateColumns: "repeat(3, minmax(6.25rem, 1fr))",
+  },
 });
 
 export const GridItem = stitches.styled("div", {
@@ -36,7 +40,7 @@ export const GridItem = stitches.styled("div", {
 export const Figure = stitches.styled("figure", {
   width: "80vw",
   backgroundColor: "$gray900",
-  borderRadius: "$extraSmall",
+  borderRadius: "$small",
   scrollSnapAlign: "start",
   "& > figcaption": {
     padding: "$m",

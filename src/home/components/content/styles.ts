@@ -11,21 +11,13 @@ export const Main = stitches.styled("main", {
 });
 
 export const GridWrapper = stitches.styled("section", {
-  display: "grid",
-  gridGap: "0.65rem",
-  gridAutoFlow: "dense",
   opacity: 0.9,
   "@bp1": {
+    display: "grid",
+    gridAutoFlow: "dense",
+    gridGap: "0.65rem",
     gridTemplateColumns: "repeat(2, minmax(6.25rem, 1fr))",
     gridAutoRows: "6.25rem",
-  },
-  "@bp2": {
-    gridTemplateColumns: "repeat(3, minmax(12.25rem, 1fr))",
-    gridAutoRows: "9.37rem",
-  },
-  "@bp3": {
-    gridTemplateColumns: "repeat(auto-fit, minmax(12.25rem, 1fr))",
-    gridAutoRows: "12.5rem",
   },
 });
 
@@ -53,6 +45,15 @@ export const Image = stitches.styled("img", {
   width: "100%",
   height: "100%",
   verticalAlign: "middle",
+
+  "@bp2": {
+    width: "100vw",
+    height: "100vh",
+  },
+  "@bp3": {
+    width: "100vw",
+    height: "100vh",
+  },
 });
 
 GridItemNormal.displayName = "GridItemNormal";
