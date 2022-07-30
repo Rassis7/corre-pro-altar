@@ -6,7 +6,6 @@ import {
   Head,
   Models,
   Gifts,
-  Nav,
 } from "@/store";
 import { AppLayout, Button, services, stitches, Flex } from "@/shared";
 import NextHead from "next/head";
@@ -32,7 +31,6 @@ const Store: NextPage<StoreType> = ({ gifts }) => {
       </NextHead>
       <AppLayout>
         <StoreProvider>
-          <Nav />
           <Head />
           <Gifts gifts={gifts} />
           <PaymentModal />

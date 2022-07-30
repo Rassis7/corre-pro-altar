@@ -9,8 +9,6 @@ type HomeProps = {
 };
 
 const Home: VFC<HomeProps> = ({ photos }) => {
-  console.log(photos);
-
   return (
     <>
       <Head>
@@ -25,7 +23,7 @@ export async function getStaticProps() {
   const directoryPath = path.join(process.cwd(), "public");
 
   const files = fs.readdirSync(directoryPath);
-  const photos = files.filter((file) => file.match(/\.(jpeg)$/));
+  const photos = files.filter((file) => file.match(/\.(webp)$/));
 
   return { props: { photos } };
 }

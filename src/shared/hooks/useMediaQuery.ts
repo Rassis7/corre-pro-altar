@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useMediaQuery = (query: string): boolean => {
   const getMatches = (query: string): boolean => {
@@ -14,7 +14,7 @@ export const useMediaQuery = (query: string): boolean => {
     setMatches(getMatches(query));
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const matchMedia = window.matchMedia(query);
 
     handleChange();
@@ -33,7 +33,7 @@ export const useMediaQuery = (query: string): boolean => {
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query]);
+  }, [query, window]);
 
   return matches;
 };
