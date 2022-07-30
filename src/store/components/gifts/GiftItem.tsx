@@ -30,6 +30,12 @@ export const GiftItem: VFC<Props> = ({ gift }) => {
       <Figure
         css={{
           "@bp2": {
+            width: "25rem",
+          },
+          "@bp3": {
+            width: "21rem",
+          },
+          "@bp4": {
             width: "40rem",
           },
         }}
@@ -39,9 +45,15 @@ export const GiftItem: VFC<Props> = ({ gift }) => {
           alt={gift.name}
           css={{
             ...isImageSoldOff,
+            height: "15rem",
             "@bp2": {
+              width: "25rem",
+            },
+            "@bp3": {
+              width: "21rem",
+            },
+            "@bp4": {
               width: "40rem",
-              height: "15rem",
             },
           }}
           loading="lazy"
