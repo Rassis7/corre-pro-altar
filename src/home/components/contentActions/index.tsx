@@ -43,7 +43,12 @@ export const ContentActions: VFC<ContentActionsType> = ({
           </Text>
         </TitleContainer>
 
-        <ButtonGroup>
+        <ButtonGroup
+          justifyContent="center"
+          alignItems="center"
+          gap="1rem"
+          flexDirection="column"
+        >
           <Button
             block
             onClick={onHandleConfirmationModal}

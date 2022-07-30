@@ -8,14 +8,18 @@ type HomeProps = {
   photos: string[];
 };
 
-const Home: VFC<HomeProps> = ({ photos }) => (
-  <>
-    <Head>
-      <title>Casório - Romulo e Júlia</title>
-    </Head>
-    <Content photos={photos} />
-  </>
-);
+const Home: VFC<HomeProps> = ({ photos }) => {
+  console.log(photos);
+
+  return (
+    <>
+      <Head>
+        <title>Casório - Romulo e Júlia</title>
+      </Head>
+      <Content photos={photos} />
+    </>
+  );
+};
 
 export async function getStaticProps() {
   const directoryPath = path.join(process.cwd(), "public");

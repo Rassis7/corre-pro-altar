@@ -17,7 +17,6 @@ type ContentProps = {
   photos: string[];
 };
 
-// TODO: Suavizar o loading, colocar algum efeito, transition, o que for...
 export const Content: VFC<ContentProps> = ({ photos }) => {
   const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const isBp1 = useMediaQuery("(max-width: 425px)");

@@ -32,6 +32,9 @@ export const text = {
     gray: {
       color: theme.colors.gray100,
     },
+    orange: {
+      color: theme.colors.orange500,
+    },
   },
   fontFamily: {
     qwitcherGrypen: {
@@ -45,7 +48,7 @@ export const text = {
     extraSmall: { fontSize: "0.25rem" },
     small: { fontSize: "0.5rem" },
     regular: { fontSize: "1rem" },
-    medium: { fontSize: "2rem" },
+    medium: { fontSize: "1.5rem" },
     large: { fontSize: "3rem" },
     extraLarge: { fontSize: "4rem" },
   },

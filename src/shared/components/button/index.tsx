@@ -9,5 +9,18 @@ type ButtonType = StitchesTypes.StitchesComponentProps<typeof StyledButton> & {
 };
 
 export const Button: VFC<ButtonType> = memo(({ children, ...rest }) => {
-  return <StyledButton {...rest}>{children}</StyledButton>;
+  return (
+    <StyledButton
+      {...rest}
+      {...(rest.block && {
+        css: {
+          "@bp2": {
+            width: "30rem",
+          },
+        },
+      })}
+    >
+      {children}
+    </StyledButton>
+  );
 });
