@@ -26,7 +26,7 @@ export const Content: VFC<ContentProps> = ({ photos }) => {
 
   const GridColumns = useMemo(() => {
     if (!isNotDesktop) {
-      return <Image src="/mosaic.webp" alt="mosaic" loading="lazy" />;
+      return <Image src="/mosaic/home.webp" alt="mosaic" loading="lazy" />;
     }
 
     let shuffled = shuffleArray<string>(photos);
