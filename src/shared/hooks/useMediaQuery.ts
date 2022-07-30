@@ -33,7 +33,7 @@ export const useMediaQuery = (query: string): boolean => {
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query, window]);
+  }, [query]);
 
   return matches;
 };
