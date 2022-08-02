@@ -36,6 +36,9 @@ export const GiftItem: VFC<Props> = ({ gift }) => {
             width: "21rem",
           },
           "@bp4": {
+            width: "27rem",
+          },
+          "@bp5": {
             width: "40rem",
           },
         }}
@@ -53,6 +56,9 @@ export const GiftItem: VFC<Props> = ({ gift }) => {
               width: "21rem",
             },
             "@bp4": {
+              width: "27rem",
+            },
+            "@bp5": {
               width: "40rem",
             },
           }}

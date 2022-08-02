@@ -3,29 +3,31 @@ import { Content } from "@/home";
 import fs from "fs";
 import path from "path";
 import { VFC } from "react";
+import { getGenerateRandomValue } from "@/shared/utils";
 
 type HomeProps = {
-  photos: string[];
+  photo: string;
 };
 
-const Home: VFC<HomeProps> = ({ photos }) => {
+const Home: VFC<HomeProps> = ({ photo }) => {
   return (
     <>
       <Head>
         <title>Casório - Romulo e Júlia</title>
       </Head>
-      <Content photos={photos} />
+      <Content background={photo} />
     </>
   );
 };
 
 export async function getStaticProps() {
-  const directoryPath = path.join(process.cwd(), "public");
+  const directoryPath = path.join(process.cwd(), "public/mosaic");
 
   const files = fs.readdirSync(directoryPath);
-  const photos = files.filter((file) => file.match(/\.(webp)$/));
+  const photos = files.filter((file) => file.match(/\d.(webp)$/));
+  const randomIndex = getGenerateRandomValue(1, 3);
 
-  return { props: { photos } };
+  return { props: { photo: photos[randomIndex] } };
 }
 
 export default Home;

@@ -10,33 +10,9 @@ export const Main = stitches.styled("main", {
   color: "$gray50",
 });
 
-export const GridWrapper = stitches.styled("section", {
+export const Wrapper = stitches.styled("section", {
   opacity: 0.9,
-  "@bp1": {
-    display: "grid",
-    gridAutoFlow: "dense",
-    gridGap: "0.65rem",
-    gridTemplateColumns: "repeat(2, minmax(6.25rem, 1fr))",
-    gridAutoRows: "6.25rem",
-  },
 });
-
-const FlexCentered = stitches.styled("div", {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-});
-
-const GridItemTall = stitches.styled(FlexCentered, {
-  gridRow: "span 2",
-});
-
-const GridItemBig = stitches.styled(FlexCentered, {
-  gridRow: "span 2",
-  gridColumn: "span 3",
-});
-
-const GridItemNormal = stitches.styled(FlexCentered);
 
 export const Image = stitches.styled("img", {
   objectFit: "cover",
@@ -55,9 +31,3 @@ export const Image = stitches.styled("img", {
     height: "100vh",
   },
 });
-
-GridItemNormal.displayName = "GridItemNormal";
-GridItemBig.displayName = "GridItemBig";
-GridItemTall.displayName = "GridItemTall";
-
-export { GridItemNormal, GridItemBig, GridItemTall };
