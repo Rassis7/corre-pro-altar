@@ -12,5 +12,5 @@ export const Main = stitches.styled("main", {
 });
 
 export const Image = stitches.styled(NextImage, {
-  opacity: 0.5,
+  opacity: 0.8,
 });
