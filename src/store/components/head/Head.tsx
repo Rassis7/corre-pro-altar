@@ -40,7 +40,7 @@ export const Head = () => {
           position: "absolute",
           width: "100%",
           height: "100%",
-          backgroundColor: "rgba(0,0,0,0.9)",
+          backgroundColor: "rgba(0,0,0,0.8)",
           zIndex: 1,
         },
       }}
