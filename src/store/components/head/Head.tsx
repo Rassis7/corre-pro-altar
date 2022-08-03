@@ -15,6 +15,8 @@ export const Head = () => {
     [isDesktop]
   );
 
+  const height = useMemo(() => (isDesktop ? "100vh" : "85vh"), [isDesktop]);
+
   const { titleSize, textSize } = useMemo(() => {
     const titleSize = isDesktop ? "extraLarge" : "medium";
     const textSize = isDesktop ? "medium" : "regular";
@@ -27,7 +29,7 @@ export const Head = () => {
       alignItems="center"
       flexDirection="column"
       css={{
-        height: "85vh",
+        height,
         backgroundImage: `url("/${image}.webp")`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
