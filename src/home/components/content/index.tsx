@@ -22,7 +22,7 @@ export const Content: VFC<ContentProps> = ({ background }) => {
 
   return (
     <Main>
-      <Image src={imageSrc} alt="home" loading="lazy" layout="fill" />
+      <Image src={imageSrc} alt="home" loading="lazy" />
 
       <ContentActions onHandleConfirmationModal={onHandleConfirmationModal} />
       {showConfirmationModal && (
