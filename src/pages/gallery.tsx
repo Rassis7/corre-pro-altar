@@ -31,7 +31,12 @@ const Gallery: NextPage<GalleryType> = ({ photos }) => {
   if (!photos.length || typeof window === "undefined") return null;
 
   return (
-    <Wrapper flexDirection="column" gap="2rem">
+    <Wrapper
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+      gap="2rem"
+    >
       <TitleContainer
         flexDirection="column"
         justifyContent="center"
