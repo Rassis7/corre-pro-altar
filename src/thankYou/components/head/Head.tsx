@@ -1,11 +1,8 @@
 import { animations, LottieAnimation, Text } from "@/shared";
 import React from "react";
 import { Container } from "./styles";
-import { useMediaQuery } from "@/shared/hooks";
 
 export const Head = () => {
-  const isBp2 = useMediaQuery("(min-width: 768px)");
-
   return (
     <Container
       justifyContent="center"
@@ -15,8 +12,8 @@ export const Head = () => {
     >
       <LottieAnimation
         lotti={animations.loveLetter}
-        width="100%"
-        height={isBp2 ? "20rem" : "11rem"}
+        width="20rem"
+        height="11rem"
         loop={true}
       />
 

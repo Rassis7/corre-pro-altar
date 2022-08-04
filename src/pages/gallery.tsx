@@ -1,8 +1,9 @@
 import { NextPage, GetServerSideProps } from "next";
+import { useRouter } from "next/router";
 import fs from "fs";
 import path from "path";
 import { Mansory } from "@/gallery";
-import { animations, Flex, LottieAnimation, Text } from "@/shared";
+import { animations, Button, Flex, LottieAnimation, Text } from "@/shared";
 import { stitches } from "@/shared/styles";
 import { useMediaQuery } from "@/shared/hooks";
 
@@ -23,6 +24,8 @@ const TitleContainer = stitches.styled(Flex, {
 });
 
 const Gallery: NextPage<GalleryType> = ({ photos }) => {
+  const router = useRouter();
+
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   if (!photos.length || typeof window === "undefined") return null;
@@ -56,6 +59,10 @@ const Gallery: NextPage<GalleryType> = ({ photos }) => {
         </Text>
       </TitleContainer>
       <Mansory photos={photos} />
+
+      <Button block color="disabled" onClick={() => router.push("/")}>
+        Página inicial!
+      </Button>
     </Wrapper>
   );
 };

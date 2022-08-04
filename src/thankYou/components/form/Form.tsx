@@ -1,4 +1,5 @@
-import React, { useCallback, useContext, useMemo, useState, VFC } from "react";
+import { useCallback, useContext, useMemo, useState, VFC } from "react";
+import { useRouter } from "next/router";
 import { Button, Flex, Input, LoadingIcon, Text } from "@/shared";
 import { AppContext, CONFIRMATION_LOG_KEY } from "@/shared/context";
 import { Message } from "@/thankYou/models";
@@ -10,6 +11,7 @@ type FormType = {
 };
 
 export const Form: VFC<FormType> = ({ slug }) => {
+  const router = useRouter();
   const { confirmationLog } = useContext(AppContext);
   const [loading, setLoading] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -46,7 +48,7 @@ export const Form: VFC<FormType> = ({ slug }) => {
   }
 
   return (
-    <Flex flexDirection="column" gap="1rem" css={{ padding: "$l" }}>
+    <Flex flexDirection="column" gap="1rem" css={{ padding: "$l $s" }}>
       <Input
         type="text"
         variant={!name ? "error" : "info"}
@@ -88,6 +90,11 @@ export const Form: VFC<FormType> = ({ slug }) => {
         ) : (
           "Enviar"
         )}
+      </Button>
+
+      <br />
+      <Button block color="primary" onClick={() => router.push("/")}>
+        Página inicial!
       </Button>
     </Flex>
   );

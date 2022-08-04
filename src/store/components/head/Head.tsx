@@ -10,8 +10,8 @@ export const Head = () => {
   const image = useMemo(
     () =>
       isDesktop
-        ? "FFC6767F-99D2-4FB5-8253-737DA61A4660"
-        : "22E12CAD-6D2B-435F-974D-E09CA61D6874",
+        ? "47700055-82AD-4026-B8C3-9D9FA738F222_1_105_c"
+        : "E0DD59AB-5F75-48E5-92ED-636BE7D4EDD4_1_105_c",
     [isDesktop]
   );
 
