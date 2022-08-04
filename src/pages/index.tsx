@@ -1,7 +1,7 @@
 import Head from "next/head";
-import { Content } from "@/home";
 import fs from "fs";
 import path from "path";
+import { Content } from "@/home";
 import { VFC } from "react";
 import { getGenerateRandomValue } from "@/shared/utils";
 
