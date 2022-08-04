@@ -19,6 +19,7 @@
     "react-input-mask": "^2.0.4",
     "react-lottie": "^1.2.3",
     "react-swipeable-bottom-sheet": "^1.1.2",
+    "sharp": "^0.30.7",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

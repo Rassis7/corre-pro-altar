@@ -47,10 +47,10 @@ export default class MyDocument extends Document {
             property="og:description"
             content="Se preparem para o melhor casório da história!!!"
           />
-          <meta property="og:title" content="Casório R & J" />
+          <meta property="og:title" content="#casamentoRomulo&Ju" />
           <meta
             property="og:image"
-            content="http://localhost:3000/love_meta.png"
+            content="https://correproaltar.com.br/love_meta.png"
           />
           <meta property="og:url" content="https://correproaltar.com.br" />
         </Head>
