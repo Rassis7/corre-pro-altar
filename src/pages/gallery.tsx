@@ -13,6 +13,7 @@ type GalleryType = {
 
 const Wrapper = stitches.styled(Flex, {
   width: "100vw",
+  paddingBottom: "2rem",
 });
 
 const TitleContainer = stitches.styled(Flex, {
