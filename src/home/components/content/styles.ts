@@ -18,16 +18,7 @@ export const Image = stitches.styled("img", {
   objectFit: "cover",
   borderRadius: "0.33rem",
   display: "inline-block",
-  width: "100%",
-  height: "100%",
+  width: "100vw",
+  height: "100vh",
   verticalAlign: "middle",
-
-  "@bp2": {
-    width: "100vw",
-    height: "100vh",
-  },
-  "@bp3": {
-    width: "100vw",
-    height: "100vh",
-  },
 });
