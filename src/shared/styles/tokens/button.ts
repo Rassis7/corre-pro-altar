@@ -33,5 +33,12 @@ export const button = {
         backgroundColor: theme.colors.gray400,
       },
     },
+    orange: {
+      backgroundColor: theme.colors.orange500,
+      color: theme.colors.gray50,
+      "&:hover": {
+        backgroundColor: theme.colors.orange400,
+      },
+    },
   },
 };

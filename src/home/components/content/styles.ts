@@ -13,6 +13,9 @@ export const Main = stitches.styled("main", {
 export const Image = stitches.styled("img", {
   opacity: 0.8,
   objectFit: "cover",
+  borderRadius: "0.33rem",
+  display: "inline-block",
   width: "100vw",
   height: "100vh",
+  verticalAlign: "middle",
 });

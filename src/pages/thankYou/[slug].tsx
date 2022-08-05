@@ -18,6 +18,9 @@ const TankYou: NextPage = () => {
           flexDirection="column"
           justifyContent="center"
           alignItems="center"
+          css={{
+            padding: "$s",
+          }}
         >
           <Head />
           <Form slug={slug as string} />

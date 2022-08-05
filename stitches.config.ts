@@ -34,7 +34,9 @@ const { styled, css, theme, getCssText, keyframes, config } = createStitches({
       blue500: "#2D9CDB",
       blue200: "#56CCF2",
       red500: "#EB5757",
+      orange400: "#F19D45",
       orange500: "#F2994A",
+      yellow400: "#F2CF64",
       yellow500: "#F2C94C",
 
       // alias
@@ -103,6 +105,14 @@ const globalStyles = globalCss({
     padding: 0,
     boxSizing: "border-box",
   },
+
+  "html::-webkit-scrollbar": {
+    "-webkit-appearance": "none",
+  },
+  "html::-webkit-scrollbar:vertical, html::-webkit-scrollbar:horizontal": {
+    width: "0px",
+  },
+
   html: {
     width: "100vw",
     overflowX: "hidden",

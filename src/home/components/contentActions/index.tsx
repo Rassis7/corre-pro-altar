@@ -66,6 +66,10 @@ export const ContentActions: VFC<ContentActionsType> = ({
             Presentear os noivos
           </Button>
 
+          <Button block color="orange" onClick={() => router.push("/gallery")}>
+            Fotos Pré wedding
+          </Button>
+
           <Button
             block
             color="disabled"
