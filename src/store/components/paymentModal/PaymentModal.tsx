@@ -1,4 +1,4 @@
-import { useContext, VFC } from "react";
+import { useCallback, useContext, VFC } from "react";
 import { StoreContext } from "@/store";
 import { Modal, Button, Flex } from "@/shared";
 import { GiftName, GiftPrice, Paragraph, TextWrapper } from "./styles";
@@ -8,10 +8,18 @@ export const PaymentModal: VFC = () => {
   const { gift, selectGift } = useContext(StoreContext);
   const router = useRouter();
 
-  const handleGoToLink = (link?: string) => {
-    if (!link) return;
-    router.push(link);
-  };
+  const handleGoToLink = useCallback(
+    (link?: string) => {
+      if (!link) return;
+
+      const mpId = link.replace(/\w.*[/]/i, "");
+      console.log({ mpId });
+
+      router.push(`/payment/${mpId}`);
+    },
+    [router]
+  );
+
   const onClose = () => selectGift();
 
   if (!gift) return null;
