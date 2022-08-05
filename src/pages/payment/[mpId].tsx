@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { stitches } from "@/shared/styles";
 import { animations, Flex, LottieAnimation, Text } from "@/shared";
@@ -9,7 +9,6 @@ const Wrapper = stitches.styled("div", {
 });
 
 const Payment = () => {
-  const iframeRef = useRef("0");
   const [showIframe, setShowIframe] = useState(false);
   const {
     query: { mpId },
