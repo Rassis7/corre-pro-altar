@@ -6,9 +6,10 @@ import { Figure, Image, Value } from "./styles";
 
 type Props = {
   gift: Gift;
+  hasCloseFriend: boolean;
 };
 
-export const GiftItem: VFC<Props> = ({ gift }) => {
+export const GiftItem: VFC<Props> = ({ gift, hasCloseFriend }) => {
   const { selectGift } = useContext(StoreContext);
 
   const handleSelectGift = (gift: Gift) => selectGift(gift);
@@ -18,7 +19,14 @@ export const GiftItem: VFC<Props> = ({ gift }) => {
     [gift.priceWithTax]
   );
 
-  const isImageSoldOff = isSoldOff ? { filter: "grayscale(100%)" } : {};
+  const isImageSoldOff = useMemo(
+    () => (isSoldOff ? { filter: "grayscale(100%)" } : {}),
+    [isSoldOff]
+  );
+
+  if (gift.isSecret === "TRUE" && !hasCloseFriend) {
+    return null;
+  }
 
   return (
     <Flex

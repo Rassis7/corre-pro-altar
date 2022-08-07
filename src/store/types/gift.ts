@@ -7,6 +7,7 @@ export interface Gift {
   buyLink: string;
   image: string;
   description?: string;
+  isSecret?: string;
 }
 
 export type RawGift = Gift & {
