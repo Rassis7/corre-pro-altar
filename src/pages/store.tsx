@@ -6,10 +6,12 @@ import {
   Head,
   Models,
   Gifts,
+  RawGift,
 } from "@/store";
 import { AppLayout, Button, services, stitches, Flex } from "@/shared";
 import NextHead from "next/head";
 import { useRouter } from "next/router";
+import db from "../../db.json";
 
 type StoreType = {
   gifts: GiftType;
@@ -59,11 +61,14 @@ const Store: NextPage<StoreType> = ({ gifts }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const gift = new Models.Gift(services.api);
-  const gifts = await gift.getAll();
+  let gifts: RawGift[] = db as RawGift[];
+
+  if (process.env.NODE_ENV !== "development") {
+    const gift = new Models.Gift(services.api);
+    gifts = await gift.getAll();
+  }
 
   const giftsPerCity = {} as GiftType;
-
   gifts.forEach(({ city, ...gift }) => {
     if (city in giftsPerCity) {
       giftsPerCity[city].push(gift);
@@ -71,9 +76,10 @@ export const getStaticProps: GetStaticProps = async () => {
     }
     Object.assign(giftsPerCity, { [city]: [gift] });
   });
+
   return {
     props: { gifts: giftsPerCity },
-    revalidate: 60 * 60 * 2, // 2 hours,
+    revalidate: 60 * 60 * 24, // 24 hours,
   };
 };
 

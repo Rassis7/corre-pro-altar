@@ -7,7 +7,7 @@ export const GiftsWrapper = stitches.styled("div", {
 export const Grid = stitches.styled("section", {
   gridGap: "$xs",
   width: "100%",
-  padding: "$l",
+  padding: "$xl $l",
   gap: "$m",
   "@bp1": {
     display: "inline-flex",
@@ -73,4 +73,12 @@ export const Image = stitches.styled("img", {
     width: "40vw",
     height: "9rem",
   },
+});
+
+export const Tag = stitches.styled("div", {
+  position: "absolute",
+  top: "1rem",
+  left: "1rem",
+  padding: "$s",
+  borderRadius: "$medium",
 });

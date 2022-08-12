@@ -1,4 +1,5 @@
 import { Fragment, VFC } from "react";
+import { useRouter } from "next/router";
 import { GiftType } from "@/store";
 import { GiftItem } from "./GiftItem";
 import { GiftsWrapper, Grid } from "./styles";
@@ -8,19 +9,27 @@ type Props = {
   gifts: GiftType;
 };
 
-export const Gifts: VFC<Props> = ({ gifts }) => (
-  <GiftsWrapper>
-    {Object.entries(gifts).map(([name, giftPerCity]) => (
-      <Fragment key={name}>
-        <Text as="p" fontSize="large" color="gray">
-          {name}
-        </Text>
-        <Grid>
-          {giftPerCity.map((gift) => (
-            <GiftItem key={gift.name} gift={gift} />
-          ))}
-        </Grid>
-      </Fragment>
-    ))}
-  </GiftsWrapper>
-);
+export const Gifts: VFC<Props> = ({ gifts }) => {
+  const { query } = useRouter();
+
+  return (
+    <GiftsWrapper>
+      {Object.entries(gifts).map(([name, giftPerCity]) => (
+        <Fragment key={name}>
+          <Text as="p" fontSize="large" color="gray">
+            {name}
+          </Text>
+          <Grid>
+            {giftPerCity.map((gift) => (
+              <GiftItem
+                key={gift.name}
+                gift={gift}
+                hasCloseFriend={!!query?.closeFriends}
+              />
+            ))}
+          </Grid>
+        </Fragment>
+      ))}
+    </GiftsWrapper>
+  );
+};
