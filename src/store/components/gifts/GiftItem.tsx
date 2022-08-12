@@ -2,7 +2,7 @@ import { Text, Flex } from "@/shared";
 import { StoreContext } from "@/store/context";
 import { Gift } from "@/store/types";
 import { useContext, useMemo, VFC } from "react";
-import { Figure, Image, Value } from "./styles";
+import { Figure, Image, Value, Tag } from "./styles";
 
 type Props = {
   gift: Gift;
@@ -14,14 +14,9 @@ export const GiftItem: VFC<Props> = ({ gift, hasCloseFriend }) => {
 
   const handleSelectGift = (gift: Gift) => selectGift(gift);
 
-  const isSoldOff = useMemo(
-    () => gift.priceWithTax === "Esgotado" || gift.priceWithTax === "R$ 0,00",
-    [gift.priceWithTax]
-  );
-
   const isImageSoldOff = useMemo(
-    () => (isSoldOff ? { filter: "grayscale(100%)" } : {}),
-    [isSoldOff]
+    () => (!gift?.buyLink ? { filter: "grayscale(100%)" } : {}),
+    [gift?.buyLink]
   );
 
   if (gift.isSecret === "TRUE" && !hasCloseFriend) {
@@ -32,8 +27,8 @@ export const GiftItem: VFC<Props> = ({ gift, hasCloseFriend }) => {
     <Flex
       justifyContent="center"
       alignItems="center"
-      {...(!isSoldOff && { onClick: () => handleSelectGift(gift) })}
-      css={{ cursor: "pointer" }}
+      {...(!!gift?.buyLink && { onClick: () => handleSelectGift(gift) })}
+      css={{ cursor: "pointer", position: "relative" }}
     >
       <Figure
         css={{
@@ -96,14 +91,25 @@ export const GiftItem: VFC<Props> = ({ gift, hasCloseFriend }) => {
             </Text>
             <Value
               css={{
-                color: isSoldOff ? "$red500" : "$green200",
+                color: !gift?.buyLink ? "$red500" : "$green200",
               }}
             >
-              {isSoldOff ? "Esgotado" : gift.priceWithTax}
+              {gift.priceWithTax}
             </Value>
           </Flex>
         </figcaption>
       </Figure>
+      {(gift.isSecret === "TRUE" || !gift?.buyLink) && (
+        <Tag
+          css={{
+            backgroundColor: gift.isSecret === "TRUE" ? "$green700" : "$red500",
+          }}
+        >
+          <Text as="span" color="white">
+            {gift.isSecret === "TRUE" ? "CLOSE FRIENDS" : "ESGOTADO"}
+          </Text>
+        </Tag>
+      )}
     </Flex>
   );
 };

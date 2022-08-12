@@ -4,8 +4,8 @@ export interface Gift {
   name: string;
   price: string;
   priceWithTax: string;
-  buyLink: string;
   image: string;
+  buyLink?: string;
   description?: string;
   isSecret?: string;
 }
