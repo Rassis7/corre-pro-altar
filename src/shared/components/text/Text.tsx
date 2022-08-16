@@ -32,3 +32,5 @@ export const Text: VFC<TextType> = memo(
     return createElement(Element, { ...rest }, children);
   }
 );
+
+Text.displayName = "Text";

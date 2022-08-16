@@ -3,6 +3,7 @@ import {
   animations,
   Arrow,
   Button,
+  Flex,
   LottieAnimation,
   Modal,
   Text,
@@ -46,9 +47,11 @@ export const SuccessModal: VFC<SuccessModalType> = ({ onClose }) => {
         </Content>
       }
       footer={
-        <Button block color="error" onClick={() => router.push("/store")}>
-          Presentear os noivos!
-        </Button>
+        <Flex justifyContent="center" alignItems="center">
+          <Button block color="error" onClick={() => router.push("/store")}>
+            Presentear os noivos!
+          </Button>
+        </Flex>
       }
     />
   );

@@ -45,7 +45,7 @@ export const ConfirmationForm = forwardRef<
     } finally {
       onLoading(false);
     }
-  }, [name, phone]);
+  }, [name, phone, onLoading, onOpenSuccessModal, setConfirmationLog]);
 
   useImperativeHandle(ref, () => ({
     save: () => {
@@ -81,16 +81,13 @@ export const ConfirmationForm = forwardRef<
               placeholder="Insira seu telefone"
               onChange={({ currentTarget }) => setPhone(currentTarget.value)}
             >
-              {(inputProps: unknown) => (
-                <Input
-                  {...inputProps}
-                  variant={phone ? "info" : "error"}
-                  type="tel"
-                  css={{
-                    width: "100%",
-                  }}
-                />
-              )}
+              <Input
+                type="tel"
+                variant={phone ? "info" : "error"}
+                css={{
+                  width: "100%",
+                }}
+              />
             </InputMask>
             {!phone && <ErrorMessage>O telefone é obrigatório</ErrorMessage>}
           </FormGroup>
@@ -99,3 +96,5 @@ export const ConfirmationForm = forwardRef<
     </>
   );
 });
+
+ConfirmationForm.displayName = "ConfirmationForm";

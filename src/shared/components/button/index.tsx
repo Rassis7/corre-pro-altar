@@ -24,3 +24,5 @@ export const Button: VFC<ButtonType> = memo(({ children, ...rest }) => {
     </StyledButton>
   );
 });
+
+Button.displayName = "Button";

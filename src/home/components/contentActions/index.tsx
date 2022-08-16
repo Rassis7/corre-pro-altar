@@ -1,6 +1,12 @@
 import { Text, LottieAnimation, animations, Button, Flex } from "@/shared";
 import React, { VFC } from "react";
-import { Container, TitleContainer, ButtonGroup } from "./styles";
+import {
+  Container,
+  TitleContainer,
+  ButtonGroup,
+  Footer,
+  PoweredBy,
+} from "./styles";
 import { useRouter } from "next/router";
 
 type ContentActionsType = {
@@ -13,72 +19,86 @@ export const ContentActions: VFC<ContentActionsType> = ({
   const router = useRouter();
 
   return (
-    <Container>
-      <Flex
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="center"
-        gap="1rem"
-        css={{
-          height: "100vh",
-          width: "100%",
-          overflow: "hidden",
-          background: "rgba(0,0,0,0.75)",
-        }}
-      >
-        <LottieAnimation
-          lotti={animations.rings}
-          width="7rem"
-          height="4.5rem"
-          loop={false}
-        />
-        <TitleContainer>
-          <Text
-            as="h1"
-            color="primary"
-            fontFamily="qwitcherGrypen"
-            fontSize="extraLarge"
-          >
-            Romulo e Júlia
-          </Text>
-        </TitleContainer>
-
-        <ButtonGroup
+    <>
+      <Container>
+        <Flex
+          flexDirection="column"
           justifyContent="center"
           alignItems="center"
           gap="1rem"
-          flexDirection="column"
+          css={{
+            height: "100vh",
+            width: "100%",
+            overflow: "hidden",
+            background: "rgba(0,0,0,0.75)",
+          }}
         >
-          <Button
-            block
-            onClick={onHandleConfirmationModal}
-            css={{ marginBottom: "1rem" }}
-          >
-            Confirmar presença
-          </Button>
+          <LottieAnimation
+            lotti={animations.rings}
+            width="7rem"
+            height="4.5rem"
+            loop={false}
+          />
+          <TitleContainer>
+            <Text
+              as="h1"
+              color="primary"
+              fontFamily="qwitcherGrypen"
+              fontSize="extraLarge"
+            >
+              Romulo e Júlia
+            </Text>
+          </TitleContainer>
 
-          <Button
-            block
-            color="tertiary"
-            onClick={() => router.push("store")}
-            css={{ marginBottom: "1rem" }}
+          <ButtonGroup
+            justifyContent="center"
+            alignItems="center"
+            gap="1rem"
+            flexDirection="column"
           >
-            Presentear os noivos
-          </Button>
+            <Button
+              block
+              onClick={onHandleConfirmationModal}
+              css={{ marginBottom: "1rem" }}
+            >
+              Confirmar presença
+            </Button>
 
-          <Button block color="orange" onClick={() => router.push("/gallery")}>
-            Fotos Pré wedding
-          </Button>
+            <Button
+              block
+              color="tertiary"
+              onClick={() => router.push("store")}
+              css={{ marginBottom: "1rem" }}
+            >
+              Presentear os noivos
+            </Button>
 
-          <Button
-            block
-            color="disabled"
-            onClick={() => router.push("/thankYou/RJ000")}
-          >
-            Deixe uma mensagem!
-          </Button>
-        </ButtonGroup>
-      </Flex>
-    </Container>
+            <Button
+              block
+              color="orange"
+              onClick={() => router.push("/gallery")}
+            >
+              Fotos Pré wedding
+            </Button>
+
+            <Button
+              block
+              color="disabled"
+              onClick={() => router.push("/thankYou/RJ000")}
+            >
+              Deixe uma mensagem!
+            </Button>
+          </ButtonGroup>
+        </Flex>
+      </Container>
+      <Footer>
+        <PoweredBy
+          href="https://www.linkedin.com/in/romulo-assis/"
+          target="_blank"
+        >
+          Feito pelo
+        </PoweredBy>
+      </Footer>
+    </>
   );
 };

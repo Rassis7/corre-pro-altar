@@ -24,9 +24,15 @@ export const Mansory: VFC<MansoryType> = ({ photos }) => {
       columnGutter={8}
       rowGutter={8}
       overscanBy={5}
-      columnWidth={isMobile ? 120 : 320}
+      columnWidth={isMobile ? 130 : 240}
       render={({ index, data: { src }, width }) => (
-        <Image src={`/${src}`} width={width} key={index} loading="lazy" />
+        <Image
+          src={`/${src}`}
+          width={width}
+          key={index}
+          loading="lazy"
+          alt={src}
+        />
       )}
     />
   );
