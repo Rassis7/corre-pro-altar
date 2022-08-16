@@ -1,14 +1,13 @@
 import {
   forwardRef,
-  ReactNode,
   useCallback,
   useContext,
   useImperativeHandle,
   useState,
 } from "react";
-import InputMask, { Props as InputMaskProps } from "react-input-mask";
+import InputMask from "react-input-mask";
 import { AppContext } from "@/shared/context";
-import { Flex, Input, InputProps } from "@/shared";
+import { Flex, Input } from "@/shared";
 import { ErrorMessage, Form, FormGroup } from "./styles";
 import { ConfirmPresence } from "@/home/models";
 
