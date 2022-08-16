@@ -15,3 +15,28 @@ export const TitleContainer = stitches.styled("div", {
 export const ButtonGroup = stitches.styled(Flex, {
   width: "90vw",
 });
+
+export const Footer = stitches.styled("footer", {
+  position: "absolute",
+  bottom: "$xl",
+  left: 0,
+  right: 0,
+  textAlign: "center",
+});
+
+export const PoweredBy = stitches.styled("a", {
+  fontWeight: 400,
+  fontFamily: "$qwitcherGrypen",
+  color: "$gray50",
+  fontSize: "3rem",
+  textDecoration: "none",
+  "&:after": {
+    content: " Noivo",
+    color: "$gray200",
+    fontSize: "3.5rem",
+    fontWeight: 500,
+  },
+  "&:hover": {
+    textDecoration: "underline",
+  },
+});
