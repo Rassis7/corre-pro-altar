@@ -1,5 +1,10 @@
 {
   "name": "corre-pro-altar",
+  "author": {
+    "name": "Romulo Assis",
+    "email": "romuloassis.as@gmail.com",
+    "url": "https://github.com/Rassis7"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,18 +14,16 @@
   },
   "dependencies": {
     "@stitches/react": "^1.2.6",
-    "axios": "^0.24.0",
+    "axios": "^0.27.2",
     "faunadb": "^4.5.2",
     "masonic": "^3.6.5",
-    "next": "12.0.3",
+    "next": "^12.2.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
     "react-input-mask": "^2.0.4",
     "react-lottie": "^1.2.3",
-    "react-swipeable-bottom-sheet": "^1.1.2",
-    "sharp": "^0.30.7",
-    "uuid": "^8.3.2"
+    "react-swipeable-bottom-sheet": "^1.1.2"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
@@ -29,13 +32,11 @@
     "@types/react-icons": "^3.0.0",
     "@types/react-input-mask": "^3.0.1",
     "@types/react-lottie": "^1.2.6",
-    "@types/uuid": "^8.3.3",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "autoprefixer": "^10.4.0",
     "eslint": "7",
-    "eslint-config-next": "12.0.3",
+    "eslint-config-next": "^12.2.5",
     "eslint-config-prettier": "^8.3.0",
-    "postcss": "^8.3.11",
     "typescript": "4.4.4"
   }
 }
