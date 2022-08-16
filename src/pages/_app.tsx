@@ -8,9 +8,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   }
 
   globalStyles();
+  // eslint-disable-next-line
+  const AnyComponent = Component as any;
   return (
     <AppProvider>
-      <Component {...pageProps} />
+      <AnyComponent {...pageProps} />
     </AppProvider>
   );
 }
