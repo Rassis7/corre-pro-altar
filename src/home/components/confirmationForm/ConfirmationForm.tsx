@@ -1,13 +1,14 @@
 import {
   forwardRef,
+  ReactNode,
   useCallback,
   useContext,
   useImperativeHandle,
   useState,
 } from "react";
-import InputMask from "react-input-mask";
+import InputMask, { Props as InputMaskProps } from "react-input-mask";
 import { AppContext } from "@/shared/context";
-import { Flex, Input } from "@/shared";
+import { Flex, Input, InputProps } from "@/shared";
 import { ErrorMessage, Form, FormGroup } from "./styles";
 import { ConfirmPresence } from "@/home/models";
 
@@ -81,16 +82,13 @@ export const ConfirmationForm = forwardRef<
               placeholder="Insira seu telefone"
               onChange={({ currentTarget }) => setPhone(currentTarget.value)}
             >
-              {(inputProps: unknown) => (
-                <Input
-                  {...inputProps}
-                  variant={phone ? "info" : "error"}
-                  type="tel"
-                  css={{
-                    width: "100%",
-                  }}
-                />
-              )}
+              <Input
+                type="tel"
+                variant={phone ? "info" : "error"}
+                css={{
+                  width: "100%",
+                }}
+              />
             </InputMask>
             {!phone && <ErrorMessage>O telefone é obrigatório</ErrorMessage>}
           </FormGroup>
