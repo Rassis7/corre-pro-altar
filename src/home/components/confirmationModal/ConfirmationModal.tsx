@@ -9,6 +9,7 @@ interface Props {
 }
 
 const confirmationFormRefParam = {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   save: () => {},
 };
 

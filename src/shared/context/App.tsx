@@ -65,7 +65,7 @@ export const AppProvider: VFC<AppProviderType> = ({ children }) => {
     ) as unknown;
 
     setConfirmationLog(confirmation as ConfirmationLogType);
-  }, [hasWindow]);
+  }, []);
 
   return (
     <AppContext.Provider

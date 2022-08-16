@@ -45,7 +45,7 @@ export const ConfirmationForm = forwardRef<
     } finally {
       onLoading(false);
     }
-  }, [name, phone]);
+  }, [name, phone, onLoading, onOpenSuccessModal, setConfirmationLog]);
 
   useImperativeHandle(ref, () => ({
     save: () => {
@@ -99,3 +99,5 @@ export const ConfirmationForm = forwardRef<
     </>
   );
 });
+
+ConfirmationForm.displayName = "ConfirmationForm";
