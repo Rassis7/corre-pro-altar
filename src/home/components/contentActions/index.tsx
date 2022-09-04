@@ -1,12 +1,6 @@
 import { Text, LottieAnimation, animations, Button, Flex } from "@/shared";
 import React, { VFC } from "react";
-import {
-  Container,
-  TitleContainer,
-  ButtonGroup,
-  Footer,
-  PoweredBy,
-} from "./styles";
+import { Container, TitleContainer, ButtonGroup, PoweredBy } from "./styles";
 import { useRouter } from "next/router";
 
 type ContentActionsType = {
@@ -89,16 +83,15 @@ export const ContentActions: VFC<ContentActionsType> = ({
               Deixe uma mensagem!
             </Button>
           </ButtonGroup>
+
+          <PoweredBy
+            href="https://www.linkedin.com/in/romulo-assis/"
+            target="_blank"
+          >
+            Feito pelo
+          </PoweredBy>
         </Flex>
       </Container>
-      <Footer>
-        <PoweredBy
-          href="https://www.linkedin.com/in/romulo-assis/"
-          target="_blank"
-        >
-          Feito pelo
-        </PoweredBy>
-      </Footer>
     </>
   );
 };
