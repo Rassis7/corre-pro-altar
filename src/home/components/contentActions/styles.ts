@@ -16,15 +16,8 @@ export const ButtonGroup = stitches.styled(Flex, {
   width: "90vw",
 });
 
-export const Footer = stitches.styled("footer", {
-  position: "absolute",
-  bottom: "$xl",
-  left: 0,
-  right: 0,
-  textAlign: "center",
-});
-
 export const PoweredBy = stitches.styled("a", {
+  margin: "$m",
   fontWeight: 400,
   fontFamily: "$qwitcherGrypen",
   color: "$gray50",
